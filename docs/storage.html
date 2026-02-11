@@ -1,0 +1,116 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sustain 3D — Storage</title>
+  <meta name="description" content="Storage, redundancy, and fixity practices for small 3D repositories." />
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main class="wrap">
+    <section class="card start-here">
+  <div>
+    <div class="kicker"><strong>Start Here</strong> · Easy path</div>
+    <p>Follow the sequence: <strong>Files → Metadata → Storage → Policies</strong>.</p>
+  </div>
+  <div class="next">
+    <span class="chip">You are on: Storage</span>
+    <a class="btn" href="./policies.html">Next: Policies →</a>
+  </div>
+</section>
+
+    <section class="card">
+      <h2>Baseline storage model (small institution)</h2>
+      <p>
+        The goal is to prevent silent loss: drive failure, accidental deletion, and “bit rot.”
+      </p>
+
+      <h3>Minimum: 3 copies</h3>
+      <ul>
+        <li><strong>Working copy</strong> (editable): where staff process files.</li>
+        <li><strong>Local backup</strong>: separate drive/system, not the same device.</li>
+        <li><strong>Offsite copy</strong>: cloud or a physically separate location.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Duke Libraries policy example:</strong>
+        <blockquote>“Fixity checks are performed… at regular intervals.”</blockquote>
+        <p class="note">If you can’t do regular fixity, you don’t know if files are silently corrupting.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Fixity (checksums) in plain language</h2>
+      <p>
+        A checksum is a fingerprint of a file. If the fingerprint changes, the file changed or was corrupted.
+      </p>
+
+      <h3>Routine (recommended)</h3>
+      <ol class="steps">
+        <li>Create checksums for <code>03_preservation/</code> (SHA-256 recommended).</li>
+        <li>Store the checksum manifest in <code>Preservation_Logs/checksums/</code>.</li>
+        <li>Re-run checks on a schedule (quarterly is a realistic start).</li>
+      </ol>
+
+      <div class="callout">
+        <strong>DPC Handbook tip:</strong>
+        <blockquote>“Many of the benefits of fixity checking… only… if there are multiple copies…”</blockquote>
+        <p class="note">Fixity without backup copies just tells you something broke—you still can’t repair it.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Storage tiers (to keep things manageable)</h2>
+      <ul>
+        <li><strong>Working</strong>: active project files and edits (changeable).</li>
+        <li><strong>Preservation</strong>: masters (locked / no edits).</li>
+        <li><strong>Access</strong>: web/teaching derivatives (replaceable).</li>
+      </ul>
+
+      <h3>Good / Better / Best</h3>
+      <div class="tier">
+        <div class="tier-col">
+          <h4>Good</h4>
+          <ul>
+            <li>2 copies total (working + backup).</li>
+            <li>Manual monthly spot checks.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Better</h4>
+          <ul>
+            <li>3 copies (includes offsite).</li>
+            <li>Checksums for preservation masters.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Best</h4>
+          <ul>
+            <li>Automated fixity schedule.</li>
+            <li>Documented disaster recovery plan.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Sources</h2>
+      <ol>
+        <li>Duke University Libraries — Digital Preservation Policy: https://library.duke.edu/using/policies/digital-preservation</li>
+        <li>DPC Handbook — Fixity and checksums: https://www.dpconline.org/handbook/technical-solutions-and-tools/fixity-and-checksums</li>
+        <li>NDSA Levels (v1 PDF): https://www.digitalpreservation.gov/documents/Levels_v1.pdf</li>
+      </ol>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="./js/loadHeader.js"></script>
+</body>
+</html>
+
+
+

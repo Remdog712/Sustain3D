@@ -1,0 +1,113 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sustain 3D — Files</title>
+  <meta name="description" content="File management practices for sustainable 3D repositories." />
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main class="wrap">
+    <section class="card start-here">
+  <div>
+    <div class="kicker"><strong>Start Here</strong> · Easy path</div>
+    <p>Follow the sequence: <strong>Files → Metadata → Storage → Policies</strong>.</p>
+  </div>
+  <div class="next">
+    <span class="chip">You are on: Files</span>
+    <a class="btn" href="./metadata.html">Next: Metadata →</a>
+  </div>
+</section>
+
+    <section class="card">
+      <h2>Why file management matters</h2>
+      <p>
+        A 3D “model” is usually a package: geometry + textures + material files + documentation. If those links break,
+        you can end up with a file that opens but is incomplete or misleading.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>1) Naming conventions (simple and durable)</h2>
+
+      <div class="callout">
+        <strong>Institutional tip (Harvard HMS):</strong>
+        <blockquote>“File names should be 40-50 characters…”</blockquote>
+        <p class="note">Short names reduce failures across systems and long file paths.</p>
+      </div>
+
+      <h3>Recommended pattern</h3>
+      <pre class="codeblock"><code>[ObjectID]_[Method]_[YYYYMMDD]_v[##]_[stage].[ext]
+Example:
+PAOAN_LiDAR_20240215_v01_raw.e57
+PAOAN_mesh_20240220_v03_pres.obj
+PAOAN_web_20240220_v01_access.glb
+</code></pre>
+
+      <h3>Rules</h3>
+      <ul>
+        <li>Use only letters/numbers, underscores, and dashes.</li>
+        <li>Put the version at the end of the “core name” (v01, v02, v03).</li>
+        <li>Use ISO-style dates (YYYYMMDD) so sorting is consistent.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>2) Versioning (what to keep)</h2>
+      <p>Keep versions at major workflow milestones. Do not overwrite.</p>
+
+      <ul>
+        <li><strong>Raw</strong>: original photos/scans/point clouds (never overwrite).</li>
+        <li><strong>Working</strong>: project files (Metashape project, Blender files, etc.).</li>
+        <li><strong>Preservation master</strong>: highest-fidelity export you intend to preserve long-term.</li>
+        <li><strong>Access derivatives</strong>: GLB/USDZ/decimated meshes for web/teaching.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Workflow tip (DCN CURATE(D)):</strong>
+        <blockquote>“Transform file formats for reuse…”</blockquote>
+        <p class="note">Preserve the master first; transform for access second.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3) Keep linked files together (avoid broken assets)</h2>
+      <p>
+        Many 3D formats reference external files. Example: an OBJ often relies on a separate MTL file and multiple textures.
+      </p>
+
+      <h3>Packaging rules</h3>
+      <ul>
+        <li>Store geometry + materials + textures in the same folder.</li>
+        <li>Use relative paths (not absolute paths) when exporting.</li>
+        <li>After export, validate by opening the package in a different viewer/computer.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Format sustainability idea (Library of Congress):</strong>
+        <blockquote>“Seven factors… influence the feasibility and cost of preserving content…”</blockquote>
+        <p class="note">File formats are evaluated partly by transparency, documentation, and dependencies.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Sources</h2>
+      <ol>
+        <li>Harvard Medical School Data Management — File Naming Conventions: https://datamanagement.hms.harvard.edu/plan-design/file-naming-conventions</li>
+        <li>Data Curation Network — CURATE(D) Steps: https://datacuration.network/outputs/workflows/</li>
+        <li>Library of Congress — Format Evaluation Factors: https://www.loc.gov/preservation/digital/formats/intro/format_eval_rel.shtml</li>
+      </ol>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="./js/loadHeader.js"></script>
+</body>
+</html>
+
+
+

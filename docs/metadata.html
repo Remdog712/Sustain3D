@@ -1,0 +1,118 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sustain 3D — Metadata</title>
+  <meta name="description" content="Metadata and paradata guidance for 3D repositories." />
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main class="wrap">
+    <section class="card start-here">
+  <div>
+    <div class="kicker"><strong>Start Here</strong> · Easy path</div>
+    <p>Follow the sequence: <strong>Files → Metadata → Storage → Policies</strong>.</p>
+  </div>
+  <div class="next">
+    <span class="chip">You are on: Metadata</span>
+    <a class="btn" href="./storage.html">Next: Storage →</a>
+  </div>
+</section>
+
+    <section class="card">
+      <h2>Minimum metadata (small-institution baseline)</h2>
+      <p>
+        Metadata is how someone else (or future you) can understand what the asset is, where it came from, and what they’re
+        allowed to do with it.
+      </p>
+
+      <h3>Minimum fields (recommended)</h3>
+      <pre class="codeblock"><code>object_id
+title
+creator/operator
+date_created
+physical_object_or_site (what was scanned)
+capture_method (photogrammetry / LiDAR / structured light)
+device(s)
+software + version(s)
+units + scale reference
+file list (what belongs to this package)
+rights + license
+access level (public / internal / restricted)
+preservation master format + location
+derivatives format + location
+processing notes (paradata)
+</code></pre>
+    </section>
+
+    <section class="card">
+      <h2>Paradata: document the decisions</h2>
+      <p>
+        A 3D model is shaped by cleanup, meshing, decimation, and export settings. Paradata is the record of those decisions.
+      </p>
+
+      <h3>Paradata checklist (plain language)</h3>
+      <ul>
+        <li>What did you remove or change (noise cleanup, hole filling, smoothing)?</li>
+        <li>Did you decimate or simplify? If yes, how aggressively?</li>
+        <li>Did you change textures (resolution, compression, re-bake)?</li>
+        <li>What exports were produced and why (preservation vs access)?</li>
+      </ul>
+
+      <div class="callout">
+        <strong>DPC 3D preservation note:</strong>
+        <blockquote>“need to preserve a lot of additional metadata…”</blockquote>
+        <p class="note">3D preservation often requires device/tool context beyond the mesh file.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>FAIR and CARE (what they mean here)</h2>
+
+      <h3>FAIR</h3>
+      <div class="callout">
+        <strong>FAIR authors (Wilkinson et al., 2016):</strong>
+        <blockquote>“Findability, Accessibility, Interoperability, and Reusability…”</blockquote>
+        <p class="note">
+          For Sustain 3D, FAIR means: consistent IDs, clear metadata, documented formats, and stated reuse conditions.
+        </p>
+      </div>
+
+      <h3>CARE</h3>
+      <div class="callout">
+        <strong>RDA (CARE Principles one-pager):</strong>
+        <blockquote>“authority to control such data be empowered.”</blockquote>
+        <p class="note">
+          CARE matters when objects involve community authority, cultural protocols, or sensitive materials.
+        </p>
+      </div>
+
+      <h3>Practical use</h3>
+      <ul>
+        <li>FAIR: make the asset discoverable and usable with enough description and structure.</li>
+        <li>CARE: clearly record restrictions, community authority, and ethical conditions for reuse.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Sources</h2>
+      <ol>
+        <li>DPC — Preserving 3D (Technology Watch Report): https://www.dpconline.org/docs/technology-watch-reports/2479-preserving-3d/file</li>
+        <li>GO FAIR — FAIR Principles: https://www.go-fair.org/fair-principles/</li>
+        <li>Wilkinson et al. (2016) — The FAIR Guiding Principles (Scientific Data): https://www.nature.com/articles/sdata201618</li>
+        <li>Research Data Alliance — CARE Principles one-pager (PDF): https://www.rd-alliance.org/wp-content/uploads/2024/03/CARE20Principles20for20Indigenous20Data20Governance_OnePagers_FINAL20Sept2006202019.pdf</li>
+      </ol>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="./js/loadHeader.js"></script>
+</body>
+</html>
+
+
+

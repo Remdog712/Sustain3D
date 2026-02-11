@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sustain 3D — Templates</title>
+  <meta name="description" content="Copy/paste templates for Sustain 3D workflows." />
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>1) Project README.txt template</h2>
+      <pre class="codeblock"><code>PROJECT: [ProjectName]
+OBJECT/ITEM ID: [ObjectID]
+TITLE: [Short human title]
+
+PURPOSE:
+- Why was this created? (documentation / research / teaching / printing)
+- Intended audience:
+
+RIGHTS / ACCESS:
+- Copyright/ownership:
+- License (if any):
+- Restrictions (if any):
+- Sensitive content notes (CARE-related):
+
+CAPTURE (RAW):
+- Date(s):
+- Operator:
+- Method (photogrammetry/LiDAR/structured light):
+- Device(s):
+- Settings notes:
+- Raw files location: 01_raw/
+
+PROCESSING SUMMARY:
+- Software + versions:
+- Key steps performed:
+- Notes on edits (cleanup/decimation/retopo/etc.):
+
+PRESERVATION MASTER:
+- Format(s):
+- Location: 03_preservation/
+- Validation (how confirmed it opens):
+
+ACCESS DERIVATIVES:
+- Format(s) (GLB/USDZ/etc.):
+- Location: 04_access/
+- Intended use:
+
+FIXITY:
+- Checksums file path:
+- Last check date:
+</code></pre>
+    </section>
+
+    <section class="card">
+      <h2>2) master_inventory.csv headers (minimum)</h2>
+      <pre class="codeblock"><code>object_id,title,collection,project,creator,dates,capture_method,source_files,preservation_master,access_derivatives,software_versions,rights,access_level,storage_location,checksum_manifest,notes
+</code></pre>
+
+      <p class="note">
+        “Access level” can be: public / internal / restricted. Keep it explicit.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>3) Naming convention (recommended pattern)</h2>
+      <pre class="codeblock"><code>[ObjectID]_[Method]_[YYYYMMDD]_v[##]_[stage].[ext]
+Example:
+PAOAN_LiDAR_20240215_v01_raw.e57
+PAOAN_mesh_20240220_v03_pres.obj
+PAOAN_web_20240220_v01_access.glb
+</code></pre>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="./js/loadHeader.js"></script>
+</body>
+</html>
+
+
+

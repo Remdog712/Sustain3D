@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sustain 3D — Resources</title>
+  <meta name="description" content="Curated references for 3D preservation, file formats, repositories, and policy." />
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Resources</h2>
+      <p>Curated references you can actually use. If you’re new, start at the top and work down.</p>
+    </section>
+
+    <section class="card">
+      <h2>Start here</h2>
+      <ul>
+        <li><a href="./templates.html">Sustain 3D Templates</a> — copy/paste files to implement the workflow.</li>
+        <li><a href="https://www.digitalpreservation.gov/ndsa/activities/levels-of-digital-preservation/" target="_blank" rel="noreferrer">NDSA Levels of Digital Preservation</a> — storage + fixity baselines.</li>
+        <li><a href="https://www.dpconline.org/handbook" target="_blank" rel="noreferrer">DPC Handbook</a> — practical preservation concepts.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Community standards + file format guidance</h2>
+      <ul>
+        <li><a href="https://www.ala.org/sites/default/files/acrl/content/publications/booksanddigitalresources/digital/9780838939147_3D_OA.pdf" target="_blank" rel="noreferrer">CS3DP (Open Access book)</a> — 3D-focused preservation intervention points.</li>
+        <li><a href="https://www.loc.gov/preservation/digital/formats/" target="_blank" rel="noreferrer">Library of Congress: Sustainability of Digital Formats</a> — how to evaluate format risk.</li>
+        <li><a href="https://library.duke.edu/using/policies/recommended-file-formats-digital-preservation" target="_blank" rel="noreferrer">Duke: Recommended Formats</a> — preservation-preferred format lists.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>FAIR + CARE</h2>
+      <ul>
+        <li><a href="https://www.go-fair.org/fair-principles/" target="_blank" rel="noreferrer">FAIR Principles</a> — structure for reuse.</li>
+        <li><a href="https://www.rd-alliance.org/wp-content/uploads/2024/03/CARE20Principles20for20Indigenous20Data20Governance_OnePagers_FINAL20Sept2006202019.pdf" target="_blank" rel="noreferrer">CARE Principles (PDF)</a> — ethical governance, authority, and responsibility.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>File format references</h2>
+      <ul>
+        <li><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml" target="_blank" rel="noreferrer">OBJ (LoC)</a> — mesh + MTL/textures.</li>
+        <li><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000561.shtml" target="_blank" rel="noreferrer">PLY (LoC)</a> — scan-heavy workflows.</li>
+        <li><a href="https://www.khronos.org/gltf/" target="_blank" rel="noreferrer">glTF (Khronos)</a> — distribution/web delivery.</li>
+        <li><a href="https://openusd.org/docs/" target="_blank" rel="noreferrer">OpenUSD</a> — complex scenes/pipelines.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Repositories and publishing</h2>
+      <ul>
+        <li><a href="https://zenodo.org/" target="_blank" rel="noreferrer">Zenodo</a> — DOIs for datasets.</li>
+        <li><a href="https://osf.io/" target="_blank" rel="noreferrer">OSF</a> — project-based sharing + storage.</li>
+        <li><a href="https://www.morphosource.org/" target="_blank" rel="noreferrer">MorphoSource</a> — bio/anthro 3D.</li>
+        <li><a href="https://openheritage3d.org/" target="_blank" rel="noreferrer">OpenHeritage3D</a> — cultural heritage point clouds.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Rights and licensing</h2>
+      <ul>
+        <li><a href="https://creativecommons.org/share-your-work/cclicenses/" target="_blank" rel="noreferrer">Creative Commons licenses</a> — reuse permissions.</li>
+        <li><a href="https://rightsstatements.org/en/" target="_blank" rel="noreferrer">RightsStatements.org</a> — standardized rights labels.</li>
+        <li><a href="https://www.si.edu/openaccess" target="_blank" rel="noreferrer">Smithsonian Open Access</a> — CC0 model example.</li>
+        <li><a href="https://www.wipo.int/en/web/wipo-magazine/articles/3d-printing-and-ip-law-39896" target="_blank" rel="noreferrer">WIPO: 3D printing & IP</a> — IP overview.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year"></span> Sustain 3D</span>
+    </div>
+  </footer>
+
+  <script src="./js/loadHeader.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

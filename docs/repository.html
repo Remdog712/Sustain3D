@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sustain 3D — Repository Setup</title>
+  <meta name="description" content="How to set up a small 3D repository and manage files over time." />
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Goal</h2>
+      <p>
+        Build a repository that prevents the most common failure mode: “stuff on a drive with no context.”
+        Your repository must keep files grouped, identifiable, and inventory-tracked.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Repository-level structure (recommended)</h2>
+      <pre class="codeblock"><code>3D_Repository/
+  Projects/
+  Objects/
+  Metadata/
+    master_inventory.csv
+  Documentation/
+    naming_conventions.txt
+    workflow_standards.txt
+  Preservation_Logs/
+    checksums/
+    migration_records.txt
+</code></pre>
+
+      <p class="note">
+        The “master_inventory.csv” becomes your “center database” for what exists and where it lives.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Project folder template</h2>
+      <pre class="codeblock"><code>ProjectName_ObjectID/
+  01_raw/
+  02_processing/
+  03_preservation/
+  04_access/
+  documentation/
+    README.txt
+    capture_notes.txt
+</code></pre>
+
+      <h3>Rules</h3>
+      <ul>
+        <li><strong>Never edit</strong> inside <code>03_preservation/</code> after you finalize it.</li>
+        <li><strong>Never store</strong> only a derivative (like GLB) without the preservation master.</li>
+        <li><strong>Keep linked files together</strong> (OBJ + MTL + textures in one package).</li>
+      </ul>
+
+      <p>
+        Next: <a href="./files.html">File management</a> and <a href="./metadata.html">Metadata + paradata</a>.
+      </p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="./js/loadHeader.js"></script>
+</body>
+</html>
+
+
+

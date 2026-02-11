@@ -1,50 +1,224 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sustain 3D — Workflow</title>
-  <meta name="description" content="Sustain 3D workflow overview." />
+  <meta name="description" content="Step-by-step workflow for small institutions to manage and preserve 3D data." />
   <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-  <header>
-    <div class="wrap">
-      <div class="header-row">
-        <img src="assets/logo.png" alt="Sustain 3D logo" class="logo" />
-        <div>
-          <h1>Sustain 3D</h1>
-          <p>Project documentation</p>
+  <div id="site-header"></div>
+
+  <main class="wrap">
+
+    <!-- START HERE -->
+    <section class="card start-here">
+      <div>
+        <div class="kicker"><strong>Start Here</strong> · Easy path</div>
+        <p>Use this page as the overview. Then follow the chain: <strong>Files → Metadata → Storage → Policies</strong>.</p>
+      </div>
+      <div class="next">
+        <span class="chip">Recommended path</span>
+        <a class="btn" href="./files.html">Start: Files →</a>
+      </div>
+    </section>
+
+    <!-- HERO / OVERVIEW -->
+    <section class="card">
+      <h2>Workflow overview</h2>
+      <p>
+        This workflow is built around <strong>Preservation Intervention Points (PIPs)</strong> — clear moments where you stop,
+        save the right files, and record what happened.
+      </p>
+
+      <div class="callout">
+        <strong>Core rule:</strong> treat a 3D asset as a <em>package</em> (model + textures + documentation), not a single file.
+      </div>
+
+      <h3>The workflow in one minute</h3>
+      <ol class="steps">
+        <li><strong>Plan</strong> (purpose, IDs, formats, rights).</li>
+        <li><strong>Capture</strong> and immediately save raw data + notes.</li>
+        <li><strong>Process</strong> and produce a preservation master + record decisions.</li>
+        <li><strong>Create access copies</strong> (web/teaching) separately.</li>
+        <li><strong>Protect</strong> with backups + checksums + routine checks.</li>
+      </ol>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <section class="card">
+      <h2>Jump to the exact how-to pages</h2>
+      <ul class="grid">
+        <li><a href="./repository.html"><strong>Repository Setup</strong></a><br/>Folder structure + inventory model.</li>
+        <li><a href="./files.html"><strong>Files</strong></a><br/>Naming, versioning, linked assets.</li>
+        <li><a href="./metadata.html"><strong>Metadata</strong></a><br/>Minimum fields + paradata.</li>
+        <li><a href="./storage.html"><strong>Storage</strong></a><br/>3-copy rule + fixity basics.</li>
+        <li><a href="./policies.html"><strong>Policies</strong></a><br/>Access levels, rights, licensing.</li>
+      </ul>
+    </section>
+
+    <!-- PIP 0 -->
+    <section class="card">
+      <h2>PIP 0 — Before you scan</h2>
+      <p class="note">Goal: decide what you are making, what you will keep, and how you will describe it.</p>
+
+      <h3>Do this</h3>
+      <ol class="steps">
+        <li><strong>Purpose:</strong> documentation, measurement, education, web, printing.</li>
+        <li><strong>Retention:</strong> raw capture, working files, preservation master, access derivatives.</li>
+        <li><strong>Formats:</strong> pick one preservation master + one access format.</li>
+        <li><strong>IDs:</strong> create an object/project identifier scheme.</li>
+        <li><strong>Rights:</strong> decide public / internal / restricted.</li>
+      </ol>
+
+      <h3>Capacity tiers</h3>
+      <div class="tier">
+        <div class="tier-col">
+          <h4>Good</h4>
+          <ul>
+            <li>Write a short purpose note.</li>
+            <li>Pick a preservation format (OBJ/PLY or E57).</li>
+            <li>Record rights uncertainty (if any).</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Better</h4>
+          <ul>
+            <li>Create the project folder now.</li>
+            <li>Create an inventory row before capture.</li>
+            <li>Decide access level (public/internal/restricted).</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Best</h4>
+          <ul>
+            <li>Write a short capture standard.</li>
+            <li>Confirm storage plan (3 copies from day one).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIP 1 -->
+    <section class="card">
+      <h2>PIP 1 — Immediately after capture</h2>
+      <p class="note">Goal: don’t lose the raw data or the context while it’s still fresh.</p>
+
+      <h3>Keep</h3>
+      <ul>
+        <li><strong>Raw capture</strong> (photos, scans, point clouds, sensor exports).</li>
+        <li><strong>Capture notes</strong> (device, settings, environment, operator).</li>
+        <li><strong>Fixity</strong> (checksum) for the raw folder (if possible).</li>
+      </ul>
+
+      <h3>Capacity tiers</h3>
+      <div class="tier">
+        <div class="tier-col">
+          <h4>Good</h4>
+          <ul>
+            <li>Copy raw data into <code>01_raw/</code> same day.</li>
+            <li>Add a simple README.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Better</h4>
+          <ul>
+            <li>Generate checksums (SHA-256) for raw.</li>
+            <li>Record software + version used.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Best</h4>
+          <ul>
+            <li>Two-person review: confirm it opens.</li>
+            <li>Make raw read-only in preservation storage.</li>
+          </ul>
         </div>
       </div>
 
-      <nav>
-        <a href="./index.html">Home</a>
-        <a href="./workflow.html">Workflow</a>
-        <a href="https://github.com/Remdog712/Sustain3D" target="_blank" rel="noreferrer">GitHub</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <section class="card">
-      <h2>Workflow</h2>
-
-      <h3>1) Plan the scan</h3>
-      <p><em>Under construction</em></p>
-
-      <h3>2) Capture</h3>
-      <p><em>Under construction</em></p>
-
-      <h3>3) Process</h3>
-      <p><em>Under construction</em></p>
-
-      <h3>4) Preserve</h3>
-      <p><em>Under construction</em></p>
-
-      <h3>5) Share</h3>
-      <p><em>Under construction</em></p>
+      <div class="callout">
+        <strong>Common failure mode:</strong> raw files get moved to a drive and vanish after the project ends.
+        Copy into the repository structure immediately.
+      </div>
     </section>
+
+    <!-- PIP 2 -->
+    <section class="card">
+      <h2>PIP 2 — Processing and preservation master</h2>
+      <p class="note">Goal: produce a high-fidelity preservation copy and document what changed.</p>
+
+      <h3>Do this</h3>
+      <ol class="steps">
+        <li><strong>Export milestones</strong> (aligned cloud, high-res mesh, textured mesh).</li>
+        <li><strong>Record decisions</strong> (cleanup, hole fill, smoothing, decimation, texture edits).</li>
+        <li><strong>Create a preservation master</strong> (highest fidelity you can sustain).</li>
+      </ol>
+
+      <h3>Capacity tiers</h3>
+      <div class="tier">
+        <div class="tier-col">
+          <h4>Good</h4>
+          <ul>
+            <li>Keep final best mesh + textures.</li>
+            <li>Write what you changed (plain language).</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Better</h4>
+          <ul>
+            <li>Keep major milestones (v01, v02, v03).</li>
+            <li>Use relative paths for textures.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Best</h4>
+          <ul>
+            <li>Keep project files + settings.</li>
+            <li>Record provenance (who/when/tools).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIP 3 -->
+    <section class="card">
+      <h2>PIP 3 — Access copies</h2>
+      <p class="note">Goal: create shareable versions without damaging or replacing the preservation masters.</p>
+
+      <h3>Do this</h3>
+      <ul>
+        <li>Create access derivatives (e.g., <strong>glTF/GLB</strong>) for web/teaching.</li>
+        <li>Store them in <code>04_access/</code>, separate from preservation.</li>
+        <li>Link them back to the master using the same ID + inventory record.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Rule:</strong> access formats are delivery outputs. They are not preservation masters.
+      </div>
+    </section>
+
+    <!-- PIP 4 -->
+    <section class="card">
+      <h2>PIP 4 — Storage, backups, routine checks</h2>
+      <p class="note">Goal: prevent loss, detect corruption, and be able to recover.</p>
+
+      <h3>Minimum practice</h3>
+      <ul>
+        <li><strong>3 copies</strong> (working + local backup + offsite).</li>
+        <li><strong>Fixity checks</strong> for preservation folders (on a schedule).</li>
+        <li><strong>Inventory</strong> that tells you what exists and where it lives.</li>
+      </ul>
+
+      <h3>Next steps</h3>
+      <ul>
+        <li><a href="./repository.html">Repository Setup</a> — build the structure.</li>
+        <li><a href="./storage.html">Storage</a> — implement 3-copy + checksums.</li>
+        <li><a href="./policies.html">Policies</a> — define access and reuse rules.</li>
+      </ul>
+    </section>
+
   </main>
 
   <footer>
@@ -53,6 +227,7 @@
     </div>
   </footer>
 
+  <script src="./js/loadHeader.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
