@@ -11,17 +11,22 @@
 <body>
   <div id="site-header"></div>
 
-  <main class="wrap">
+<main class="wrap">
     <section class="card start-here">
   <div>
     <div class="kicker"><strong>Start Here</strong> · Easy path</div>
-    <p>You’ve reached the last step: <strong>Policies</strong>. Next, use templates to implement.</p>
+    <p>You’ve reached the governance step: <strong>Policies</strong>. Next, use <strong>Resources</strong> for standards and references.</p>
   </div>
   <div class="next">
     <span class="chip">You are on: Policies</span>
-    <a class="btn" href="./templates.html">Next: Templates →</a>
+    <a class="btn" href="./resources.html">Next: Resources →</a>
   </div>
 </section>
+
+    <section class="card flow-banner">
+      <h2>Where this fits</h2>
+      <p>This is the after-scan control layer. Define access, rights, and reuse boundaries before publishing.</p>
+    </section>
 
     <section class="card">
       <h2>Policy goal</h2>
@@ -100,6 +105,30 @@
         <blockquote>“Copyright will protect the originality of a work…”</blockquote>
         <p class="note">When in doubt: document rights uncertainty and control distribution.</p>
       </div>
+    </section>
+
+    <section class="card template-kit">
+      <h2>Policy templates and quick setup</h2>
+      <p>Use these templates to keep rights and access rules consistent across projects.</p>
+
+      <h3>Create policy files</h3>
+      <div class="template-actions">
+        <button class="btn secondary" type="button" data-copy-target="policies-file-template">Copy file command</button>
+      </div>
+      <pre class="codeblock"><code id="policies-file-template">New-Item -ItemType File -Path ".\3D_Repository\Documentation\rights_and_access_policy.txt",".\ProjectName_ObjectID\documentation\rights_statement.txt" -Force
+</code></pre>
+
+      <h3>rights_statement.txt template</h3>
+      <pre class="codeblock"><code>OBJECT_ID:
+TITLE:
+RIGHTS_STATUS: (copyrighted / public domain / unknown)
+RIGHTS_STATEMENT_OR_LICENSE: (RightsStatements.org URI or CC license)
+ACCESS_LEVEL: (public / internal / restricted)
+REUSE_CONDITIONS:
+SENSITIVITY_OR_CARE_NOTES:
+REVIEWED_BY:
+REVIEW_DATE:
+</code></pre>
     </section>
 
     <section class="card">

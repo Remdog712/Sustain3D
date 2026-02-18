@@ -23,6 +23,11 @@
   </div>
 </section>
 
+    <section class="card flow-banner">
+      <h2>Where this fits</h2>
+      <p>This is the first implementation page. Set stable names and folder layout before scans accumulate.</p>
+    </section>
+
     <section class="card">
       <h2>Why file management matters</h2>
       <p>
@@ -92,6 +97,33 @@ PAOAN_web_20240220_v01_access.glb
         <blockquote>“Seven factors… influence the feasibility and cost of preserving content…”</blockquote>
         <p class="note">File formats are evaluated partly by transparency, documentation, and dependencies.</p>
       </div>
+    </section>
+
+    <section class="card template-kit">
+      <h2>File templates and quick setup</h2>
+      <p>Use these templates directly in your project folder.</p>
+
+      <h3>Create the project directory structure</h3>
+      <div class="template-actions">
+        <button class="btn secondary" type="button" data-copy-target="files-dir-template">Copy directory command</button>
+      </div>
+      <pre class="codeblock"><code id="files-dir-template">New-Item -ItemType Directory -Path ".\ProjectName_ObjectID\01_raw",".\ProjectName_ObjectID\02_processing",".\ProjectName_ObjectID\03_preservation",".\ProjectName_ObjectID\04_access",".\ProjectName_ObjectID\documentation" -Force
+</code></pre>
+
+      <h3>Create starter documentation files</h3>
+      <div class="template-actions">
+        <button class="btn secondary" type="button" data-copy-target="files-file-template">Copy file command</button>
+      </div>
+      <pre class="codeblock"><code id="files-file-template">New-Item -ItemType File -Path ".\ProjectName_ObjectID\documentation\README.txt",".\ProjectName_ObjectID\documentation\capture_notes.txt" -Force
+</code></pre>
+
+      <h3>Naming pattern template</h3>
+      <pre class="codeblock"><code>[ObjectID]_[Method]_[YYYYMMDD]_v[##]_[stage].[ext]
+Example:
+PAOAN_LiDAR_20240215_v01_raw.e57
+PAOAN_mesh_20240220_v03_pres.obj
+PAOAN_web_20240220_v01_access.glb
+</code></pre>
     </section>
 
     <section class="card">

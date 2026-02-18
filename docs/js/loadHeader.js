@@ -20,10 +20,7 @@
       <a href="./metadata.html">Metadata</a>
       <a href="./storage.html">Storage</a>
       <a href="./policies.html">Policies</a>
-      <a href="./templates.html">Templates</a>
       <a href="./resources.html">Resources</a>
-      <a href="./thesis.html">Thesis</a>
-      <a href="https://github.com/Remdog712/Sustain3D" target="_blank" rel="noreferrer">GitHub</a>
     </nav>
   </div>
 </header>`;
@@ -39,6 +36,29 @@
     document.querySelectorAll("nav a").forEach((a) => {
       const href = (a.getAttribute("href") || "").split("/").pop();
       if (href === current) a.setAttribute("aria-current", "page");
+    });
+  };
+
+  const bindTemplateCopyButtons = () => {
+    document.querySelectorAll("[data-copy-target]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const targetId = btn.getAttribute("data-copy-target");
+        if (!targetId) return;
+        const codeEl = document.getElementById(targetId);
+        if (!codeEl) return;
+
+        const previousText = btn.textContent;
+        try {
+          await navigator.clipboard.writeText(codeEl.textContent || "");
+          btn.textContent = "Copied";
+        } catch (e) {
+          btn.textContent = "Copy failed";
+          console.warn("Clipboard write failed.", e);
+        }
+        setTimeout(() => {
+          btn.textContent = previousText;
+        }, 1400);
+      });
     });
   };
 
@@ -67,4 +87,6 @@
     const year = document.getElementById("year");
     if (year) year.textContent = new Date().getFullYear();
   }
+
+  bindTemplateCopyButtons();
 });

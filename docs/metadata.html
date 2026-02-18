@@ -23,6 +23,11 @@
   </div>
 </section>
 
+    <section class="card flow-banner">
+      <h2>Where this fits</h2>
+      <p>This is the during-scan context layer. Record capture and processing details while they are still reliable.</p>
+    </section>
+
     <section class="card">
       <h2>Minimum metadata (small-institution baseline)</h2>
       <p>
@@ -96,6 +101,30 @@ processing notes (paradata)
         <li>FAIR: make the asset discoverable and usable with enough description and structure.</li>
         <li>CARE: clearly record restrictions, community authority, and ethical conditions for reuse.</li>
       </ul>
+    </section>
+
+    <section class="card template-kit">
+      <h2>Metadata templates and quick setup</h2>
+      <p>Use these to create metadata files immediately after capture and after major processing steps.</p>
+
+      <h3>Create metadata files in a project folder</h3>
+      <div class="template-actions">
+        <button class="btn secondary" type="button" data-copy-target="metadata-file-template">Copy file command</button>
+      </div>
+      <pre class="codeblock"><code id="metadata-file-template">New-Item -ItemType File -Path ".\ProjectName_ObjectID\documentation\metadata.txt",".\ProjectName_ObjectID\documentation\paradata.txt" -Force
+</code></pre>
+
+      <h3>Create repository-level inventory file</h3>
+      <div class="template-actions">
+        <button class="btn secondary" type="button" data-copy-target="metadata-dir-template">Copy directory + file command</button>
+      </div>
+      <pre class="codeblock"><code id="metadata-dir-template">New-Item -ItemType Directory -Path ".\3D_Repository\Metadata" -Force
+New-Item -ItemType File -Path ".\3D_Repository\Metadata\master_inventory.csv" -Force
+</code></pre>
+
+      <h3>master_inventory.csv headers (minimum)</h3>
+      <pre class="codeblock"><code>object_id,title,collection,project,creator,dates,capture_method,source_files,preservation_master,access_derivatives,software_versions,rights,access_level,storage_location,checksum_manifest,notes
+</code></pre>
     </section>
 
     <section class="card">

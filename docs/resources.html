@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sustain 3D — Resources</title>
-  <meta name="description" content="Curated references for 3D preservation, file formats, repositories, and policy." />
+  <title>Sustain 3D - Resources</title>
+  <meta name="description" content="Useful 3D references, storage options, and a glossary of key concepts." />
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -12,77 +12,102 @@
   <div id="site-header"></div>
 
   <main class="wrap">
-    <section class="card">
-      <h2>Resources</h2>
-      <p>Curated references you can actually use. If you’re new, start at the top and work down.</p>
+    <section class="card start-here">
+      <div>
+        <div class="kicker"><strong>Start Here</strong> - Reference hub</div>
+        <p>This page collects practical 3D links and key concepts used across the workflow.</p>
+      </div>
+      <div class="next">
+        <span class="chip">You are on: Resources</span>
+        <a class="btn secondary" href="./workflow.html">Back to Workflow</a>
+      </div>
+    </section>
+
+    <section class="card flow-banner">
+      <h2>When to use this page</h2>
+      <p>Use these references during setup and after processing, especially when choosing storage, publication, and terminology.</p>
+      <div class="flow-steps">
+        <span>Before scanning: planning standards</span>
+        <span>During processing: format and tooling checks</span>
+        <span>After processing: storage, sharing, and policy support</span>
+      </div>
     </section>
 
     <section class="card">
-      <h2>Start here</h2>
-      <ul>
-        <li><a href="./templates.html">Sustain 3D Templates</a> — copy/paste files to implement the workflow.</li>
-        <li><a href="https://www.digitalpreservation.gov/ndsa/activities/levels-of-digital-preservation/" target="_blank" rel="noreferrer">NDSA Levels of Digital Preservation</a> — storage + fixity baselines.</li>
-        <li><a href="https://www.dpconline.org/handbook" target="_blank" rel="noreferrer">DPC Handbook</a> — practical preservation concepts.</li>
-      </ul>
+      <h2>Useful 3D resources</h2>
+      <div class="resource-groups">
+        <article class="resource-group">
+          <h3>Formats and standards</h3>
+          <ul>
+            <li><a href="https://www.loc.gov/preservation/digital/formats/fdd/" target="_blank" rel="noreferrer">Library of Congress Format Descriptions</a></li>
+            <li><a href="https://www.khronos.org/gltf/" target="_blank" rel="noreferrer">Khronos glTF overview</a></li>
+            <li><a href="https://www.dublincore.org/specifications/dublin-core/" target="_blank" rel="noreferrer">Dublin Core metadata basics</a></li>
+            <li><a href="https://www.niso.org/publications/ansi-niso-z39-87-data-dictionary-technical-metadata-digital-still-images" target="_blank" rel="noreferrer">NISO technical metadata reference</a></li>
+          </ul>
+        </article>
+
+        <article class="resource-group">
+          <h3>3D publication and sharing</h3>
+          <ul>
+            <li><a href="https://sketchfab.com/" target="_blank" rel="noreferrer">Sketchfab</a> for web viewing and public showcases</li>
+            <li><a href="https://3d.si.edu/" target="_blank" rel="noreferrer">Smithsonian 3D</a> for benchmark examples</li>
+            <li><a href="https://openheritage3d.org/" target="_blank" rel="noreferrer">OpenHeritage3D</a> for heritage scan datasets</li>
+            <li><a href="https://www.thingiverse.com/" target="_blank" rel="noreferrer">Thingiverse</a> for maker-focused distribution</li>
+          </ul>
+        </article>
+
+        <article class="resource-group">
+          <h3>Repository and data platforms</h3>
+          <ul>
+            <li><a href="https://zenodo.org/" target="_blank" rel="noreferrer">Zenodo</a> (DOI-friendly research deposit)</li>
+            <li><a href="https://osf.io/" target="_blank" rel="noreferrer">Open Science Framework</a> (project + file collaboration)</li>
+            <li><a href="https://figshare.com/" target="_blank" rel="noreferrer">Figshare</a> (research outputs and metadata)</li>
+            <li><a href="https://archive.org/" target="_blank" rel="noreferrer">Internet Archive</a> (broad public access repository)</li>
+          </ul>
+        </article>
+
+        <article class="resource-group">
+          <h3>Storage options</h3>
+          <ul>
+            <li><a href="https://aws.amazon.com/s3/storage-classes/glacier/" target="_blank" rel="noreferrer">Amazon S3 Glacier</a> for deep archive tiers</li>
+            <li><a href="https://www.backblaze.com/cloud-storage" target="_blank" rel="noreferrer">Backblaze B2 Cloud Storage</a> for low-cost object storage</li>
+            <li><a href="https://cloud.google.com/storage" target="_blank" rel="noreferrer">Google Cloud Storage</a> for multi-tier cloud backup</li>
+            <li><a href="https://azure.microsoft.com/en-us/products/storage/blobs" target="_blank" rel="noreferrer">Azure Blob Storage</a> for enterprise/cloud integration</li>
+            <li>Local NAS + offline external drives for your on-site and nearline copies</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section class="card">
-      <h2>Community standards + file format guidance</h2>
-      <ul>
-        <li><a href="https://www.ala.org/sites/default/files/acrl/content/publications/booksanddigitalresources/digital/9780838939147_3D_OA.pdf" target="_blank" rel="noreferrer">CS3DP (Open Access book)</a> — 3D-focused preservation intervention points.</li>
-        <li><a href="https://www.loc.gov/preservation/digital/formats/" target="_blank" rel="noreferrer">Library of Congress: Sustainability of Digital Formats</a> — how to evaluate format risk.</li>
-        <li><a href="https://library.duke.edu/using/policies/recommended-file-formats-digital-preservation" target="_blank" rel="noreferrer">Duke: Recommended Formats</a> — preservation-preferred format lists.</li>
-      </ul>
+      <h2>Glossary of core 3D and preservation terms</h2>
+      <div class="glossary">
+        <div class="term"><strong>3D model</strong>: A digital representation of shape (geometry), often with texture, material, and scale information.</div>
+        <div class="term"><strong>Checksum</strong>: A hash value (for example SHA-256) used to confirm a file has not changed or become corrupted.</div>
+        <div class="term"><strong>Repository</strong>: The organized storage and management location for project files, metadata, and documentation.</div>
+        <div class="term"><strong>File structure</strong>: The folder hierarchy and naming pattern used so files can be found, linked, and preserved reliably.</div>
+        <div class="term"><strong>Metadata</strong>: Structured descriptive and technical information about an object, scan event, or file.</div>
+        <div class="term"><strong>Paradata</strong>: Documentation of process decisions, tools, and assumptions made during 3D creation and editing.</div>
+        <div class="term"><strong>Point cloud</strong>: A set of XYZ coordinate points captured from scanning before a mesh is created.</div>
+        <div class="term"><strong>Mesh</strong>: Connected vertices, edges, and faces that define the surface of a 3D object.</div>
+        <div class="term"><strong>Texture</strong>: Image data mapped to a mesh to add color or surface detail.</div>
+        <div class="term"><strong>Preservation master</strong>: Highest-quality retained version intended for long-term maintenance and future reuse.</div>
+        <div class="term"><strong>Access derivative</strong>: A lower-weight copy made for delivery (web, teaching, outreach), not long-term preservation.</div>
+        <div class="term"><strong>Fixity check</strong>: Routine verification that stored files still match their original checksums.</div>
+      </div>
     </section>
 
     <section class="card">
-      <h2>FAIR + CARE</h2>
+      <h2>Quick implementation reminders</h2>
       <ul>
-        <li><a href="https://www.go-fair.org/fair-principles/" target="_blank" rel="noreferrer">FAIR Principles</a> — structure for reuse.</li>
-        <li><a href="https://www.rd-alliance.org/wp-content/uploads/2024/03/CARE20Principles20for20Indigenous20Data20Governance_OnePagers_FINAL20Sept2006202019.pdf" target="_blank" rel="noreferrer">CARE Principles (PDF)</a> — ethical governance, authority, and responsibility.</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>File format references</h2>
-      <ul>
-        <li><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml" target="_blank" rel="noreferrer">OBJ (LoC)</a> — mesh + MTL/textures.</li>
-        <li><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000561.shtml" target="_blank" rel="noreferrer">PLY (LoC)</a> — scan-heavy workflows.</li>
-        <li><a href="https://www.khronos.org/gltf/" target="_blank" rel="noreferrer">glTF (Khronos)</a> — distribution/web delivery.</li>
-        <li><a href="https://openusd.org/docs/" target="_blank" rel="noreferrer">OpenUSD</a> — complex scenes/pipelines.</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Repositories and publishing</h2>
-      <ul>
-        <li><a href="https://zenodo.org/" target="_blank" rel="noreferrer">Zenodo</a> — DOIs for datasets.</li>
-        <li><a href="https://osf.io/" target="_blank" rel="noreferrer">OSF</a> — project-based sharing + storage.</li>
-        <li><a href="https://www.morphosource.org/" target="_blank" rel="noreferrer">MorphoSource</a> — bio/anthro 3D.</li>
-        <li><a href="https://openheritage3d.org/" target="_blank" rel="noreferrer">OpenHeritage3D</a> — cultural heritage point clouds.</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Rights and licensing</h2>
-      <ul>
-        <li><a href="https://creativecommons.org/share-your-work/cclicenses/" target="_blank" rel="noreferrer">Creative Commons licenses</a> — reuse permissions.</li>
-        <li><a href="https://rightsstatements.org/en/" target="_blank" rel="noreferrer">RightsStatements.org</a> — standardized rights labels.</li>
-        <li><a href="https://www.si.edu/openaccess" target="_blank" rel="noreferrer">Smithsonian Open Access</a> — CC0 model example.</li>
-        <li><a href="https://www.wipo.int/en/web/wipo-magazine/articles/3d-printing-and-ip-law-39896" target="_blank" rel="noreferrer">WIPO: 3D printing & IP</a> — IP overview.</li>
+        <li>Keep preservation masters separate from access copies.</li>
+        <li>Record storage location and checksum for each critical file set.</li>
+        <li>Use consistent IDs across folder names, inventory rows, and published records.</li>
       </ul>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <span>© <span id="year"></span> Sustain 3D</span>
-    </div>
-  </footer>
-
+  <div id="site-footer"></div>
   <script src="./js/loadHeader.js"></script>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

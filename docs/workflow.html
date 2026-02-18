@@ -17,7 +17,7 @@
     <section class="card start-here">
       <div>
         <div class="kicker"><strong>Start Here</strong> · Easy path</div>
-        <p>Use this page as the overview. Then follow the chain: <strong>Files → Metadata → Storage → Policies</strong>.</p>
+        <p>Use this page as the overview. Then follow the chain: <strong>Files → Metadata → Storage → Policies → Resources</strong>.</p>
       </div>
       <div class="next">
         <span class="chip">Recommended path</span>
@@ -47,6 +47,53 @@
       </ol>
     </section>
 
+    <section class="card phase-markers">
+      <h2>Phase markers: what to do when</h2>
+      <p class="note">Use this quick checklist if you need a plain-language map by stage.</p>
+      <div class="phase-grid">
+        <article class="phase-card phase-before">
+          <h3>Before scanning</h3>
+          <ul>
+            <li>Set project ID, file naming, and folder plan.</li>
+            <li>Confirm rights/access level and object handling constraints.</li>
+            <li>Decide what your preservation master and access format will be.</li>
+          </ul>
+        </article>
+        <article class="phase-card phase-scan">
+          <h3>During scanning</h3>
+          <ul>
+            <li>Capture raw files without overwriting originals.</li>
+            <li>Record operator, device, settings, and environment notes.</li>
+            <li>Log issues immediately (occlusions, glare, missing coverage).</li>
+          </ul>
+        </article>
+        <article class="phase-card phase-process">
+          <h3>During processing</h3>
+          <ul>
+            <li>Keep milestone exports (aligned cloud, mesh, textured mesh).</li>
+            <li>Document every major edit decision in plain language.</li>
+            <li>Produce a high-fidelity preservation master.</li>
+          </ul>
+        </article>
+        <article class="phase-card phase-post">
+          <h3>After processing</h3>
+          <ul>
+            <li>Create access derivatives in a separate folder.</li>
+            <li>Generate checksums and update inventory/metadata records.</li>
+            <li>Apply policy labels (public, internal, restricted).</li>
+          </ul>
+        </article>
+        <article class="phase-card phase-maintain">
+          <h3>After processing (ongoing)</h3>
+          <ul>
+            <li>Store at least three copies (working, local backup, offsite).</li>
+            <li>Run scheduled fixity checks and record outcomes.</li>
+            <li>Review access links and rights statements periodically.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
     <!-- QUICK LINKS -->
     <section class="card">
       <h2>Jump to the exact how-to pages</h2>
@@ -56,11 +103,12 @@
         <li><a href="./metadata.html"><strong>Metadata</strong></a><br/>Minimum fields + paradata.</li>
         <li><a href="./storage.html"><strong>Storage</strong></a><br/>3-copy rule + fixity basics.</li>
         <li><a href="./policies.html"><strong>Policies</strong></a><br/>Access levels, rights, licensing.</li>
+        <li><a href="./resources.html"><strong>Resources</strong></a><br/>Standards and references used in implementation.</li>
       </ul>
     </section>
 
     <!-- PIP 0 -->
-    <section class="card">
+    <section class="card pip pip-0">
       <h2>PIP 0 — Before you scan</h2>
       <p class="note">Goal: decide what you are making, what you will keep, and how you will describe it.</p>
 
@@ -102,7 +150,7 @@
     </section>
 
     <!-- PIP 1 -->
-    <section class="card">
+    <section class="card pip pip-1">
       <h2>PIP 1 — Immediately after capture</h2>
       <p class="note">Goal: don’t lose the raw data or the context while it’s still fresh.</p>
 
@@ -145,7 +193,7 @@
     </section>
 
     <!-- PIP 2 -->
-    <section class="card">
+    <section class="card pip pip-2">
       <h2>PIP 2 — Processing and preservation master</h2>
       <p class="note">Goal: produce a high-fidelity preservation copy and document what changed.</p>
 
@@ -183,7 +231,7 @@
     </section>
 
     <!-- PIP 3 -->
-    <section class="card">
+    <section class="card pip pip-3">
       <h2>PIP 3 — Access copies</h2>
       <p class="note">Goal: create shareable versions without damaging or replacing the preservation masters.</p>
 
@@ -200,7 +248,7 @@
     </section>
 
     <!-- PIP 4 -->
-    <section class="card">
+    <section class="card pip pip-4">
       <h2>PIP 4 — Storage, backups, routine checks</h2>
       <p class="note">Goal: prevent loss, detect corruption, and be able to recover.</p>
 
@@ -216,6 +264,7 @@
         <li><a href="./repository.html">Repository Setup</a> — build the structure.</li>
         <li><a href="./storage.html">Storage</a> — implement 3-copy + checksums.</li>
         <li><a href="./policies.html">Policies</a> — define access and reuse rules.</li>
+        <li><a href="./resources.html">Resources</a> — pull implementation references.</li>
       </ul>
     </section>
 
