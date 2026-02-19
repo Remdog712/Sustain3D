@@ -1,11 +1,61 @@
-Home Page: The "start to finish is confusing". Please make the steps bigger and more visible and move it smartly onto the Workflow page possibly connected into the "Workflow Overview" section and connect that better to "Phase Markers"; Remove "Explore the framework" section
+Note: Remove all of the "Where This Fits"
+
+Note: Make sure my site aligns with my thesis document but dont add a bunch of stuff
+
+Note: Make each page of the workflow a distinct color: Workflow yellow; repo setup purple; files pink; metadata blue; storage green; policies red; resources brown 
+
+Workflow: Make the PIPs match the other PIPs in the "At a glance" section in color
+
+Home: Fix the "What this site does"
+
+Storage: talk about the different types of storage
+
+Resources: Build out the resources more and also the glossary
 
 
-Workflow: Remove text "Easy Path"; Remove "Jump to the exact how to pages";  Please make the the "Phase Markers" section and their colors tie and link directly to their according PIPs and title them the same.; Please add a section that describes the whole workflow in bullet points "I have created a repository..." that works as a checklist. 
-
-note: Incorporate "Repository Setup" into this project (probably with Before you scan" and make it a step of the workflow.
-
-Files: Make it easier to follow, use more colors to differeniate area. Make the sources and file templates less important
-
-Metadata: See if you can explain how metadata is edited in a general sense
-
+Repo Setup: Include documentation relating to 3D printing and other files like we did here in the thesis: may take the form:
+3D_Repository/
+ ├── Projects/
+ │    ├── TempleA/
+ │    ├── TempleB/
+ │    └── ArtifactCollection_2025/
+ │
+ ├── Objects/
+ │    ├── Mechanical/
+ │    │    ├── GearPrototype_v3/
+ │    │    │    ├── preservation/
+ │    │    │    ├── access/
+ │    │    │    └── documentation/
+ │    │    ├── ReplacementPart_A12/
+ │    │    └── ...
+ │    │
+ │    ├── Educational/
+ │    │    ├── MoleculeModel_H2O/
+ │    │    ├── Anatomy_Heart_v2/
+ │    │    └── ...
+ │    │
+ │    ├── Sculptural/
+ │    │    ├── Vase_A17/
+ │    │    ├── Figurine_001/
+ │    │    └── ...
+ │    │
+ │    ├── Scan_Derived/
+ │    │    ├── RomanCoin_001/
+ │    │    ├── TabletFragment_12/
+ │    │    └── ...
+ │    │
+ │    └── Downloaded_or_External/
+ │         ├── SourceTracked_Model_X/
+ │         └── ...
+ │
+ ├── Metadata/
+ │    ├── master_inventory.csv
+ │    └── project_registry.json
+ │
+ ├── Documentation/
+ │    ├── naming_conventions.txt
+ │    └── workflow_standards.txt
+ │
+ └── Preservation_Logs/
+      ├── fixity_checksums_2026.txt
+      └── migration_records.txt

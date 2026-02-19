@@ -4,18 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sustain 3D - Resources</title>
-  <meta name="description" content="Useful 3D references, storage options, and a glossary of key concepts." />
+  <meta name="description" content="Useful 3D references, publication tools, storage options, and glossary terms." />
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body class="page-resources">
   <div id="site-header"></div>
 
   <main class="wrap">
     <section class="card start-here">
       <div>
         <div class="kicker"><strong>Start Here</strong> - Reference hub</div>
-        <p>This page collects practical 3D links and key concepts used across the workflow.</p>
+        <p>Use this page to choose standards, repositories, viewers, and support tools.</p>
       </div>
       <div class="next">
         <span class="chip">You are on: Resources</span>
@@ -23,14 +23,19 @@
       </div>
     </section>
 
-    <section class="card flow-banner">
-      <h2>When to use this page</h2>
-      <p>Use these references during setup and after processing, especially when choosing storage, publication, and terminology.</p>
-      <div class="flow-steps">
-        <span>Before scanning: planning standards</span>
-        <span>During processing: format and tooling checks</span>
-        <span>After processing: storage, sharing, and policy support</span>
-      </div>
+    <section class="card flow-banner goal-banner">
+      <h2>Goal</h2>
+      <p>Provide practical references that support implementation decisions across all workflow steps.</p>
+      <h2 style="margin-top:16px;">Where this fits</h2>
+      <p>Use this after policy and storage planning, and return here whenever you need external standards.</p>
+    </section>
+
+    <section class="card area">
+      <h2>Start with these two core readings</h2>
+      <ul>
+        <li><a href="https://www.dpconline.org/docs/technology-watch-reports/2479-preserving-3d/file" target="_blank" rel="noreferrer">Preserving 3D (Digital Preservation Coalition)</a> for practical risk and preservation strategy.</li>
+        <li><a href="https://datacuration.network/outputs/workflows/" target="_blank" rel="noreferrer">3D Data Creation to Curation (Data Curation Network)</a> for creation-to-curation checkpoints.</li>
+      </ul>
     </section>
 
     <section class="card">
@@ -39,7 +44,7 @@
         <article class="resource-group">
           <h3>Formats and standards</h3>
           <ul>
-            <li><a href="https://www.loc.gov/preservation/digital/formats/fdd/" target="_blank" rel="noreferrer">Library of Congress Format Descriptions</a></li>
+            <li><a href="https://www.loc.gov/preservation/digital/formats/fdd/" target="_blank" rel="noreferrer">Library of Congress format descriptions</a></li>
             <li><a href="https://www.khronos.org/gltf/" target="_blank" rel="noreferrer">Khronos glTF overview</a></li>
             <li><a href="https://www.dublincore.org/specifications/dublin-core/" target="_blank" rel="noreferrer">Dublin Core metadata basics</a></li>
             <li><a href="https://www.niso.org/publications/ansi-niso-z39-87-data-dictionary-technical-metadata-digital-still-images" target="_blank" rel="noreferrer">NISO technical metadata reference</a></li>
@@ -47,63 +52,49 @@
         </article>
 
         <article class="resource-group">
-          <h3>3D publication and sharing</h3>
+          <h3>Repository and DOI platforms</h3>
           <ul>
-            <li><a href="https://sketchfab.com/" target="_blank" rel="noreferrer">Sketchfab</a> for web viewing and public showcases</li>
-            <li><a href="https://3d.si.edu/" target="_blank" rel="noreferrer">Smithsonian 3D</a> for benchmark examples</li>
-            <li><a href="https://openheritage3d.org/" target="_blank" rel="noreferrer">OpenHeritage3D</a> for heritage scan datasets</li>
-            <li><a href="https://www.thingiverse.com/" target="_blank" rel="noreferrer">Thingiverse</a> for maker-focused distribution</li>
+            <li><a href="https://zenodo.org/" target="_blank" rel="noreferrer">Zenodo</a></li>
+            <li><a href="https://osf.io/" target="_blank" rel="noreferrer">Open Science Framework</a></li>
+            <li><a href="https://figshare.com/" target="_blank" rel="noreferrer">Figshare</a></li>
+            <li><a href="https://archive.org/" target="_blank" rel="noreferrer">Internet Archive</a></li>
           </ul>
         </article>
 
         <article class="resource-group">
-          <h3>Repository and data platforms</h3>
+          <h3>3D viewers</h3>
           <ul>
-            <li><a href="https://zenodo.org/" target="_blank" rel="noreferrer">Zenodo</a> (DOI-friendly research deposit)</li>
-            <li><a href="https://osf.io/" target="_blank" rel="noreferrer">Open Science Framework</a> (project + file collaboration)</li>
-            <li><a href="https://figshare.com/" target="_blank" rel="noreferrer">Figshare</a> (research outputs and metadata)</li>
-            <li><a href="https://archive.org/" target="_blank" rel="noreferrer">Internet Archive</a> (broad public access repository)</li>
+            <li><a href="https://www.blender.org/" target="_blank" rel="noreferrer">Blender</a> for desktop inspection and editing.</li>
+            <li><a href="https://www.meshlab.net/" target="_blank" rel="noreferrer">MeshLab</a> for mesh inspection and analysis.</li>
+            <li><a href="https://www.paraview.org/" target="_blank" rel="noreferrer">ParaView</a> for advanced scientific 3D viewing.</li>
+            <li><a href="https://www.cloudcompare.org/" target="_blank" rel="noreferrer">CloudCompare</a> for point cloud and mesh inspection.</li>
+            <li><a href="https://sketchfab.com/" target="_blank" rel="noreferrer">Sketchfab</a> for browser-based viewing and sharing.</li>
           </ul>
         </article>
 
         <article class="resource-group">
-          <h3>Storage options</h3>
+          <h3>Storage providers</h3>
           <ul>
-            <li><a href="https://aws.amazon.com/s3/storage-classes/glacier/" target="_blank" rel="noreferrer">Amazon S3 Glacier</a> for deep archive tiers</li>
-            <li><a href="https://www.backblaze.com/cloud-storage" target="_blank" rel="noreferrer">Backblaze B2 Cloud Storage</a> for low-cost object storage</li>
-            <li><a href="https://cloud.google.com/storage" target="_blank" rel="noreferrer">Google Cloud Storage</a> for multi-tier cloud backup</li>
-            <li><a href="https://azure.microsoft.com/en-us/products/storage/blobs" target="_blank" rel="noreferrer">Azure Blob Storage</a> for enterprise/cloud integration</li>
-            <li>Local NAS + offline external drives for your on-site and nearline copies</li>
+            <li><a href="https://aws.amazon.com/s3/storage-classes/glacier/" target="_blank" rel="noreferrer">Amazon S3 Glacier</a></li>
+            <li><a href="https://www.backblaze.com/cloud-storage" target="_blank" rel="noreferrer">Backblaze B2</a></li>
+            <li><a href="https://cloud.google.com/storage" target="_blank" rel="noreferrer">Google Cloud Storage</a></li>
+            <li><a href="https://azure.microsoft.com/en-us/products/storage/blobs" target="_blank" rel="noreferrer">Azure Blob Storage</a></li>
           </ul>
         </article>
       </div>
     </section>
 
     <section class="card">
-      <h2>Glossary of core 3D and preservation terms</h2>
+      <h2>Glossary</h2>
       <div class="glossary">
-        <div class="term"><strong>3D model</strong>: A digital representation of shape (geometry), often with texture, material, and scale information.</div>
-        <div class="term"><strong>Checksum</strong>: A hash value (for example SHA-256) used to confirm a file has not changed or become corrupted.</div>
-        <div class="term"><strong>Repository</strong>: The organized storage and management location for project files, metadata, and documentation.</div>
-        <div class="term"><strong>File structure</strong>: The folder hierarchy and naming pattern used so files can be found, linked, and preserved reliably.</div>
-        <div class="term"><strong>Metadata</strong>: Structured descriptive and technical information about an object, scan event, or file.</div>
-        <div class="term"><strong>Paradata</strong>: Documentation of process decisions, tools, and assumptions made during 3D creation and editing.</div>
-        <div class="term"><strong>Point cloud</strong>: A set of XYZ coordinate points captured from scanning before a mesh is created.</div>
-        <div class="term"><strong>Mesh</strong>: Connected vertices, edges, and faces that define the surface of a 3D object.</div>
-        <div class="term"><strong>Texture</strong>: Image data mapped to a mesh to add color or surface detail.</div>
-        <div class="term"><strong>Preservation master</strong>: Highest-quality retained version intended for long-term maintenance and future reuse.</div>
-        <div class="term"><strong>Access derivative</strong>: A lower-weight copy made for delivery (web, teaching, outreach), not long-term preservation.</div>
-        <div class="term"><strong>Fixity check</strong>: Routine verification that stored files still match their original checksums.</div>
+        <div class="term"><strong>3D model</strong>: a digital representation of form, often with textures and materials.</div>
+        <div class="term"><strong>Repository</strong>: organized storage and management space for files and records.</div>
+        <div class="term"><strong>Metadata</strong>: descriptive and technical information about files and objects.</div>
+        <div class="term"><strong>Paradata</strong>: record of processing choices and assumptions.</div>
+        <div class="term"><strong>Preservation master</strong>: highest quality retained version for long-term stewardship.</div>
+        <div class="term"><strong>Access derivative</strong>: delivery copy made for public or classroom use.</div>
+        <div class="term"><strong>DOI</strong>: persistent identifier used for stable publication and citation.</div>
       </div>
-    </section>
-
-    <section class="card">
-      <h2>Quick implementation reminders</h2>
-      <ul>
-        <li>Keep preservation masters separate from access copies.</li>
-        <li>Record storage location and checksum for each critical file set.</li>
-        <li>Use consistent IDs across folder names, inventory rows, and published records.</li>
-      </ul>
     </section>
   </main>
 

@@ -1,67 +1,93 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sustain 3D — Repository Setup</title>
+  <title>Sustain 3D - Repository Setup</title>
   <meta name="description" content="How to set up a small 3D repository and manage files over time." />
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body class="page-repo">
   <div id="site-header"></div>
 
   <main class="wrap">
-    <section class="card">
-      <h2>Goal</h2>
-      <p>
-        Build a repository that prevents the most common failure mode: “stuff on a drive with no context.”
-        Your repository must keep files grouped, identifiable, and inventory-tracked.
-      </p>
+    <section class="card start-here">
+      <div>
+        <div class="kicker"><strong>Start Here</strong> - Repository setup</div>
+        <p>After Workflow, this is your first implementation step.</p>
+      </div>
+      <div class="next">
+        <span class="chip">You are on: Repository Setup</span>
+        <a class="btn" href="./files.html">Next: Files -></a>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Repository-level structure (recommended)</h2>
+    <section class="card flow-banner goal-banner">
+      <h2>Goal</h2>
+      <p>Create a stable repository structure that can hold many projects over time.</p>
+      <h2 style="margin-top:16px;">Where this fits</h2>
+      <p>This step defines structure before detailed file naming, metadata entry, storage decisions, and policy publishing.</p>
+    </section>
+
+    <section class="card area">
+      <h2>Repository-level structure (all projects)</h2>
+      <p>
+        The repository-level structure is the organization for your full 3D program. It is not one project,
+        it is the container that holds all projects, shared metadata, shared policies, and shared references.
+      </p>
       <pre class="codeblock"><code>3D_Repository/
   Projects/
   Objects/
   Metadata/
     master_inventory.csv
-  Documentation/
-    naming_conventions.txt
-    workflow_standards.txt
-  Preservation_Logs/
-    checksums/
-    migration_records.txt
+  Policies/
+  Resources/
 </code></pre>
 
-      <p class="note">
-        The “master_inventory.csv” becomes your “center database” for what exists and where it lives.
-      </p>
+      <h3>Purpose of each repository folder</h3>
+      <ul>
+        <li><strong>Projects/</strong> stores each project working package by project ID.</li>
+        <li><strong>Objects/</strong> can store object-centric groupings across multiple projects.</li>
+        <li><strong>Metadata/</strong> stores cross-project inventory and lookup files.</li>
+        <li><strong>Policies/</strong> stores rights and access templates used by all projects.</li>
+        <li><strong>Resources/</strong> stores internal references, guides, and implementation notes.</li>
+      </ul>
     </section>
 
-    <section class="card">
-      <h2>Project folder template</h2>
+    <section class="card area">
+      <h2>Project-level structure (one project)</h2>
+      <p>
+        The project-level structure is for one specific scan effort. Every project should use the same structure so
+        staff can move between projects without relearning folder logic.
+      </p>
       <pre class="codeblock"><code>ProjectName_ObjectID/
   01_raw/
   02_processing/
   03_preservation/
   04_access/
-  documentation/
-    README.txt
-    capture_notes.txt
+  metadata.txt
+  paradata.txt
+  policy.txt
 </code></pre>
 
-      <h3>Rules</h3>
+      <h3>Purpose of each project folder</h3>
       <ul>
-        <li><strong>Never edit</strong> inside <code>03_preservation/</code> after you finalize it.</li>
-        <li><strong>Never store</strong> only a derivative (like GLB) without the preservation master.</li>
-        <li><strong>Keep linked files together</strong> (OBJ + MTL + textures in one package).</li>
+        <li><strong>01_raw/</strong> source captures exactly as collected.</li>
+        <li><strong>02_processing/</strong> in-progress project files and intermediate outputs.</li>
+        <li><strong>03_preservation/</strong> finalized preservation master files.</li>
+        <li><strong>04_access/</strong> delivery copies for web, teaching, and outreach.</li>
       </ul>
+    </section>
 
-      <p>
-        Next: <a href="./files.html">File management</a> and <a href="./metadata.html">Metadata + paradata</a>.
-      </p>
+    <section class="card area">
+      <h2>Rules</h2>
+      <ul>
+        <li>Every project must have one stable object/project ID.</li>
+        <li>Preservation files stay separate from access copies.</li>
+        <li>Metadata, paradata, and policy files stay in the project root so they are always visible.</li>
+        <li>Repository inventory tracks DOI status for each project.</li>
+      </ul>
     </section>
   </main>
 
@@ -69,6 +95,3 @@
   <script src="./js/loadHeader.js"></script>
 </body>
 </html>
-
-
-

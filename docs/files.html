@@ -1,138 +1,88 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sustain 3D — Files</title>
+  <title>Sustain 3D - Files</title>
   <meta name="description" content="File management practices for sustainable 3D repositories." />
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body class="page-files">
   <div id="site-header"></div>
 
   <main class="wrap">
     <section class="card start-here">
-  <div>
-    <div class="kicker"><strong>Start Here</strong> · Easy path</div>
-    <p>Follow the sequence: <strong>Files → Metadata → Storage → Policies</strong>.</p>
-  </div>
-  <div class="next">
-    <span class="chip">You are on: Files</span>
-    <a class="btn" href="./metadata.html">Next: Metadata →</a>
-  </div>
-</section>
-
-    <section class="card flow-banner">
-      <h2>Where this fits</h2>
-      <p>This is the first implementation page. Set stable names and folder layout before scans accumulate.</p>
-    </section>
-
-    <section class="card">
-      <h2>Why file management matters</h2>
-      <p>
-        A 3D “model” is usually a package: geometry + textures + material files + documentation. If those links break,
-        you can end up with a file that opens but is incomplete or misleading.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>1) Naming conventions (simple and durable)</h2>
-
-      <div class="callout">
-        <strong>Institutional tip (Harvard HMS):</strong>
-        <blockquote>“File names should be 40-50 characters…”</blockquote>
-        <p class="note">Short names reduce failures across systems and long file paths.</p>
+      <div>
+        <div class="kicker"><strong>Start Here</strong> - File structure and naming</div>
+        <p>Follow the sequence: <strong>Repository Setup -> Files -> Metadata -> Storage -> Policies</strong>.</p>
       </div>
-
-      <h3>Recommended pattern</h3>
-      <pre class="codeblock"><code>[ObjectID]_[Method]_[YYYYMMDD]_v[##]_[stage].[ext]
-Example:
-PAOAN_LiDAR_20240215_v01_raw.e57
-PAOAN_mesh_20240220_v03_pres.obj
-PAOAN_web_20240220_v01_access.glb
-</code></pre>
-
-      <h3>Rules</h3>
-      <ul>
-        <li>Use only letters/numbers, underscores, and dashes.</li>
-        <li>Put the version at the end of the “core name” (v01, v02, v03).</li>
-        <li>Use ISO-style dates (YYYYMMDD) so sorting is consistent.</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>2) Versioning (what to keep)</h2>
-      <p>Keep versions at major workflow milestones. Do not overwrite.</p>
-
-      <ul>
-        <li><strong>Raw</strong>: original photos/scans/point clouds (never overwrite).</li>
-        <li><strong>Working</strong>: project files (Metashape project, Blender files, etc.).</li>
-        <li><strong>Preservation master</strong>: highest-fidelity export you intend to preserve long-term.</li>
-        <li><strong>Access derivatives</strong>: GLB/USDZ/decimated meshes for web/teaching.</li>
-      </ul>
-
-      <div class="callout">
-        <strong>Workflow tip (DCN CURATE(D)):</strong>
-        <blockquote>“Transform file formats for reuse…”</blockquote>
-        <p class="note">Preserve the master first; transform for access second.</p>
+      <div class="next">
+        <span class="chip">You are on: Files</span>
+        <a class="btn" href="./metadata.html">Next: Metadata -></a>
       </div>
     </section>
 
-    <section class="card">
-      <h2>3) Keep linked files together (avoid broken assets)</h2>
-      <p>
-        Many 3D formats reference external files. Example: an OBJ often relies on a separate MTL file and multiple textures.
-      </p>
+    <section class="card flow-banner goal-banner">
+      <h2>Goal</h2>
+      <p>Use predictable names and folder patterns so 3D packages stay connected and understandable.</p>
+      <h2 style="margin-top:16px;">Where this fits</h2>
+      <p>This step comes after repository setup and before metadata detail entry.</p>
+    </section>
 
-      <h3>Packaging rules</h3>
+    <section class="card area">
+      <h2>Recommended naming pattern</h2>
+      <pre class="codeblock"><code>[ObjectID]_[Method]_[YYYYMMDD]_v[##]_[stage].[ext]</code></pre>
+
+      <h3>What each part means</h3>
       <ul>
-        <li>Store geometry + materials + textures in the same folder.</li>
-        <li>Use relative paths (not absolute paths) when exporting.</li>
-        <li>After export, validate by opening the package in a different viewer/computer.</li>
+        <li><strong>[ObjectID]</strong> stable ID for the scanned object or site.</li>
+        <li><strong>[Method]</strong> capture or processing method (photogrammetry, lidar, mesh).</li>
+        <li><strong>[YYYYMMDD]</strong> date in sortable format.</li>
+        <li><strong>v[##]</strong> version number such as v01, v02, v03.</li>
+        <li><strong>[stage]</strong> raw, proc, pres, access.</li>
+        <li><strong>[ext]</strong> file extension for the specific output format.</li>
       </ul>
+    </section>
 
-      <div class="callout">
-        <strong>Format sustainability idea (Library of Congress):</strong>
-        <blockquote>“Seven factors… influence the feasibility and cost of preserving content…”</blockquote>
-        <p class="note">File formats are evaluated partly by transparency, documentation, and dependencies.</p>
-      </div>
+    <section class="card area">
+      <h2>Examples</h2>
+      <pre class="codeblock"><code>PAOAN_photogrammetry_20260219_v01_raw.tif
+PAOAN_mesh_20260220_v03_pres.obj
+PAOAN_web_20260221_v01_access.glb</code></pre>
+    </section>
+
+    <section class="card area">
+      <h2>Versioning and linked files</h2>
+      <ul>
+        <li>Keep raw files unchanged after capture.</li>
+        <li>Save milestone versions during processing rather than overwriting.</li>
+        <li>Store linked files (geometry, materials, textures) in the same package folder.</li>
+        <li>Open outputs on another machine to validate that links still work.</li>
+      </ul>
     </section>
 
     <section class="card template-kit">
-      <h2>File templates and quick setup</h2>
-      <p>Use these templates directly in your project folder.</p>
+      <h2>Optional terminal templates</h2>
+      <p>These can be pasted into PowerShell to create folder scaffolding quickly.</p>
 
-      <h3>Create the project directory structure</h3>
+      <h3>Repo-level directory template</h3>
       <div class="template-actions">
-        <button class="btn secondary" type="button" data-copy-target="files-dir-template">Copy directory command</button>
+        <button class="btn secondary" type="button" data-copy-target="files-repo-template">Copy repo-level command</button>
       </div>
-      <pre class="codeblock"><code id="files-dir-template">New-Item -ItemType Directory -Path ".\ProjectName_ObjectID\01_raw",".\ProjectName_ObjectID\02_processing",".\ProjectName_ObjectID\03_preservation",".\ProjectName_ObjectID\04_access",".\ProjectName_ObjectID\documentation" -Force
+      <pre class="codeblock"><code id="files-repo-template">$repo = ".\3D_Repository"
+New-Item -ItemType Directory -Path $repo,(Join-Path $repo "Projects"),(Join-Path $repo "Objects"),(Join-Path $repo "Metadata"),(Join-Path $repo "Policies"),(Join-Path $repo "Resources") -Force | Out-Null
+New-Item -ItemType File -Path (Join-Path $repo "Metadata\master_inventory.csv") -Force | Out-Null
 </code></pre>
 
-      <h3>Create starter documentation files</h3>
+      <h3>Project-level directory template</h3>
       <div class="template-actions">
-        <button class="btn secondary" type="button" data-copy-target="files-file-template">Copy file command</button>
+        <button class="btn secondary" type="button" data-copy-target="files-project-template">Copy project-level command</button>
       </div>
-      <pre class="codeblock"><code id="files-file-template">New-Item -ItemType File -Path ".\ProjectName_ObjectID\documentation\README.txt",".\ProjectName_ObjectID\documentation\capture_notes.txt" -Force
+      <pre class="codeblock"><code id="files-project-template">$project = ".\3D_Repository\Projects\ProjectName_ObjectID"
+New-Item -ItemType Directory -Path $project,(Join-Path $project "01_raw"),(Join-Path $project "02_processing"),(Join-Path $project "03_preservation"),(Join-Path $project "04_access") -Force | Out-Null
+New-Item -ItemType File -Path (Join-Path $project "metadata.txt"),(Join-Path $project "paradata.txt"),(Join-Path $project "policy.txt") -Force | Out-Null
 </code></pre>
-
-      <h3>Naming pattern template</h3>
-      <pre class="codeblock"><code>[ObjectID]_[Method]_[YYYYMMDD]_v[##]_[stage].[ext]
-Example:
-PAOAN_LiDAR_20240215_v01_raw.e57
-PAOAN_mesh_20240220_v03_pres.obj
-PAOAN_web_20240220_v01_access.glb
-</code></pre>
-    </section>
-
-    <section class="card">
-      <h2>Sources</h2>
-      <ol>
-        <li>Harvard Medical School Data Management — File Naming Conventions: https://datamanagement.hms.harvard.edu/plan-design/file-naming-conventions</li>
-        <li>Data Curation Network — CURATE(D) Steps: https://datacuration.network/outputs/workflows/</li>
-        <li>Library of Congress — Format Evaluation Factors: https://www.loc.gov/preservation/digital/formats/intro/format_eval_rel.shtml</li>
-      </ol>
     </section>
   </main>
 
@@ -140,6 +90,3 @@ PAOAN_web_20240220_v01_access.glb
   <script src="./js/loadHeader.js"></script>
 </body>
 </html>
-
-
-
