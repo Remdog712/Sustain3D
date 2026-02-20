@@ -26,8 +26,7 @@
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
       <p>Capture enough context that another person can understand, evaluate, and reuse the 3D model package.</p>
-      <h2 style="margin-top:16px;">Where this fits</h2>
-      <p>This step records project facts and decisions as work moves from capture to preservation and access.</p>
+      <p class="note">Keep metadata light but complete enough to support reuse, preservation, and 3D print replication.</p>
     </section>
 
     <section class="card area">
@@ -36,7 +35,7 @@
         <li>At setup: object ID, project title, rights baseline, and access level.</li>
         <li>After capture: devices, settings, operator, and source files.</li>
         <li>During processing: software versions, major edits, and preservation master path.</li>
-        <li>After derivatives: access formats and publication notes.</li>
+        <li>After derivatives: access formats, print files (if present), and publication notes.</li>
         <li>During storage/publication: storage location and DOI status/value.</li>
       </ul>
     </section>
@@ -55,6 +54,7 @@ units_and_scale
 source_files
 preservation_master
 access_derivatives
+print_derivatives
 rights
 access_level
 storage_location
@@ -75,12 +75,13 @@ CAPTURE_METHOD: photogrammetry
 DEVICE_LIST: Sony A7R IV, 85mm lens
 SOFTWARE_VERSIONS: Metashape 2.1.3; Blender 4.2
 UNITS_AND_SCALE: millimeters, scale bar used
-SOURCE_FILES: 164 TIFF images in 01_raw
+SOURCE_FILES: 164 TIFF images in 01_raw_scans
 PRESERVATION_MASTER: 03_preservation/PAOAN_mesh_20260220_v03_pres.obj
 ACCESS_DERIVATIVES: 04_access/PAOAN_web_20260221_v01_access.glb
+PRINT_DERIVATIVES: print/PAOAN_printprep_20260222_v02_prn.3mf
 RIGHTS: institution copyright
 ACCESS_LEVEL: internal
-STORAGE_LOCATION: local NAS + offsite cloud copy
+STORAGE_LOCATION: primary preservation storage + replicated preservation copy
 DOI_STATUS: planned
 DOI_VALUE:
 PARADATA_SUMMARY: removed turntable, filled two minor holes, reduced texture from 8k to 4k for access copy
@@ -96,6 +97,8 @@ PARADATA_SUMMARY: removed turntable, filled two minor holes, reduced texture fro
         <button class="btn secondary" type="button" data-copy-target="metadata-template-command">Copy metadata command</button>
       </div>
       <pre class="codeblock"><code id="metadata-template-command">$project = ".\3D_Repository\Projects\ProjectName_ObjectID"
+$docs = Join-Path $project "documentation"
+New-Item -ItemType Directory -Path $docs -Force | Out-Null
 @"
 OBJECT_ID:
 TITLE:
@@ -109,13 +112,14 @@ UNITS_AND_SCALE:
 SOURCE_FILES:
 PRESERVATION_MASTER:
 ACCESS_DERIVATIVES:
+PRINT_DERIVATIVES:
 RIGHTS:
 ACCESS_LEVEL:
 STORAGE_LOCATION:
 DOI_STATUS: planned
 DOI_VALUE:
 PARADATA_SUMMARY:
-"@ | Set-Content (Join-Path $project "metadata.txt")
+"@ | Set-Content (Join-Path $docs "metadata.txt")
 
 @"
 PROCESS_STEP:
@@ -123,7 +127,7 @@ TOOL_AND_VERSION:
 CHANGE_MADE:
 WHY_IT_WAS_DONE:
 DATE:
-"@ | Set-Content (Join-Path $project "paradata.txt")
+"@ | Set-Content (Join-Path $docs "paradata.txt")
 </code></pre>
 
       <h3>Create repository inventory with headers</h3>
@@ -132,7 +136,7 @@ DATE:
       </div>
       <pre class="codeblock"><code id="metadata-csv-command">$csv = ".\3D_Repository\Metadata\master_inventory.csv"
 @"
-object_id,title,project,capture_method,software_versions,rights,access_level,preservation_master,access_derivatives,storage_location,doi_status,doi_value,notes
+object_id,title,project,capture_method,software_versions,rights,access_level,preservation_master,access_derivatives,print_derivatives,storage_location,doi_status,doi_value,notes
 "@ | Set-Content $csv
 </code></pre>
     </section>

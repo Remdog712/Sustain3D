@@ -26,38 +26,64 @@
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
       <p>Use predictable names and folder patterns so 3D packages stay connected and understandable.</p>
-      <h2 style="margin-top:16px;">Where this fits</h2>
-      <p>This step comes after repository setup and before metadata detail entry.</p>
+      <p class="note">Apply one naming standard across scan data, derivatives, and 3D print outputs.</p>
     </section>
 
     <section class="card area">
       <h2>Recommended naming pattern</h2>
-      <pre class="codeblock"><code>[ObjectID]_[Method]_[YYYYMMDD]_v[##]_[stage].[ext]</code></pre>
+      <pre class="codeblock"><code>[ObjectOrSite]_[MethodOrProcess]_[YYYYMMDD]_v[##]_[stage].[ext]</code></pre>
 
       <h3>What each part means</h3>
       <ul>
-        <li><strong>[ObjectID]</strong> stable ID for the scanned object or site.</li>
-        <li><strong>[Method]</strong> capture or processing method (photogrammetry, lidar, mesh).</li>
+        <li><strong>[ObjectOrSite]</strong> stable ID for the scanned object or site.</li>
+        <li><strong>[MethodOrProcess]</strong> capture or processing method (photogrammetry, lidar, mesh, printprep).</li>
         <li><strong>[YYYYMMDD]</strong> date in sortable format.</li>
         <li><strong>v[##]</strong> version number such as v01, v02, v03.</li>
-        <li><strong>[stage]</strong> raw, proc, pres, access.</li>
+        <li><strong>[stage]</strong> raw, proc, pres, access, prn.</li>
         <li><strong>[ext]</strong> file extension for the specific output format.</li>
       </ul>
     </section>
 
     <section class="card area">
       <h2>Examples</h2>
-      <pre class="codeblock"><code>PAOAN_photogrammetry_20260219_v01_raw.tif
-PAOAN_mesh_20260220_v03_pres.obj
-PAOAN_web_20260221_v01_access.glb</code></pre>
+      <pre class="codeblock"><code>TempleA_LiDAR_20240215_v01_raw.e57
+TempleA_mesh_clean_20240220_v03_proc.obj
+TempleA_web_20240220_v01_access.glb
+TempleA_printprep_20240222_v02_prn.3mf</code></pre>
+    </section>
+
+    <section class="card area">
+      <h2>3D file formats: what is better for what</h2>
+      <p>Keep at least one long-term preservation format and one web-access format for each final model.</p>
+      <div class="tier">
+        <article class="tier-col">
+          <h3>Preservation formats (long-term copies)</h3>
+          <ul>
+            <li><strong>OBJ + MTL + texture files</strong>: Open and widely supported. Good for textured meshes and long-term reuse across tools.</li>
+            <li><strong>PLY</strong>: Good for high-detail geometry and vertex color. Common in research workflows and easy to validate.</li>
+            <li><strong>E57</strong>: Strong choice for point clouds from LiDAR or structured light. Preserves scan context better than mesh-only exports.</li>
+            <li><strong>STL</strong>: Useful mainly for 3D printing geometry. Not ideal as the only preservation format because it usually lacks color, texture, and rich metadata.</li>
+          </ul>
+        </article>
+        <article class="tier-col">
+          <h3>Access formats (web and sharing copies)</h3>
+          <ul>
+            <li><strong>GLB (binary glTF)</strong>: Best default for web viewers. Single file, fast loading, and supports modern materials.</li>
+            <li><strong>glTF + external textures</strong>: Better when you need editable web assets and separate texture management.</li>
+            <li><strong>USDZ</strong>: Useful for Apple AR experiences. Keep it as an access derivative, not the only archival master.</li>
+            <li><strong>3MF</strong>: Better than STL for sharing print jobs because it can include units, color, and print settings.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="note">Practical rule: preserve rich, open source files in <code>03_preservation</code>, publish lightweight delivery files in <code>04_access</code>.</p>
     </section>
 
     <section class="card area">
       <h2>Versioning and linked files</h2>
       <ul>
-        <li>Keep raw files unchanged after capture.</li>
+        <li>Keep source files unchanged after capture or ingest.</li>
         <li>Save milestone versions during processing rather than overwriting.</li>
-        <li>Store linked files (geometry, materials, textures) in the same package folder.</li>
+        <li>Store linked files (geometry, materials, textures, print profiles) in the same package folder.</li>
         <li>Open outputs on another machine to validate that links still work.</li>
       </ul>
     </section>
@@ -71,8 +97,9 @@ PAOAN_web_20260221_v01_access.glb</code></pre>
         <button class="btn secondary" type="button" data-copy-target="files-repo-template">Copy repo-level command</button>
       </div>
       <pre class="codeblock"><code id="files-repo-template">$repo = ".\3D_Repository"
-New-Item -ItemType Directory -Path $repo,(Join-Path $repo "Projects"),(Join-Path $repo "Objects"),(Join-Path $repo "Metadata"),(Join-Path $repo "Policies"),(Join-Path $repo "Resources") -Force | Out-Null
+New-Item -ItemType Directory -Path $repo,(Join-Path $repo "Projects"),(Join-Path $repo "Objects"),(Join-Path $repo "Metadata"),(Join-Path $repo "Documentation"),(Join-Path $repo "Preservation_Logs") -Force | Out-Null
 New-Item -ItemType File -Path (Join-Path $repo "Metadata\master_inventory.csv") -Force | Out-Null
+New-Item -ItemType File -Path (Join-Path $repo "Metadata\project_registry.json") -Force | Out-Null
 </code></pre>
 
       <h3>Project-level directory template</h3>
@@ -80,8 +107,8 @@ New-Item -ItemType File -Path (Join-Path $repo "Metadata\master_inventory.csv") 
         <button class="btn secondary" type="button" data-copy-target="files-project-template">Copy project-level command</button>
       </div>
       <pre class="codeblock"><code id="files-project-template">$project = ".\3D_Repository\Projects\ProjectName_ObjectID"
-New-Item -ItemType Directory -Path $project,(Join-Path $project "01_raw"),(Join-Path $project "02_processing"),(Join-Path $project "03_preservation"),(Join-Path $project "04_access") -Force | Out-Null
-New-Item -ItemType File -Path (Join-Path $project "metadata.txt"),(Join-Path $project "paradata.txt"),(Join-Path $project "policy.txt") -Force | Out-Null
+New-Item -ItemType Directory -Path $project,(Join-Path $project "01_raw_scans"),(Join-Path $project "02_processing"),(Join-Path $project "03_preservation"),(Join-Path $project "04_access"),(Join-Path $project "documentation"),(Join-Path $project "print") -Force | Out-Null
+New-Item -ItemType File -Path (Join-Path $project "documentation\metadata.txt"),(Join-Path $project "documentation\paradata.txt"),(Join-Path $project "documentation\rights_and_access.txt"),(Join-Path $project "print\printer_notes.txt") -Force | Out-Null
 </code></pre>
     </section>
   </main>

@@ -15,10 +15,11 @@
     <section class="card start-here">
       <div>
         <div class="kicker"><strong>Start Here</strong> - Reference hub</div>
-        <p>Use this page to choose standards, repositories, viewers, and support tools.</p>
+        <p>Use this page to choose standards, repositories, validation tools, and glossary terms.</p>
       </div>
       <div class="next">
         <span class="chip">You are on: Resources</span>
+        <a class="btn" href="./in-practice.html">Next: In Practice -></a>
         <a class="btn secondary" href="./workflow.html">Back to Workflow</a>
       </div>
     </section>
@@ -26,8 +27,7 @@
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
       <p>Provide practical references that support implementation decisions across all workflow steps.</p>
-      <h2 style="margin-top:16px;">Where this fits</h2>
-      <p>Use this after policy and storage planning, and return here whenever you need external standards.</p>
+      <p class="note">Use this page as a working reference list for setup, documentation, validation, and publication tasks.</p>
     </section>
 
     <section class="card area">
@@ -42,22 +42,46 @@
       <h2>Useful 3D resources</h2>
       <div class="resource-groups">
         <article class="resource-group">
-          <h3>Formats and standards</h3>
+          <h3>Frameworks and principles</h3>
           <ul>
-            <li><a href="https://www.loc.gov/preservation/digital/formats/fdd/" target="_blank" rel="noreferrer">Library of Congress format descriptions</a></li>
-            <li><a href="https://www.khronos.org/gltf/" target="_blank" rel="noreferrer">Khronos glTF overview</a></li>
-            <li><a href="https://www.dublincore.org/specifications/dublin-core/" target="_blank" rel="noreferrer">Dublin Core metadata basics</a></li>
-            <li><a href="https://www.niso.org/publications/ansi-niso-z39-87-data-dictionary-technical-metadata-digital-still-images" target="_blank" rel="noreferrer">NISO technical metadata reference</a></li>
+            <li><a href="https://www.go-fair.org/fair-principles/" target="_blank" rel="noreferrer">GO FAIR - FAIR principles</a></li>
+            <li><a href="https://www.gida-global.org/care" target="_blank" rel="noreferrer">Global Indigenous Data Alliance - CARE principles</a></li>
+            <li><a href="https://www.dpconline.org/" target="_blank" rel="noreferrer">Digital Preservation Coalition</a></li>
+            <li><a href="https://www.niso.org/publications/ansi-niso-z39-87-data-dictionary-technical-metadata-digital-still-images" target="_blank" rel="noreferrer">NISO Z39.87 technical metadata reference</a></li>
           </ul>
         </article>
 
         <article class="resource-group">
-          <h3>Repository and DOI platforms</h3>
+          <h3>Formats and technical references</h3>
+          <ul>
+            <li><a href="https://www.loc.gov/preservation/digital/formats/fdd/" target="_blank" rel="noreferrer">Library of Congress format descriptions</a></li>
+            <li><a href="https://www.khronos.org/gltf/" target="_blank" rel="noreferrer">Khronos glTF overview</a></li>
+            <li><a href="https://www.3mf.io/specification/" target="_blank" rel="noreferrer">3MF consortium specification</a></li>
+            <li><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000504.shtml" target="_blank" rel="noreferrer">Library of Congress - STL format note</a></li>
+            <li><a href="https://www.dublincore.org/specifications/dublin-core/" target="_blank" rel="noreferrer">Dublin Core metadata basics</a></li>
+            <li><a href="https://www.w3.org/TR/prov-overview/" target="_blank" rel="noreferrer">W3C PROV overview for provenance modeling</a></li>
+          </ul>
+        </article>
+
+        <article class="resource-group">
+          <h3>Metadata and curation practice</h3>
+          <ul>
+            <li><a href="https://lms.unimelb.edu.au/staff/guides/pedestal-3d/3d-model-metadata-guide" target="_blank" rel="noreferrer">University of Melbourne - 3D model metadata guide</a></li>
+            <li><a href="https://datacurationnetwork.org/" target="_blank" rel="noreferrer">Data Curation Network</a></li>
+            <li><a href="https://www.dcc.ac.uk/guidance/standards/metadata" target="_blank" rel="noreferrer">Digital Curation Centre metadata guidance</a></li>
+            <li><a href="https://www.dpconline.org/docs/technology-watch-reports/2479-preserving-3d/file" target="_blank" rel="noreferrer">DPC Preserving 3D report</a></li>
+          </ul>
+        </article>
+
+        <article class="resource-group">
+          <h3>Repository and DOI options</h3>
           <ul>
             <li><a href="https://zenodo.org/" target="_blank" rel="noreferrer">Zenodo</a></li>
+            <li><a href="https://www.morphosource.org/" target="_blank" rel="noreferrer">MorphoSource</a></li>
+            <li><a href="https://phaidra.org/" target="_blank" rel="noreferrer">PHAIDRA</a></li>
             <li><a href="https://osf.io/" target="_blank" rel="noreferrer">Open Science Framework</a></li>
             <li><a href="https://figshare.com/" target="_blank" rel="noreferrer">Figshare</a></li>
-            <li><a href="https://archive.org/" target="_blank" rel="noreferrer">Internet Archive</a></li>
+            <li><a href="https://datacite.org/" target="_blank" rel="noreferrer">DataCite DOI services</a></li>
           </ul>
         </article>
 
@@ -73,12 +97,12 @@
         </article>
 
         <article class="resource-group">
-          <h3>Storage providers</h3>
+          <h3>Validation and checks</h3>
           <ul>
-            <li><a href="https://aws.amazon.com/s3/storage-classes/glacier/" target="_blank" rel="noreferrer">Amazon S3 Glacier</a></li>
-            <li><a href="https://www.backblaze.com/cloud-storage" target="_blank" rel="noreferrer">Backblaze B2</a></li>
-            <li><a href="https://cloud.google.com/storage" target="_blank" rel="noreferrer">Google Cloud Storage</a></li>
-            <li><a href="https://azure.microsoft.com/en-us/products/storage/blobs" target="_blank" rel="noreferrer">Azure Blob Storage</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash" target="_blank" rel="noreferrer">PowerShell Get-FileHash</a> for checksum creation.</li>
+            <li><a href="https://www.gnu.org/software/coreutils/manual/html_node/sha2-utilities.html" target="_blank" rel="noreferrer">SHA-2 utilities reference</a> for hash verification workflows.</li>
+            <li><a href="https://www.digitalpreservation.gov/ndsa/activities/levels.html" target="_blank" rel="noreferrer">NDSA Levels of Digital Preservation</a>.</li>
+            <li><a href="https://openpreservation.org/" target="_blank" rel="noreferrer">Open Preservation Foundation</a>.</li>
           </ul>
         </article>
       </div>
@@ -88,11 +112,20 @@
       <h2>Glossary</h2>
       <div class="glossary">
         <div class="term"><strong>3D model</strong>: a digital representation of form, often with textures and materials.</div>
-        <div class="term"><strong>Repository</strong>: organized storage and management space for files and records.</div>
+        <div class="term"><strong>Repository</strong>: organized storage and management space for files, metadata, and governance records.</div>
         <div class="term"><strong>Metadata</strong>: descriptive and technical information about files and objects.</div>
         <div class="term"><strong>Paradata</strong>: record of processing choices and assumptions.</div>
         <div class="term"><strong>Preservation master</strong>: highest quality retained version for long-term stewardship.</div>
         <div class="term"><strong>Access derivative</strong>: delivery copy made for public or classroom use.</div>
+        <div class="term"><strong>Print derivative</strong>: print-ready output such as 3MF, STL, or G-code generated from the model package.</div>
+        <div class="term"><strong>Fixity</strong>: evidence that files have not changed unexpectedly, usually tracked with checksums.</div>
+        <div class="term"><strong>Checksum</strong>: short hash value used to verify file integrity.</div>
+        <div class="term"><strong>Provenance</strong>: trace of where a file came from and how it changed through time.</div>
+        <div class="term"><strong>Version</strong>: numbered snapshot of a file or package at a specific point in work.</div>
+        <div class="term"><strong>Rights statement</strong>: legal status and ownership declaration applied to a digital asset.</div>
+        <div class="term"><strong>Access level</strong>: release status such as public, internal, or restricted.</div>
+        <div class="term"><strong>FAIR</strong>: principles that make data findable, accessible, interoperable, and reusable.</div>
+        <div class="term"><strong>CARE</strong>: principles emphasizing collective benefit, authority to control, responsibility, and ethics.</div>
         <div class="term"><strong>DOI</strong>: persistent identifier used for stable publication and citation.</div>
       </div>
     </section>

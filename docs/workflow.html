@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -16,7 +16,7 @@
     <section class="card start-here">
       <div>
         <div class="kicker"><strong>Start Here</strong> - Workflow map</div>
-        <p>Follow the full chain: <strong>Home -> Workflow -> Repository Setup -> Files -> Metadata -> Storage -> Policies -> Resources</strong>.</p>
+        <p>Follow the full chain: <strong>Home -> Workflow -> Repository Setup -> Files -> Metadata -> Storage -> Policies -> Resources -> In Practice</strong>.</p>
       </div>
       <div class="next">
         <span class="chip">Recommended path</span>
@@ -27,8 +27,7 @@
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
       <p>Provide a full project map so teams know what to do before scanning, during processing, and before publishing.</p>
-      <h2 style="margin-top:16px;">Where this fits</h2>
-      <p>This is the control page that connects all steps and defines the order of work.</p>
+      <p class="note">Use the same sequence for scan-based projects, born-digital models, and 3D print files.</p>
     </section>
 
     <section class="card">
@@ -38,7 +37,7 @@
         complete required work before moving forward.
       </p>
       <div class="callout">
-        <strong>Core rule:</strong> treat a 3D asset as a full package (geometry, materials, textures, and context), not one file.
+        <strong>Core rule:</strong> treat a 3D asset as a full package (geometry, textures, print settings, and context), not one file.
       </div>
 
       <h3>FAIR and CARE at workflow start</h3>
@@ -57,7 +56,7 @@
         <article class="track-step track-1"><a href="#pip-1"><strong>PIP 1</strong>After capture</a></article>
         <article class="track-step track-2"><a href="#pip-2"><strong>PIP 2</strong>Processing and preservation master</a></article>
         <article class="track-step track-3"><a href="#pip-3"><strong>PIP 3</strong>Access copies</a></article>
-        <article class="track-step track-4"><a href="#pip-4"><strong>PIP 4</strong>Storage, DOI setup, and maintenance</a></article>
+        <article class="track-step track-4"><a href="#pip-4"><strong>PIP 4</strong>Storage, policy checks, and maintenance</a></article>
       </div>
     </section>
 
@@ -103,7 +102,7 @@
       </div>
     </section>
 
-    <section class="card area" id="pip-0">
+    <section class="card area pip-0" id="pip-0">
       <h2>PIP 0 - Repository setup and before scanning</h2>
       <p class="note"><strong>Goal:</strong> establish structure, naming, rights, and metadata expectations before capture.</p>
       <ol class="steps">
@@ -120,11 +119,11 @@
       <div class="outcome"><strong>After this PIP you will have:</strong> a ready repository, a project ID, and clear governance before scan day.</div>
     </section>
 
-    <section class="card area" id="pip-1">
+    <section class="card area pip-1" id="pip-1">
       <h2>PIP 1 - After capture</h2>
       <p class="note"><strong>Goal:</strong> secure raw capture data and preserve capture context.</p>
       <ol class="steps">
-        <li>Copy raw captures into the project raw folder.</li>
+        <li>Copy raw captures into <code>01_raw_scans/</code>.</li>
         <li>Record device, settings, operator, and date.</li>
         <li>Update metadata with source file references.</li>
       </ol>
@@ -136,7 +135,7 @@
       <div class="outcome"><strong>After this PIP you will have:</strong> preserved raw data with enough context to trust and reuse it.</div>
     </section>
 
-    <section class="card area" id="pip-2">
+    <section class="card area pip-2" id="pip-2">
       <h2>PIP 2 - Processing and preservation master</h2>
       <p class="note"><strong>Goal:</strong> create and document a stable preservation master.</p>
       <ol class="steps">
@@ -152,7 +151,7 @@
       <div class="outcome"><strong>After this PIP you will have:</strong> a traceable preservation master that can be interpreted later.</div>
     </section>
 
-    <section class="card area" id="pip-3">
+    <section class="card area pip-3" id="pip-3">
       <h2>PIP 3 - Access copies</h2>
       <p class="note"><strong>Goal:</strong> produce delivery copies without changing preservation masters.</p>
       <ol class="steps">
@@ -168,13 +167,13 @@
       <div class="outcome"><strong>After this PIP you will have:</strong> usable public-facing outputs that do not risk your master files.</div>
     </section>
 
-    <section class="card area" id="pip-4">
-      <h2>PIP 4 - Storage, DOI setup, and maintenance</h2>
-      <p class="note"><strong>Goal:</strong> place files in reliable storage tiers and maintain publication records.</p>
+    <section class="card area pip-4" id="pip-4">
+      <h2>PIP 4 - Storage, policy checks, and maintenance</h2>
+      <p class="note"><strong>Goal:</strong> place files in reliable storage tiers, validate governance, and maintain publication records.</p>
       <ol class="steps">
         <li>Apply the three-copy model to preservation master files.</li>
         <li>Record storage locations for working, master, and access files.</li>
-        <li>Set DOI status and publish DOI when appropriate.</li>
+        <li>Set DOI status and confirm access/policy language before release.</li>
       </ol>
       <div class="tier">
         <div class="tier-col"><h4>Good</h4><ul><li>Master has working and backup copies.</li><li>DOI planning status is tracked.</li></ul></div>
@@ -192,22 +191,25 @@
       </div>
       <pre class="codeblock"><code id="workflow-full-template">$repo = ".\3D_Repository"
 $project = Join-Path $repo "Projects\ProjectName_ObjectID"
+$docs = Join-Path $project "documentation"
 
 New-Item -ItemType Directory -Path $repo,$project -Force | Out-Null
 New-Item -ItemType Directory -Path @(
   (Join-Path $repo "Projects"),
   (Join-Path $repo "Objects"),
   (Join-Path $repo "Metadata"),
-  (Join-Path $repo "Policies"),
-  (Join-Path $repo "Resources"),
-  (Join-Path $project "01_raw"),
+  (Join-Path $repo "Documentation"),
+  (Join-Path $repo "Preservation_Logs"),
+  (Join-Path $project "01_raw_scans"),
   (Join-Path $project "02_processing"),
   (Join-Path $project "03_preservation"),
-  (Join-Path $project "04_access")
+  (Join-Path $project "04_access"),
+  (Join-Path $project "print"),
+  $docs
 ) -Force | Out-Null
 
 @"
-object_id,title,project,capture_method,software_versions,rights,access_level,preservation_master,access_derivatives,storage_location,doi_status,doi_value,notes
+object_id,title,project,capture_method,software_versions,rights,access_level,preservation_master,access_derivatives,print_derivatives,storage_location,doi_status,doi_value,notes
 "@ | Set-Content (Join-Path $repo "Metadata\master_inventory.csv")
 
 @"
@@ -219,7 +221,7 @@ FAIR_NOTES:
 CARE_NOTES:
 DOI_STATUS: planned
 DOI_VALUE:
-"@ | Set-Content (Join-Path $project "metadata.txt")
+"@ | Set-Content (Join-Path $docs "metadata.txt")
 
 @"
 PROCESS_STEP:
@@ -227,7 +229,7 @@ TOOL_AND_VERSION:
 CHANGES_MADE:
 REASON:
 DATE:
-"@ | Set-Content (Join-Path $project "paradata.txt")
+"@ | Set-Content (Join-Path $docs "paradata.txt")
 
 @"
 ACCESS_LEVEL: internal
@@ -235,7 +237,7 @@ RIGHTS_STATEMENT:
 LICENSE:
 REUSE_CONDITIONS:
 SENSITIVITY_NOTES:
-"@ | Set-Content (Join-Path $project "policy.txt")
+"@ | Set-Content (Join-Path $docs "policy.txt")
 </code></pre>
     </section>
 

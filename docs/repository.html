@@ -15,7 +15,7 @@
     <section class="card start-here">
       <div>
         <div class="kicker"><strong>Start Here</strong> - Repository setup</div>
-        <p>After Workflow, this is your first implementation step.</p>
+        <p>After Workflow, this is your first implementation step for scan and print-ready assets.</p>
       </div>
       <div class="next">
         <span class="chip">You are on: Repository Setup</span>
@@ -26,67 +26,158 @@
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
       <p>Create a stable repository structure that can hold many projects over time.</p>
-      <h2 style="margin-top:16px;">Where this fits</h2>
-      <p>This step defines structure before detailed file naming, metadata entry, storage decisions, and policy publishing.</p>
+      <p class="note">Design once, then reuse the same pattern across heritage scans, born-digital models, and 3D print files.</p>
     </section>
 
     <section class="card area">
-      <h2>Repository-level structure (all projects)</h2>
+      <h2>Repository-level structure (all projects and object families)</h2>
       <p>
-        The repository-level structure is the organization for your full 3D program. It is not one project,
-        it is the container that holds all projects, shared metadata, shared policies, and shared references.
+        This is the full program container. It supports project-by-project work and object-type groupings used for
+        print-ready outputs and reused models.
       </p>
+      <h3>Blank template (starting point)</h3>
       <pre class="codeblock"><code>3D_Repository/
   Projects/
+    [Project_001]/
+    [Project_002]/
+
   Objects/
+    [Category_A]/
+      [Object_ID_001]/
+        preservation/
+        access/
+        print/
+        documentation/
+    [Category_B]/
+      [Object_ID_002]/
+
   Metadata/
     master_inventory.csv
-  Policies/
-  Resources/
+    project_registry.json
+
+  Documentation/
+    naming_conventions.txt
+    workflow_standards.txt
+
+  Preservation_Logs/
+    fixity_checksums_YYYY.txt
+    migration_records.txt
+</code></pre>
+
+      <h3>Common filled example</h3>
+      <pre class="codeblock"><code>3D_Repository/
+  Projects/
+    RiverSurvey_2026/
+    CampusSculpture_2026/
+    CommunityArchive_Phase1/
+
+  Objects/
+    Mechanical/
+      ValveHandle_A03/
+        preservation/
+          ValveHandle_A03_mesh_v03_pres.obj
+        access/
+          ValveHandle_A03_web_v01_access.glb
+        print/
+          ValveHandle_A03_printprep_v02_prn.3mf
+        documentation/
+          metadata.txt
+          paradata.txt
+          rights_and_access.txt
+    Scan_Derived/
+      StoneMarker_014/
+        preservation/
+        access/
+        print/
+        documentation/
+    Educational/
+      MoleculeModel_H2O/
+      Anatomy_Heart_v2/
+
+  Metadata/
+    master_inventory.csv
+    project_registry.json
+
+  Documentation/
+    naming_conventions.txt
+    workflow_standards.txt
+
+  Preservation_Logs/
+    fixity_checksums_2026.txt
+    migration_records.txt
 </code></pre>
 
       <h3>Purpose of each repository folder</h3>
       <ul>
-        <li><strong>Projects/</strong> stores each project working package by project ID.</li>
-        <li><strong>Objects/</strong> can store object-centric groupings across multiple projects.</li>
-        <li><strong>Metadata/</strong> stores cross-project inventory and lookup files.</li>
-        <li><strong>Policies/</strong> stores rights and access templates used by all projects.</li>
-        <li><strong>Resources/</strong> stores internal references, guides, and implementation notes.</li>
+        <li><strong>Projects/</strong> stores each initiative as a complete working package.</li>
+        <li><strong>Objects/</strong> groups reusable outputs by type (including print-oriented objects).</li>
+        <li><strong>Metadata/</strong> stores cross-project inventory and registry records.</li>
+        <li><strong>Documentation/</strong> stores local standards so teams apply the same rules each cycle.</li>
+        <li><strong>Preservation_Logs/</strong> stores fixity and migration history for long-term tracking.</li>
       </ul>
     </section>
 
     <section class="card area">
-      <h2>Project-level structure (one project)</h2>
+      <h2>Project-level hierarchy (scan or print focused)</h2>
       <p>
-        The project-level structure is for one specific scan effort. Every project should use the same structure so
-        staff can move between projects without relearning folder logic.
+        Use one repeatable hierarchy for every project so lifecycle stages remain clear and files stay traceable.
       </p>
+      <h3>Blank template (empty project)</h3>
       <pre class="codeblock"><code>ProjectName_ObjectID/
-  01_raw/
+  01_raw_scans/
   02_processing/
   03_preservation/
   04_access/
-  metadata.txt
-  paradata.txt
-  policy.txt
+  documentation/
+    metadata.txt
+    paradata.txt
+    rights_and_access.txt
+  print/
+    slicer_profile.txt
+    printer_notes.txt
+</code></pre>
+
+      <h3>Complete example (typical project)</h3>
+      <pre class="codeblock"><code>RiverSurvey_BridgePier_007/
+  01_raw_scans/
+    BridgePier_007_LiDAR_20260211_v01_raw.e57
+    BridgePier_007_photo_20260211_v01_raw.tif
+  02_processing/
+    BridgePier_007_registration_20260212_v01_proc.rcproj
+    BridgePier_007_mesh_clean_20260213_v02_proc.obj
+  03_preservation/
+    BridgePier_007_mesh_master_20260214_v03_pres.obj
+    BridgePier_007_texture_master_20260214_v03_pres.tif
+  04_access/
+    BridgePier_007_web_20260214_v01_access.glb
+    BridgePier_007_preview_20260214_v01_access.jpg
+  documentation/
+    metadata.txt
+    paradata.txt
+    rights_and_access.txt
+  print/
+    BridgePier_007_printprep_20260215_v01_prn.3mf
+    slicer_profile.txt
+    printer_notes.txt
 </code></pre>
 
       <h3>Purpose of each project folder</h3>
       <ul>
-        <li><strong>01_raw/</strong> source captures exactly as collected.</li>
-        <li><strong>02_processing/</strong> in-progress project files and intermediate outputs.</li>
-        <li><strong>03_preservation/</strong> finalized preservation master files.</li>
-        <li><strong>04_access/</strong> delivery copies for web, teaching, and outreach.</li>
+        <li><strong>01_raw_scans/</strong> raw captures or original downloaded files.</li>
+        <li><strong>02_processing/</strong> active edits and intermediate processing outputs.</li>
+        <li><strong>03_preservation/</strong> final preservation masters retained without overwrite.</li>
+        <li><strong>04_access/</strong> classroom, web, and outreach derivatives.</li>
+        <li><strong>print/</strong> 3MF/STL/G-code outputs plus print process notes.</li>
       </ul>
     </section>
 
     <section class="card area">
       <h2>Rules</h2>
       <ul>
-        <li>Every project must have one stable object/project ID.</li>
-        <li>Preservation files stay separate from access copies.</li>
-        <li>Metadata, paradata, and policy files stay in the project root so they are always visible.</li>
-        <li>Repository inventory tracks DOI status for each project.</li>
+        <li>Every project package uses one stable ID that is reused across scan, preservation, access, and print files.</li>
+        <li>Preservation files always stay separate from access and print-ready outputs.</li>
+        <li>Documentation files are required and updated at each major step.</li>
+        <li>Repository inventory tracks status, storage location, and publication readiness.</li>
       </ul>
     </section>
   </main>

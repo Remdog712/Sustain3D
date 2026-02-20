@@ -8,12 +8,13 @@
 
   --home: #ff8a3d;
   --workflow: #ffd166;
-  --repo: #5aa9ff;
-  --files: #4ea8de;
-  --metadata: #b38bfa;
+  --repo: #9b7bff;
+  --files: #ff6fae;
+  --metadata: #4ea8de;
   --storage: #66d19e;
-  --policies: #f29f67;
-  --resources: #8fd3ff;
+  --policies: #ff6b6b;
+  --resources: #b8895a;
+  --practice: #c8c2b2;
 }
 
 * { box-sizing: border-box; }
@@ -241,11 +242,17 @@ footer {
 .track-step a { color: var(--text); text-decoration: none; display: block; }
 .track-step a:hover strong { text-decoration: underline; }
 
-.track-0 { border-left: 5px solid #5aa9ff; }
-.track-1 { border-left: 5px solid #66d19e; }
-.track-2 { border-left: 5px solid #b38bfa; }
-.track-3 { border-left: 5px solid #f29f67; }
-.track-4 { border-left: 5px solid #8fd3ff; }
+.track-0 { border-left: 5px solid var(--repo); }
+.track-1 { border-left: 5px solid var(--files); }
+.track-2 { border-left: 5px solid var(--metadata); }
+.track-3 { border-left: 5px solid var(--storage); }
+.track-4 { border-left: 5px solid var(--policies); }
+
+.track-0 strong { color: var(--repo); }
+.track-1 strong { color: var(--files); }
+.track-2 strong { color: var(--metadata); }
+.track-3 strong { color: var(--storage); }
+.track-4 strong { color: var(--policies); }
 
 .checklist-block {
   border: 1px solid var(--border);
@@ -342,6 +349,24 @@ footer {
 
 .term strong { color: var(--page-accent, var(--accent)); }
 
+.area[class*="pip-"] {
+  border-left-color: var(--section-accent, var(--page-accent, var(--accent)));
+}
+
+.area[class*="pip-"] h4 {
+  color: var(--section-accent, var(--page-accent, var(--accent)));
+}
+
+.area[class*="pip-"] .outcome {
+  border-left-color: var(--section-accent, var(--page-accent, var(--accent)));
+}
+
+.area.pip-0 { --section-accent: var(--repo); }
+.area.pip-1 { --section-accent: var(--files); }
+.area.pip-2 { --section-accent: var(--metadata); }
+.area.pip-3 { --section-accent: var(--storage); }
+.area.pip-4 { --section-accent: var(--policies); }
+
 body.page-home { --page-accent: var(--home); }
 body.page-workflow { --page-accent: var(--workflow); }
 body.page-repo { --page-accent: var(--repo); }
@@ -350,6 +375,7 @@ body.page-metadata { --page-accent: var(--metadata); }
 body.page-storage { --page-accent: var(--storage); }
 body.page-policies { --page-accent: var(--policies); }
 body.page-resources { --page-accent: var(--resources); }
+body.page-practice { --page-accent: var(--practice); }
 
 @media (max-width: 1000px) {
   .workflow-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
