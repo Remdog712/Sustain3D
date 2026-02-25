@@ -21,8 +21,12 @@
 
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
-      <p>Create a stable repository structure that can hold many projects over time.</p>
-      <p class="note">Design once, then reuse the same pattern across heritage scans, born-digital models, and 3D print files.</p>
+      <p>Create a stable structure that separates repository-wide program management from project-by-project working folders, while keeping naming, documentation, and long-term stewardship consistent.</p>
+    </section>
+
+    <section class="card area">
+      <h2>Repository level vs project level</h2>
+      <p><strong>Repository-level structure</strong> stores shared program components such as object groupings, metadata standards, and governance documentation across many projects. <strong>Project-level structure</strong> stores one project package from raw capture through access outputs. Together they keep institution-wide continuity while preserving clear project context.</p>
     </section>
 
     <section class="card area example-box">
@@ -48,7 +52,6 @@
       [Object_ID_002]/
 
   Metadata/
-    master_inventory.csv
     project_registry.json
 
   Documentation/
@@ -56,7 +59,7 @@
     workflow_standards.txt
 
   Preservation_Logs/
-    fixity_checksums_YYYY.txt
+    integrity_review_log_YYYY.txt
     migration_records.txt
 </code></pre>
 
@@ -91,7 +94,6 @@
       Anatomy_Heart_v2/
 
   Metadata/
-    master_inventory.csv
     project_registry.json
 
   Documentation/
@@ -99,7 +101,7 @@
     workflow_standards.txt
 
   Preservation_Logs/
-    fixity_checksums_2026.txt
+    integrity_review_log_2026.txt
     migration_records.txt
 </code></pre>
 
@@ -109,7 +111,7 @@
         <li><strong>Objects/</strong> groups reusable outputs by type (including print-oriented objects).</li>
         <li><strong>Metadata/</strong> stores cross-project inventory and registry records.</li>
         <li><strong>Documentation/</strong> stores local standards so teams apply the same rules each cycle.</li>
-        <li><strong>Preservation_Logs/</strong> stores fixity and migration history for long-term tracking.</li>
+        <li><strong>Preservation_Logs/</strong> stores integrity review and migration history for long-term tracking.</li>
       </ul>
     </section>
 

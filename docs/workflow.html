@@ -21,58 +21,12 @@
 
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
-      <p>Use this page as the full project runbook from setup through publication so you can complete one project without jumping across pages.</p>
-      <p class="note">Deep-dive pages still exist, but this page now gives the complete sequence in one place.</p>
+      <p>Use this page as a single runbook that introduces the PIP phases, provides a project checklist, and gives practical Good/Better/Best targets for each phase from setup to long-term maintenance.</p>
     </section>
 
     <section class="card area">
-      <h2>Step-by-step guide (primary path)</h2>
-      <div class="workflow-guide">
-        <article>
-          <strong>Step 1 - Build repository and project structure (PIP 0)</strong>
-          <p>Create repository folders, project folders, and required documentation files before any scanning.</p>
-          <p class="note">Deep dive: <a href="./repository.html">Repository Setup</a></p>
-        </article>
-        <article>
-          <strong>Step 2 - Assign object IDs and naming rules (PIP 0)</strong>
-          <p>Set one object ID pattern for all raw, processing, preservation, access, and print outputs.</p>
-          <p class="note">Deep dive: <a href="./files.html">Files</a></p>
-        </article>
-        <article>
-          <strong>Step 3 - Capture and ingest raw files (PIP 1)</strong>
-          <p>Copy raw scans/photos immediately into the raw folder and do not overwrite originals.</p>
-          <p class="note">Record capture date, operator, and device context in the same session.</p>
-        </article>
-        <article>
-          <strong>Step 4 - Log metadata and paradata as work happens (PIP 1-2)</strong>
-          <p>Write source file references, software versions, and major decisions while processing is fresh.</p>
-          <p class="note">Deep dive: <a href="./metadata.html">Metadata</a></p>
-        </article>
-        <article>
-          <strong>Step 5 - Export and protect the preservation master (PIP 2)</strong>
-          <p>Keep the highest-quality stable model in preservation storage and retain key intermediate milestones.</p>
-          <p class="note">Do not replace this master with access files.</p>
-        </article>
-        <article>
-          <strong>Step 6 - Produce access and print derivatives (PIP 3)</strong>
-          <p>Generate web/teaching copies and optional print files as separate derivatives linked to the same object ID.</p>
-          <p class="note">Deep dive: <a href="./files.html">Files</a></p>
-        </article>
-        <article>
-          <strong>Step 7 - Store three copies and verify integrity (PIP 4)</strong>
-          <p>Place files in working, preservation, and independent backup locations with routine checksum checks.</p>
-          <p class="note">Deep dive: <a href="./storage.html">Storage</a></p>
-        </article>
-        <article>
-          <strong>Step 8 - Confirm rights, policies, and DOI status (PIP 4)</strong>
-          <p>Finalize access level, rights statement, reuse terms, sensitivity notes, and DOI tracking before release.</p>
-          <p class="note">Deep dive: <a href="./policies.html">Policies</a></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="card example-box">
       <h2>All PIPs at a glance</h2>
+      <p><strong>PIP</strong> means Preservation Intervention Point: a specific stage where key preservation decisions should be made and documented.</p>
       <div class="workflow-track">
         <article class="track-step track-0"><a href="#pip-0"><strong>PIP 0</strong>Repository setup and before scanning</a></article>
         <article class="track-step track-1"><a href="#pip-1"><strong>PIP 1</strong>After capture</a></article>
@@ -231,35 +185,72 @@ New-Item -ItemType Directory -Path @(
 ) -Force | Out-Null
 
 @"
-object_id,title,project,capture_method,software_versions,rights,access_level,preservation_master,access_derivatives,print_derivatives,storage_location,doi_status,doi_value,notes
-"@ | Set-Content (Join-Path $repo "Metadata\master_inventory.csv")
-
-@"
 OBJECT_ID: ProjectName_ObjectID
 TITLE:
-RIGHTS_STATUS:
+CREATOR_OR_OPERATOR:
+DATE_CREATED:
+PHYSICAL_OBJECT_OR_SITE:
+CAPTURE_METHOD:
+DEVICE_LIST:
+SOFTWARE_VERSIONS:
+UNITS_AND_SCALE:
+SOURCE_FILES:
+PRESERVATION_MASTER:
+ACCESS_DERIVATIVES:
+PRINT_DERIVATIVES:
+RIGHTS:
 ACCESS_LEVEL:
-FAIR_NOTES:
-CARE_NOTES:
+STORAGE_LOCATION:
 DOI_STATUS: planned
 DOI_VALUE:
+PARADATA_SUMMARY:
 "@ | Set-Content (Join-Path $docs "metadata.txt")
 
 @"
 PROCESS_STEP:
 TOOL_AND_VERSION:
-CHANGES_MADE:
-REASON:
+CHANGE_MADE:
+WHY_IT_WAS_DONE:
 DATE:
 "@ | Set-Content (Join-Path $docs "paradata.txt")
 
 @"
-ACCESS_LEVEL: internal
-RIGHTS_STATEMENT:
-LICENSE:
-REUSE_CONDITIONS:
-SENSITIVITY_NOTES:
-"@ | Set-Content (Join-Path $docs "policy.txt")
+POLICY DOCUMENT - 3D PROJECT
+
+PROJECT_ID:
+OBJECT_ID: ProjectName_ObjectID
+PROJECT_TITLE:
+DATE:
+REVIEWER:
+
+1) ACCESS LEVEL
+public | internal | restricted
+Reason:
+
+2) RIGHTS STATUS
+copyrighted | public domain | unknown
+Rights statement or URI:
+License (if used):
+
+3) REUSE CONDITIONS
+Allowed uses:
+Restricted uses:
+Required attribution:
+
+4) CARE AND SENSITIVITY NOTES
+Community authority notes:
+Cultural restrictions:
+Handling guidance:
+
+5) PUBLICATION RECORD
+DOI status: planned | reserved | published
+DOI value:
+Landing page URL:
+
+6) REVIEW CYCLE
+Next review date:
+Owner:
+"@ | Set-Content (Join-Path $docs "rights_and_access.txt")
 </code></pre>
     </section>
   </main>

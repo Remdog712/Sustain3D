@@ -41,7 +41,8 @@ header {
 .header-row { display: flex; gap: 14px; align-items: center; padding: 16px 0; }
 .logo { width: 44px; height: 44px; object-fit: contain; }
 h1 { margin: 0; font-size: 20px; }
-header p { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+header h1 { color: #fff; }
+header p { margin: 2px 0 0; color: #d5dde7; font-size: 14px; }
 
 nav { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 0 14px; }
 nav a {
@@ -149,6 +150,10 @@ footer {
   padding: 18px 0;
   color: var(--muted);
   font-size: 14px;
+}
+
+footer a {
+  color: var(--text);
 }
 
 .start-here {
@@ -350,7 +355,7 @@ footer {
 .goal-banner {
   border: 1px solid rgba(0,0,0,.28);
   background: var(--page-accent, var(--accent));
-  color: #151515;
+  color: #111;
 }
 
 .goal-banner h1,
@@ -358,10 +363,21 @@ footer {
 .goal-banner p,
 .goal-banner .note,
 .goal-banner code {
-  color: #151515;
+  color: #111;
 }
 
 .goal-banner .note { opacity: .86; }
+
+.goal-banner a {
+  color: #111;
+  text-decoration-color: rgba(17,17,17,.6);
+}
+
+.goal-banner a:hover,
+.goal-banner a:focus-visible {
+  color: #fff;
+  text-decoration-color: #fff;
+}
 
 .goal-banner .btn {
   background: #111;
@@ -467,12 +483,6 @@ footer {
   margin-bottom: 6px;
   color: var(--muted);
   font-size: 15px;
-}
-
-.sources-lowkey p {
-  margin: 0 0 8px;
-  color: var(--muted);
-  font-size: 13px;
 }
 
 .sources-lowkey ul {

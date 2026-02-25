@@ -21,76 +21,117 @@
 
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
-      <p>Set a file and folder structure that stays understandable when one machine has multiple parts, unknown components, and assembly relationships.</p>
-      <p class="note">Use these patterns so parts remain independently preservable while the full assembly stays reconstructable.</p>
+      <p>Set durable naming, structure, and file-format rules so preservation masters, access copies, and print derivatives stay understandable, reusable, and sustainable over time.</p>
     </section>
 
     <section class="card area">
-      <h2>1) Choose the structural model</h2>
-      <p>You have two valid structural models:</p>
+      <h2>1) How this page is organized</h2>
+      <p>Use the sections in this order when planning file structures for a new 3D project:</p>
+      <ol class="steps">
+        <li>Basic naming conventions.</li>
+        <li>Characteristics of sustainable 3D file types.</li>
+        <li>Common mesh and point-cloud formats.</li>
+        <li>How preservation, access, and print file roles differ.</li>
+        <li>What to do when you do not know the name yet.</li>
+        <li>How to choose the structural model.</li>
+        <li>When to use project versus object structure.</li>
+        <li>Recommended object-with-parts structure, including part naming and assembly relationships.</li>
+        <li>Clean rules summary.</li>
+      </ol>
+    </section>
+
+    <section class="card area">
+      <h2>2) Basic naming conventions</h2>
+      <p>Use stable, descriptive names that include object identity, part identity (if needed), and version stage.</p>
+      <pre class="codeblock"><code>[ObjectID]_[PartOrView]_[YYYYMMDD]_v[##]_[stage].[ext]
+WaterPump_001_P01_Impeller_20260220_v01_raw.tif
+WaterPump_001_master_assembly_20260224_v03_pres.obj
+WaterPump_001_web_20260224_v01_access.glb
+</code></pre>
+      <p class="note">Keep names machine-sortable and avoid spaces or punctuation that can break scripts.</p>
+    </section>
+
+    <section class="card area">
+      <h2>3) Characteristics of sustainable 3D file types</h2>
+      <p>
+        Long-term preservation depends on format qualities, not short-term popularity. Guidance from organizations such as the
+        <a href="https://www.loc.gov/preservation/digital/formats/sustain/sustain.shtml" target="_blank" rel="noreferrer">Library of Congress</a>
+        and
+        <a href="https://library.duke.edu/using/policies/recommended-file-formats-digital-preservation" target="_blank" rel="noreferrer">Duke Libraries</a>
+        prioritizes formats that remain readable across tools and over time.
+      </p>
+      <ul>
+        <li><strong>Open and documented:</strong> technical specifications are publicly available.</li>
+        <li><strong>Transparent:</strong> structure and content can be inspected without one vendor's software.</li>
+        <li><strong>Widely supported:</strong> multiple independent tools can open and convert the format.</li>
+        <li><strong>Low dependency:</strong> long-term access does not require fragile hardware or discontinued platforms.</li>
+        <li><strong>Migration-friendly:</strong> geometry, texture, units, and context can be moved without major data loss.</li>
+      </ul>
+    </section>
+
+    <section class="card area">
+      <h2>4) Common 3D file formats and where they fit</h2>
+      <p>No single format covers every need. Use different formats for mesh fidelity, point-cloud preservation, access delivery, and print production.</p>
+
+      <h3>Mesh formats</h3>
+      <ul>
+        <li><strong>OBJ (+MTL):</strong> widely supported and human-readable for geometry; texture/material sidecar files must stay linked.</li>
+        <li><strong>PLY:</strong> strong for geometry plus per-vertex attributes; limited scene/material standardization.</li>
+        <li><strong>STL:</strong> triangle geometry only; useful for fabrication, but weak as a sole preservation format.</li>
+        <li><strong>USD:</strong> powerful for complex scene pipelines and versioned assets; higher implementation complexity.</li>
+        <li><strong>glTF/GLB:</strong> optimized for fast runtime delivery and web viewing, not archival master retention.</li>
+      </ul>
+
+      <h3>Point cloud formats</h3>
+      <ul>
+        <li><strong>E57:</strong> open format suited for LiDAR/laser-scan preservation with structured scan metadata.</li>
+        <li><strong>XYZ:</strong> simple coordinate exchange, but minimal embedded context and metadata.</li>
+        <li><strong>HDF5:</strong> scalable container for very large research datasets, with higher technical complexity.</li>
+      </ul>
+    </section>
+
+    <section class="card area">
+      <h2>5) Preservation masters vs access copies vs print files</h2>
+      <p>Preservation and delivery have different goals. Keep a master-plus-derivative workflow and retain original scan data whenever possible.</p>
       <div class="tier">
         <article class="tier-col">
-          <h3>Object-centric</h3>
-          <p>Best when the machine itself is the long-term intellectual object you care about.</p>
+          <h3>Preservation master</h3>
+          <ul>
+            <li>Prioritize completeness and highest practical quality.</li>
+            <li>Typical formats: OBJ/PLY for meshes, E57 for point clouds, plus lossless textures.</li>
+            <li>Keep raw scan outputs and processing context alongside the master.</li>
+          </ul>
         </article>
         <article class="tier-col">
-          <h3>Project-centric</h3>
-          <p>Best for documenting workflow context for one campaign, survey, or time-bounded initiative.</p>
+          <h3>Access copy</h3>
+          <ul>
+            <li>Prioritize compatibility and performance for teaching/web reuse.</li>
+            <li>Typical formats: GLB/glTF or USDZ.</li>
+            <li>Generated from masters; never replace the master file set.</li>
+          </ul>
+        </article>
+        <article class="tier-col">
+          <h3>Print derivative</h3>
+          <ul>
+            <li>Prioritize manufacturability and slicer compatibility.</li>
+            <li>Typical formats: STL or 3MF, with print notes/profile context.</li>
+            <li>Treat print outputs as derivatives, not preservation authorities.</li>
+          </ul>
         </article>
       </div>
-      <p class="note">For complex machines, use both: project structure for workflow and object structure for durable identity.</p>
-    </section>
-
-    <section class="card area example-box">
-      <h2>2) Recommended structure: object with parts subfolder</h2>
-      <p>If the machine is the intellectual "thing" you care about long-term, keep it as a parent object with child parts.</p>
-      <pre class="codeblock"><code>Objects/
-  Mechanical/
-    WaterPump_001/
-      assembly/
-        WaterPump_001_master_assembly_v01.pres.obj
-        assembly_metadata.txt
-      parts/
-        WP001_P01_Impeller/
-        WP001_P02_Housing/
-        WP001_P03_Shaft/
-      documentation/
-        metadata.txt
-        paradata.txt
-        rights_and_access.txt
-</code></pre>
-      <h3>Each part uses the same internal structure</h3>
-      <pre class="codeblock"><code>WP001_P01_Impeller/
-  01_raw/
-  02_processing/
-  03_preservation/
-  04_access/
-  documentation/
-</code></pre>
-      <h3>Why this works</h3>
+      <div class="callout">
+        Obsolescence risk comes from missing context as much as missing files. Record units, coordinate systems, software versions, and key export decisions.
+      </div>
+      <h3>Obsolescence risks to monitor</h3>
       <ul>
-        <li>The machine is a parent object.</li>
-        <li>Parts are child objects.</li>
-        <li>Each part remains independently preservable.</li>
-        <li>The assembly model defines how parts fit together.</li>
-      </ul>
-    </section>
-
-    <section class="card area">
-      <h2>3) Naming convention for parts</h2>
-      <p>Use a consistent part code:</p>
-      <pre class="codeblock"><code>WaterPump_001_P01_Impeller
-WaterPump_001_P02_Housing
-</code></pre>
-      <p>Pattern: <code>[ParentID]_P[##]_[PartName]</code></p>
-      <ul>
-        <li>If order matters physically, use sequential numbering.</li>
-        <li>If order does not matter, use functional labels.</li>
+        <li>Files survive in storage but become unusable because required software or plugins are no longer available.</li>
+        <li>Geometry remains but textures, material files, or coordinate context are separated or undocumented.</li>
+        <li>Teams lose track of why files were retained, which copy is authoritative, or how derivatives were produced.</li>
       </ul>
     </section>
 
     <section class="card area example-box">
-      <h2>4) What if you do not know the name?</h2>
+      <h2>6) What if you do not know the name?</h2>
       <p>Never invent a false authoritative name. Use a placeholder you can defend.</p>
       <h3>Option A - Descriptive placeholder</h3>
       <pre class="codeblock"><code>InsectSpecimen_045_unknown_wing_fragment
@@ -114,15 +155,77 @@ date_identified: 2026-02-20
       <p class="note"><strong>Key rule:</strong> file names describe what you know. Metadata describes uncertainty.</p>
     </section>
 
+    <section class="card area">
+      <h2>7) Choose the structural model</h2>
+      <p>You have two valid structural models:</p>
+      <div class="tier">
+        <article class="tier-col">
+          <h3>Object-centric</h3>
+          <p>Best when the machine itself is the long-term intellectual object you care about.</p>
+        </article>
+        <article class="tier-col">
+          <h3>Project-centric</h3>
+          <p>Best for documenting workflow context for one campaign, survey, or time-bounded initiative.</p>
+        </article>
+      </div>
+      <p class="note">For complex machines, use both: project structure for workflow and object structure for durable identity.</p>
+    </section>
+
+    <section class="card area">
+      <h2>8) When to use project vs object structure</h2>
+      <p>If the machine is scanned within a larger survey, keep both contexts:</p>
+      <pre class="codeblock"><code>Projects/
+  FactorySurvey_2026/
+    Machine_12_WaterPump/
+
+Objects/
+  Mechanical/
+    WaterPump_001/
+</code></pre>
+      <ul>
+        <li><strong>Projects</strong> document workflow context and campaign activity.</li>
+        <li><strong>Objects</strong> document long-term intellectual identity.</li>
+      </ul>
+      <p class="note">Do not collapse these into one folder tree. That usually breaks long-term usability.</p>
+    </section>
+
     <section class="card area example-box">
-      <h2>5) Representing how parts fit together (critical)</h2>
+      <h2>9) Recommended structure: object with parts subfolder</h2>
+      <p>If the machine is the intellectual "thing" you care about long-term, keep it as a parent object with child parts.</p>
+      <pre class="codeblock"><code>Objects/
+  Mechanical/
+    WaterPump_001/
+      assembly/
+        WaterPump_001_master_assembly_v01.pres.obj
+        assembly_metadata.txt
+      parts/
+        WP001_P01_Impeller/
+        WP001_P02_Housing/
+        WP001_P03_Shaft/
+      documentation/
+        metadata.txt
+        paradata.txt
+        rights_and_access.txt
+</code></pre>
+      <h3>Naming convention for parts</h3>
+      <p>Use a consistent part code:</p>
+      <pre class="codeblock"><code>WaterPump_001_P01_Impeller
+WaterPump_001_P02_Housing
+</code></pre>
+      <p>Pattern: <code>[ParentID]_P[##]_[PartName]</code></p>
+      <ul>
+        <li>If order matters physically, use sequential numbering.</li>
+        <li>If order does not matter, use functional labels.</li>
+      </ul>
+
+      <h3>Representing how parts fit together</h3>
       <p>File structure alone is not enough. You need structural hierarchy, assembly metadata, and relationship documentation.</p>
-      <h3>A. Assembly folder in parent object</h3>
+      <h4>A) Assembly folder in parent object</h4>
       <pre class="codeblock"><code>assembly/
   WaterPump_001_master_assembly_v01.pres.obj
   assembly_relationships.json
 </code></pre>
-      <h3>B. Relationship metadata (recommended)</h3>
+      <h4>B) Relationship metadata (recommended)</h4>
       <pre class="codeblock"><code>{
   "parent_object": "WaterPump_001",
   "parts": [
@@ -140,7 +243,7 @@ date_identified: 2026-02-20
   ]
 }
 </code></pre>
-      <h3>C. Cross-reference inside each part metadata</h3>
+      <h4>C) Cross-reference inside each part metadata</h4>
       <pre class="codeblock"><code>parent_object: WaterPump_001
 part_number: P01
 assembly_position: internal rotating component
@@ -150,85 +253,15 @@ fits_with: WP001_P03_Shaft
     </section>
 
     <section class="card area">
-      <h2>6) When to use project vs object structure</h2>
-      <p>If the machine is scanned within a larger survey, keep both contexts:</p>
-      <pre class="codeblock"><code>Projects/
-  FactorySurvey_2026/
-    Machine_12_WaterPump/
-
-Objects/
-  Mechanical/
-    WaterPump_001/
-</code></pre>
-      <ul>
-        <li><strong>Projects</strong> document workflow context and campaign activity.</li>
-        <li><strong>Objects</strong> document long-term intellectual identity.</li>
-      </ul>
-      <p class="note">Do not collapse these into one folder tree. That usually breaks long-term usability.</p>
-    </section>
-
-    <section class="card area">
-      <h2>7) Clean rules summary</h2>
+      <h2>10) Clean rules summary</h2>
       <ol class="steps">
+        <li>Keep original capture outputs and preservation masters separate from access and print derivatives.</li>
         <li>Every physical thing gets one object folder.</li>
         <li>Every removable or distinct component gets a child object folder.</li>
         <li>Assemblies define relationships, not filenames.</li>
         <li>Unknown components use placeholders plus documented uncertainty.</li>
         <li>Projects record workflow; objects record long-term identity.</li>
       </ol>
-    </section>
-
-    <section class="card template-kit">
-      <h2>Copy-ready templates for multi-part machines</h2>
-      <p>Use these commands to scaffold parent object, part folders, and relationship files quickly.</p>
-
-      <h3>Create parent object with part folders</h3>
-      <div class="template-actions">
-        <button class="btn secondary" type="button" data-copy-target="files-machine-template">Copy machine structure command</button>
-      </div>
-      <pre class="codeblock"><code id="files-machine-template">$base = ".\3D_Repository\Objects\Mechanical\WaterPump_001"
-New-Item -ItemType Directory -Path @(
-  $base,
-  (Join-Path $base "assembly"),
-  (Join-Path $base "parts\WP001_P01_Impeller"),
-  (Join-Path $base "parts\WP001_P02_Housing"),
-  (Join-Path $base "parts\WP001_P03_Shaft"),
-  (Join-Path $base "documentation")
-) -Force | Out-Null
-
-New-Item -ItemType File -Path @(
-  (Join-Path $base "assembly\assembly_relationships.json"),
-  (Join-Path $base "documentation\metadata.txt"),
-  (Join-Path $base "documentation\paradata.txt"),
-  (Join-Path $base "documentation\rights_and_access.txt")
-) -Force | Out-Null
-</code></pre>
-
-      <h3>Create standard internal folders for one part</h3>
-      <div class="template-actions">
-        <button class="btn secondary" type="button" data-copy-target="files-part-template">Copy part structure command</button>
-      </div>
-      <pre class="codeblock"><code id="files-part-template">$part = ".\3D_Repository\Objects\Mechanical\WaterPump_001\parts\WP001_P01_Impeller"
-New-Item -ItemType Directory -Path @(
-  (Join-Path $part "01_raw"),
-  (Join-Path $part "02_processing"),
-  (Join-Path $part "03_preservation"),
-  (Join-Path $part "04_access"),
-  (Join-Path $part "documentation")
-) -Force | Out-Null
-
-@"
-parent_object: WaterPump_001
-part_number: P01
-assembly_position:
-fits_with:
-identified_as:
-suspected_function:
-confidence_level:
-identified_by:
-date_identified:
-"@ | Set-Content (Join-Path $part "documentation\metadata.txt")
-</code></pre>
     </section>
   </main>
 

@@ -15,8 +15,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     "print derivative": "term-print-derivative",
     "print derivatives": "term-print-derivative",
     fixity: "term-fixity",
-    checksum: "term-checksum",
-    checksums: "term-checksum",
     provenance: "term-provenance",
     version: "term-version",
     versions: "term-version",
@@ -47,6 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       { label: "Open Preservation - Preserving 3D Scans", url: "https://openpreservation.org/blogs/preserving-3d-scans-a-journey/" }
     ],
     "page-files": [
+      { label: "Harvard Medical School - File Naming Conventions", url: "https://datamanagement.hms.harvard.edu/plan-design/file-naming-conventions" },
       { label: "Library of Congress - Sustainability of Digital Formats", url: "https://www.loc.gov/preservation/digital/formats/sustain/sustain.shtml" },
       { label: "Khronos - glTF Overview", url: "https://www.khronos.org/gltf/" },
       { label: "Library of Congress - STL Format Description", url: "https://www.loc.gov/preservation/digital/formats/fdd/fdd000504.shtml" }
@@ -104,7 +103,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const footerFallback = `<footer>
   <div class="wrap">
-    <span>&copy; <span id="year"></span> Sustain 3D</span>
+    <span>&copy; <span id="year"></span> Sustain 3D - Licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">Creative Commons CC0 1.0 Universal</a></span>
   </div>
 </footer>`;
 
@@ -210,6 +209,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!main || main.querySelector(".sources-lowkey")) return;
     const pageClass = Array.from(document.body.classList).find((name) => name.startsWith("page-"));
     if (!pageClass || !pageSources[pageClass]) return;
+    if (pageClass === "page-resources") return;
 
     const sourceList = pageSources[pageClass]
       .map((item) => `<li><a href="${item.url}" target="_blank" rel="noreferrer">${item.label}</a></li>`)
@@ -217,8 +217,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const section = document.createElement("section");
     section.className = "card sources-lowkey";
     section.innerHTML = `
-      <h2>Sources (from thesis work)</h2>
-      <p>Low-key reference links used to inform this page.</p>
+      <h2>Sources</h2>
       <ul>${sourceList}</ul>
     `;
     main.appendChild(section);

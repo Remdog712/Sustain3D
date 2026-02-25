@@ -21,8 +21,7 @@
 
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
-      <p>Capture enough context that another person can understand, evaluate, and reuse the 3D model package.</p>
-      <p class="note">Keep metadata light but complete enough to support reuse, preservation, and 3D print replication.</p>
+      <p>Capture enough descriptive and process context to support interpretation, reuse, and stewardship by documenting identifiers, workflow decisions, rights, storage location, and publication status.</p>
     </section>
 
     <section class="card area">
@@ -92,10 +91,7 @@ PARADATA_SUMMARY: removed turntable, filled two minor holes, reduced texture fro
       <div class="template-actions">
         <button class="btn secondary" type="button" data-copy-target="metadata-template-command">Copy metadata command</button>
       </div>
-      <pre class="codeblock"><code id="metadata-template-command">$project = ".\3D_Repository\Projects\ProjectName_ObjectID"
-$docs = Join-Path $project "documentation"
-New-Item -ItemType Directory -Path $docs -Force | Out-Null
-@"
+      <pre class="codeblock"><code id="metadata-template-command">@"
 OBJECT_ID:
 TITLE:
 CREATOR_OR_OPERATOR:
@@ -115,7 +111,7 @@ STORAGE_LOCATION:
 DOI_STATUS: planned
 DOI_VALUE:
 PARADATA_SUMMARY:
-"@ | Set-Content (Join-Path $docs "metadata.txt")
+"@ | Set-Content ".\metadata.txt"
 
 @"
 PROCESS_STEP:
@@ -123,17 +119,7 @@ TOOL_AND_VERSION:
 CHANGE_MADE:
 WHY_IT_WAS_DONE:
 DATE:
-"@ | Set-Content (Join-Path $docs "paradata.txt")
-</code></pre>
-
-      <h3>Create repository inventory with headers</h3>
-      <div class="template-actions">
-        <button class="btn secondary" type="button" data-copy-target="metadata-csv-command">Copy inventory command</button>
-      </div>
-      <pre class="codeblock"><code id="metadata-csv-command">$csv = ".\3D_Repository\Metadata\master_inventory.csv"
-@"
-object_id,title,project,capture_method,software_versions,rights,access_level,preservation_master,access_derivatives,print_derivatives,storage_location,doi_status,doi_value,notes
-"@ | Set-Content $csv
+"@ | Set-Content ".\paradata.txt"
 </code></pre>
     </section>
   </main>

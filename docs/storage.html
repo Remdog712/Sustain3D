@@ -21,75 +21,144 @@
 
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
-      <p>Place preservation masters and access files in clear storage tiers with routine copies and DOI tracking.</p>
-      <p class="note">Keep this practical: focus on copy locations, verification, and clear documentation.</p>
+      <p>Build a storage strategy that combines local, cloud, and repository options with clear governance, documentation, and sustainability planning so 3D assets remain accessible over time.</p>
     </section>
 
     <section class="card area">
-      <h2>1) Storage tiers and what belongs in each</h2>
-      <ul>
-        <li><strong>Working tier</strong>: in-progress files used for daily editing.</li>
-        <li><strong>Preservation tier</strong>: preservation masters kept as controlled long-term copies.</li>
-        <li><strong>Access tier</strong>: public or instructional derivatives used for delivery.</li>
-        <li><strong>Print tier</strong>: optional print-ready outputs (3MF/STL/G-code) and print notes.</li>
-      </ul>
-      <div class="callout">
-        Apply three copies first to preservation masters, then to other tiers as capacity allows.
-      </div>
-    </section>
-
-    <section class="card area">
-      <h2>2) Storage types (practical model)</h2>
-      <ul>
-        <li><strong>Local working storage</strong> for active editing and processing.</li>
-        <li><strong>Preservation storage</strong> for controlled master files.</li>
-        <li><strong>Off-site or independent backup</strong> for redundancy and risk reduction.</li>
-        <li><strong>Repository publication storage</strong> for shared access copies and DOI landing records.</li>
-      </ul>
-    </section>
-
-    <section class="card area">
-      <h2>3) How to copy data safely</h2>
-      <ol class="steps">
-        <li>Copy from working tier to preservation and backup tiers on a fixed schedule.</li>
-        <li>Verify that copied files open and, when possible, run checksum comparison.</li>
-        <li>Record each copy destination in project metadata and repository inventory.</li>
-        <li>Do not replace preservation masters with access files.</li>
-      </ol>
-    </section>
-
-    <section class="card area">
-      <h2>4) DOI setup in storage workflow</h2>
-      <ul>
-        <li>Set <code>doi_status</code> as planned during setup.</li>
-        <li>Set <code>doi_status</code> as reserved when a repository reserves an identifier.</li>
-        <li>Set <code>doi_status</code> as published and fill <code>doi_value</code> after release.</li>
-        <li>Store the DOI landing page URL in project metadata and policy records.</li>
-      </ul>
-    </section>
-
-    <section class="card example-box">
-      <h2>5) Good / Better / Best</h2>
+      <h2>1) Storage tiers and stewardship responsibilities</h2>
+      <p>Preservation is an ongoing lifecycle activity. Separate working files from preservation masters and access copies, and document who is responsible for each storage tier.</p>
       <div class="tier">
         <div class="tier-col">
           <h4>Good</h4>
           <ul>
-            <li>Preservation master stored in working + one backup location.</li>
-            <li>DOI tracked as planned.</li>
+            <li>Working, preservation, and access tiers are clearly separated.</li>
+            <li>One owner is assigned for storage updates.</li>
           </ul>
         </div>
         <div class="tier-col">
           <h4>Better</h4>
           <ul>
-            <li>Preservation master stored in working + local backup + offsite location.</li>
-            <li>DOI reserved before publication.</li>
+            <li>Tier responsibilities are documented in policy and metadata records.</li>
+            <li>Review dates are scheduled.</li>
           </ul>
         </div>
         <div class="tier-col">
           <h4>Best</h4>
           <ul>
-            <li>Copy workflow is scheduled and reviewed.</li>
-            <li>Published DOI and access record are validated regularly.</li>
+            <li>Roles, workflows, and escalation paths are formally maintained.</li>
+            <li>Storage decisions are reviewed as part of routine governance cycles.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card area">
+      <h2>2) Local storage options</h2>
+      <p>Local options include external drives, lab servers, and departmental network shares. They support active work but carry risks from media failure, obsolescence, and inconsistent backup behavior.</p>
+      <div class="tier">
+        <div class="tier-col">
+          <h4>Good</h4>
+          <ul>
+            <li>Local storage is used for active work with at least one additional copy.</li>
+            <li>Copy destinations are documented.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Better</h4>
+          <ul>
+            <li>Local copies are distributed across independent systems.</li>
+            <li>Verification and restore checks are scheduled.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Best</h4>
+          <ul>
+            <li>Local storage is integrated with policy-driven redundancy.</li>
+            <li>Integrity monitoring and migration planning are tracked over time.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card area">
+      <h2>3) Cloud storage options</h2>
+      <p>Cloud platforms can improve collaboration and off-site resilience, but synchronization alone is not preservation. Long-term use requires independent copies, governance controls, and exit planning.</p>
+      <div class="tier">
+        <div class="tier-col">
+          <h4>Good</h4>
+          <ul>
+            <li>Cloud space is used for access and collaboration.</li>
+            <li>Critical files are also stored outside the sync platform.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Better</h4>
+          <ul>
+            <li>Cloud workflows define versioning, roles, and retention practices.</li>
+            <li>Platform risks and cost growth are reviewed periodically.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Best</h4>
+          <ul>
+            <li>Cloud storage is one layer in a multi-location preservation plan.</li>
+            <li>Exit strategy and migration pathways are documented in advance.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card area">
+      <h2>4) Repositories and persistent identifiers</h2>
+      <p>Trusted repositories add structured stewardship through governance, curation standards, and long-term management. Persistent identifiers such as DOIs improve findability and citation when backed by stable organizational support.</p>
+      <div class="tier">
+        <div class="tier-col">
+          <h4>Good</h4>
+          <ul>
+            <li>3D assets are deposited in a stable repository service.</li>
+            <li><code>doi_status</code> is tracked in project records.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Better</h4>
+          <ul>
+            <li>DOIs are reserved before publication.</li>
+            <li>Landing page and metadata links are reviewed before release.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Best</h4>
+          <ul>
+            <li>Repository governance and funding stability are considered in selection.</li>
+            <li>Identifier records stay synchronized with policy and metadata updates.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card area">
+      <h2>5) Local, cloud, and other storage in one plan</h2>
+      <p>The most sustainable approach combines local workflow storage, independent off-site copies, and repository deposit for long-term access. Costs include storage media, subscriptions, metadata labor, review time, and migration work.</p>
+      <div class="tier">
+        <div class="tier-col">
+          <h4>Good</h4>
+          <ul>
+            <li>One local working location plus one independent copy.</li>
+            <li>Basic documentation of responsibilities and locations.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Better</h4>
+          <ul>
+            <li>Local, cloud/off-site, and repository roles are clearly separated.</li>
+            <li>Costs and staffing needs are reviewed annually.</li>
+          </ul>
+        </div>
+        <div class="tier-col">
+          <h4>Best</h4>
+          <ul>
+            <li>Storage, governance, and funding are treated as one long-term stewardship program.</li>
+            <li>Planned migration and continuity workflows are maintained over time.</li>
           </ul>
         </div>
       </div>
