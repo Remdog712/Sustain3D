@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -12,44 +12,66 @@
   <div id="site-header"></div>
 
   <main class="wrap">
-
     <section class="card start-here">
-      <div>
-        <div class="kicker"><strong>Start Here</strong> - Workflow map</div>
-        <p>Follow the full chain: <strong>Home -> Workflow -> Repository Setup -> Files -> Metadata -> Storage -> Policies -> Resources -> In Practice</strong>.</p>
-      </div>
       <div class="next">
-        <span class="chip">Recommended path</span>
-        <a class="btn" href="./repository.html">Start: Repository Setup -></a>
+        <span class="chip">You are on: Workflow</span>
+        <a class="chip chip-link" href="./repository.html">Next: Repository Setup</a>
       </div>
     </section>
 
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
-      <p>Provide a full project map so teams know what to do before scanning, during processing, and before publishing.</p>
-      <p class="note">Use the same sequence for scan-based projects, born-digital models, and 3D print files.</p>
+      <p>Use this page as the full project runbook from setup through publication so you can complete one project without jumping across pages.</p>
+      <p class="note">Deep-dive pages still exist, but this page now gives the complete sequence in one place.</p>
     </section>
 
-    <section class="card">
-      <h2>Workflow overview</h2>
-      <p>
-        This workflow is built around Preservation Intervention Points (PIPs). Each PIP is a planned stop where you
-        complete required work before moving forward.
-      </p>
-      <div class="callout">
-        <strong>Core rule:</strong> treat a 3D asset as a full package (geometry, textures, print settings, and context), not one file.
+    <section class="card area">
+      <h2>Step-by-step guide (primary path)</h2>
+      <div class="workflow-guide">
+        <article>
+          <strong>Step 1 - Build repository and project structure (PIP 0)</strong>
+          <p>Create repository folders, project folders, and required documentation files before any scanning.</p>
+          <p class="note">Deep dive: <a href="./repository.html">Repository Setup</a></p>
+        </article>
+        <article>
+          <strong>Step 2 - Assign object IDs and naming rules (PIP 0)</strong>
+          <p>Set one object ID pattern for all raw, processing, preservation, access, and print outputs.</p>
+          <p class="note">Deep dive: <a href="./files.html">Files</a></p>
+        </article>
+        <article>
+          <strong>Step 3 - Capture and ingest raw files (PIP 1)</strong>
+          <p>Copy raw scans/photos immediately into the raw folder and do not overwrite originals.</p>
+          <p class="note">Record capture date, operator, and device context in the same session.</p>
+        </article>
+        <article>
+          <strong>Step 4 - Log metadata and paradata as work happens (PIP 1-2)</strong>
+          <p>Write source file references, software versions, and major decisions while processing is fresh.</p>
+          <p class="note">Deep dive: <a href="./metadata.html">Metadata</a></p>
+        </article>
+        <article>
+          <strong>Step 5 - Export and protect the preservation master (PIP 2)</strong>
+          <p>Keep the highest-quality stable model in preservation storage and retain key intermediate milestones.</p>
+          <p class="note">Do not replace this master with access files.</p>
+        </article>
+        <article>
+          <strong>Step 6 - Produce access and print derivatives (PIP 3)</strong>
+          <p>Generate web/teaching copies and optional print files as separate derivatives linked to the same object ID.</p>
+          <p class="note">Deep dive: <a href="./files.html">Files</a></p>
+        </article>
+        <article>
+          <strong>Step 7 - Store three copies and verify integrity (PIP 4)</strong>
+          <p>Place files in working, preservation, and independent backup locations with routine checksum checks.</p>
+          <p class="note">Deep dive: <a href="./storage.html">Storage</a></p>
+        </article>
+        <article>
+          <strong>Step 8 - Confirm rights, policies, and DOI status (PIP 4)</strong>
+          <p>Finalize access level, rights statement, reuse terms, sensitivity notes, and DOI tracking before release.</p>
+          <p class="note">Deep dive: <a href="./policies.html">Policies</a></p>
+        </article>
       </div>
-
-      <h3>FAIR and CARE at workflow start</h3>
-      <p><strong>FAIR</strong> means data should be Findable, Accessible, Interoperable, and Reusable.</p>
-      <p><strong>CARE</strong> means Collective benefit, Authority to control, Responsibility, and Ethics.</p>
-      <ul>
-        <li>For 3D, FAIR looks like stable IDs, clear metadata fields, and well-described file relationships.</li>
-        <li>For 3D, CARE looks like explicit access limits, cultural protocols, and documented permission boundaries.</li>
-      </ul>
     </section>
 
-    <section class="card">
+    <section class="card example-box">
       <h2>All PIPs at a glance</h2>
       <div class="workflow-track">
         <article class="track-step track-0"><a href="#pip-0"><strong>PIP 0</strong>Repository setup and before scanning</a></article>
@@ -60,9 +82,9 @@
       </div>
     </section>
 
-    <section class="card">
-      <h2>Project checklist</h2>
-      <p class="note">Use these as real checkboxes during project work.</p>
+    <section class="card area">
+      <h2>Project checklist (one-page run)</h2>
+      <p class="note">Use these checkboxes directly during project execution.</p>
 
       <div class="checklist-block">
         <h3>Before scanning</h3>
@@ -96,7 +118,7 @@
         <h3>After processing and ongoing</h3>
         <ul class="task-list">
           <li><label><input type="checkbox" /> Access copies are generated in a separate folder.</label></li>
-          <li><label><input type="checkbox" /> Storage location for master, working, and access files is recorded.</label></li>
+          <li><label><input type="checkbox" /> Storage location for working, master, and access files is recorded.</label></li>
           <li><label><input type="checkbox" /> DOI status is set to planned, reserved, or published.</label></li>
         </ul>
       </div>
@@ -240,18 +262,9 @@ SENSITIVITY_NOTES:
 "@ | Set-Content (Join-Path $docs "policy.txt")
 </code></pre>
     </section>
-
   </main>
 
-  <footer>
-    <div class="wrap">
-      <span>Copyright <span id="year"></span> Sustain 3D</span>
-    </div>
-  </footer>
-
+  <div id="site-footer"></div>
   <script src="./js/loadHeader.js"></script>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

@@ -154,9 +154,11 @@ footer {
 .start-here {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  border-left: 5px solid var(--page-accent, var(--accent));
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px 14px;
+  border-left: 0;
+  background: rgba(255,255,255,.01);
 }
 
 .start-here .kicker {
@@ -165,24 +167,33 @@ footer {
   margin: 0 0 6px;
 }
 
-.start-here p { margin: 0; }
+.start-here p,
+.start-here .kicker { display: none; }
 
 .start-here .next {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
   justify-content: flex-end;
+  width: 100%;
 }
 
 .start-here .chip {
   border: 1px solid var(--border);
-  padding: 6px 10px;
+  padding: 4px 9px;
   border-radius: 999px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
   white-space: nowrap;
 }
+
+.start-here .chip-link {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.start-here .chip-link:hover { border-color: rgba(255,255,255,.26); }
 
 .start-here .btn { margin-left: 0; white-space: nowrap; }
 
@@ -217,8 +228,53 @@ footer {
 }
 
 .template-kit {
+  border: 2px dashed var(--page-accent, var(--accent));
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(255,255,255,.04),
+    rgba(255,255,255,.04) 6px,
+    rgba(255,255,255,.02) 6px,
+    rgba(255,255,255,.02) 12px
+  );
+  position: relative;
+}
+
+.template-kit::before {
+  content: "Template";
+  position: absolute;
+  top: -11px;
+  right: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
   border: 1px dashed var(--page-accent, var(--accent));
-  background: rgba(255,255,255,.03);
+  color: var(--page-accent, var(--accent));
+  background: var(--bg);
+  font-size: 11px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.example-box {
+  border: 1px dotted var(--page-accent, var(--accent));
+  position: relative;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,.10) 1px, transparent 1px) 0 0 / 10px 10px,
+    rgba(255,255,255,.02);
+}
+
+.example-box::before {
+  content: "Example";
+  position: absolute;
+  top: -11px;
+  right: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px dotted var(--page-accent, var(--accent));
+  color: var(--page-accent, var(--accent));
+  background: var(--bg);
+  font-size: 11px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
 }
 
 .template-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 10px; }
@@ -292,7 +348,31 @@ footer {
 }
 
 .goal-banner {
-  border-left: 5px solid var(--page-accent, var(--accent));
+  border: 1px solid rgba(0,0,0,.28);
+  background: var(--page-accent, var(--accent));
+  color: #151515;
+}
+
+.goal-banner h1,
+.goal-banner h2,
+.goal-banner p,
+.goal-banner .note,
+.goal-banner code {
+  color: #151515;
+}
+
+.goal-banner .note { opacity: .86; }
+
+.goal-banner .btn {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.goal-banner .btn.secondary {
+  background: transparent;
+  color: #111;
+  border-color: rgba(0,0,0,.45);
 }
 
 .audience-grid {
@@ -322,6 +402,24 @@ footer {
   padding: 12px;
 }
 
+.workflow-guide {
+  display: grid;
+  gap: 10px;
+}
+
+.workflow-guide article {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255,255,255,.02);
+}
+
+.workflow-guide strong {
+  display: block;
+  color: var(--page-accent, var(--accent));
+  margin-bottom: 5px;
+}
+
 .resource-groups {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -348,6 +446,43 @@ footer {
 }
 
 .term strong { color: var(--page-accent, var(--accent)); }
+.term:target {
+  border-color: var(--page-accent, var(--accent));
+  background: rgba(255,255,255,.07);
+}
+
+.glossary-link {
+  color: var(--page-accent, var(--accent));
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+}
+
+.sources-lowkey {
+  border-style: dotted;
+  background: rgba(0,0,0,.08);
+  opacity: .82;
+}
+
+.sources-lowkey h2 {
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.sources-lowkey p {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.sources-lowkey ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.sources-lowkey li { margin: 4px 0; }
+.sources-lowkey a { color: var(--muted); }
+.sources-lowkey a:hover { color: var(--text); }
 
 .area[class*="pip-"] {
   border-left-color: var(--section-accent, var(--page-accent, var(--accent)));

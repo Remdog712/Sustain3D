@@ -13,35 +13,31 @@
 
   <main class="wrap">
     <section class="card start-here">
-      <div>
-        <div class="kicker"><strong>Start Here</strong> - Governance and publishing controls</div>
-        <p>After storage planning, define rights and access rules before publication.</p>
-      </div>
       <div class="next">
         <span class="chip">You are on: Policies</span>
-        <a class="btn" href="./resources.html">Next: Resources -></a>
+        <a class="chip chip-link" href="./resources.html">Next: Resources</a>
       </div>
     </section>
 
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
-      <p>Create a short policy document that makes access, rights, and reuse decisions explicit.</p>
+      <p>Create a short policy document that makes access, rights, and reuse decisions explicit before publication.</p>
       <p class="note">Keep policy language short, specific, and directly tied to your metadata and storage records.</p>
     </section>
 
     <section class="card area">
-      <h2>Core policy decisions</h2>
+      <h2>1) Core policy decisions</h2>
       <ul>
         <li><strong>Access level:</strong> public, internal, or restricted.</li>
-        <li><strong>Rights statement:</strong> what legal status applies to this model package.</li>
+        <li><strong>Rights statement:</strong> legal status and ownership condition for the model package.</li>
         <li><strong>Reuse terms:</strong> what users may and may not do.</li>
         <li><strong>Sensitivity notes:</strong> any community, ethical, or institutional constraints.</li>
       </ul>
     </section>
 
-    <section class="card area">
-      <h2>New policy template document</h2>
-      <p>Copy this template text directly into a project policy file and fill each field.</p>
+    <section class="card template-kit">
+      <h2>2) Policy template document (blank)</h2>
+      <p>Copy this template directly into a project policy file and fill each field.</p>
       <div class="template-actions">
         <button class="btn secondary" type="button" data-copy-target="policy-doc-template">Copy policy template text</button>
       </div>
@@ -81,6 +77,56 @@ Landing page URL:
 Next review date:
 Owner:
 </code></pre>
+    </section>
+
+    <section class="card area example-box">
+      <h2>3) Example filled policy template</h2>
+      <pre class="codeblock"><code>POLICY DOCUMENT - 3D PROJECT
+
+PROJECT_ID: FactorySurvey_2026
+OBJECT_ID: WaterPump_001
+PROJECT_TITLE: Water Pump Assembly Digitization
+DATE: 2026-02-20
+REVIEWER: Digital Preservation Lead
+
+1) ACCESS LEVEL
+internal
+Reason: model includes internal geometry not yet approved for public release.
+
+2) RIGHTS STATUS
+copyrighted
+Rights statement or URI: Copyright 2026 Example Institution
+License (if used): Internal educational use only
+
+3) REUSE CONDITIONS
+Allowed uses: classroom instruction, internal research, preservation validation
+Restricted uses: redistribution, commercial printing, derivative publication
+Required attribution: "Example Institution, Sustain 3D Program"
+
+4) CARE AND SENSITIVITY NOTES
+Community authority notes: none recorded for this object
+Cultural restrictions: none recorded
+Handling guidance: do not publish cross-section files until curator approval
+
+5) PUBLICATION RECORD
+DOI status: planned
+DOI value:
+Landing page URL:
+
+6) REVIEW CYCLE
+Next review date: 2026-08-20
+Owner: Repository Manager
+</code></pre>
+    </section>
+
+    <section class="card area">
+      <h2>4) Final review checks before release</h2>
+      <ol class="steps">
+        <li>Confirm policy values match metadata fields for access level and rights statement.</li>
+        <li>Confirm restricted files are not mixed into public access folders.</li>
+        <li>Confirm DOI status and publication landing page fields are current.</li>
+        <li>Set and document the next policy review date.</li>
+      </ol>
     </section>
   </main>
 

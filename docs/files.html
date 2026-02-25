@@ -13,102 +13,221 @@
 
   <main class="wrap">
     <section class="card start-here">
-      <div>
-        <div class="kicker"><strong>Start Here</strong> - File structure and naming</div>
-        <p>Follow the sequence: <strong>Repository Setup -> Files -> Metadata -> Storage -> Policies</strong>.</p>
-      </div>
       <div class="next">
         <span class="chip">You are on: Files</span>
-        <a class="btn" href="./metadata.html">Next: Metadata -></a>
+        <a class="chip chip-link" href="./metadata.html">Next: Metadata</a>
       </div>
     </section>
 
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
-      <p>Use predictable names and folder patterns so 3D packages stay connected and understandable.</p>
-      <p class="note">Apply one naming standard across scan data, derivatives, and 3D print outputs.</p>
+      <p>Set a file and folder structure that stays understandable when one machine has multiple parts, unknown components, and assembly relationships.</p>
+      <p class="note">Use these patterns so parts remain independently preservable while the full assembly stays reconstructable.</p>
     </section>
 
     <section class="card area">
-      <h2>Recommended naming pattern</h2>
-      <pre class="codeblock"><code>[ObjectOrSite]_[MethodOrProcess]_[YYYYMMDD]_v[##]_[stage].[ext]</code></pre>
-
-      <h3>What each part means</h3>
-      <ul>
-        <li><strong>[ObjectOrSite]</strong> stable ID for the scanned object or site.</li>
-        <li><strong>[MethodOrProcess]</strong> capture or processing method (photogrammetry, lidar, mesh, printprep).</li>
-        <li><strong>[YYYYMMDD]</strong> date in sortable format.</li>
-        <li><strong>v[##]</strong> version number such as v01, v02, v03.</li>
-        <li><strong>[stage]</strong> raw, proc, pres, access, prn.</li>
-        <li><strong>[ext]</strong> file extension for the specific output format.</li>
-      </ul>
-    </section>
-
-    <section class="card area">
-      <h2>Examples</h2>
-      <pre class="codeblock"><code>TempleA_LiDAR_20240215_v01_raw.e57
-TempleA_mesh_clean_20240220_v03_proc.obj
-TempleA_web_20240220_v01_access.glb
-TempleA_printprep_20240222_v02_prn.3mf</code></pre>
-    </section>
-
-    <section class="card area">
-      <h2>3D file formats: what is better for what</h2>
-      <p>Keep at least one long-term preservation format and one web-access format for each final model.</p>
+      <h2>1) Choose the structural model</h2>
+      <p>You have two valid structural models:</p>
       <div class="tier">
         <article class="tier-col">
-          <h3>Preservation formats (long-term copies)</h3>
-          <ul>
-            <li><strong>OBJ + MTL + texture files</strong>: Open and widely supported. Good for textured meshes and long-term reuse across tools.</li>
-            <li><strong>PLY</strong>: Good for high-detail geometry and vertex color. Common in research workflows and easy to validate.</li>
-            <li><strong>E57</strong>: Strong choice for point clouds from LiDAR or structured light. Preserves scan context better than mesh-only exports.</li>
-            <li><strong>STL</strong>: Useful mainly for 3D printing geometry. Not ideal as the only preservation format because it usually lacks color, texture, and rich metadata.</li>
-          </ul>
+          <h3>Object-centric</h3>
+          <p>Best when the machine itself is the long-term intellectual object you care about.</p>
         </article>
         <article class="tier-col">
-          <h3>Access formats (web and sharing copies)</h3>
-          <ul>
-            <li><strong>GLB (binary glTF)</strong>: Best default for web viewers. Single file, fast loading, and supports modern materials.</li>
-            <li><strong>glTF + external textures</strong>: Better when you need editable web assets and separate texture management.</li>
-            <li><strong>USDZ</strong>: Useful for Apple AR experiences. Keep it as an access derivative, not the only archival master.</li>
-            <li><strong>3MF</strong>: Better than STL for sharing print jobs because it can include units, color, and print settings.</li>
-          </ul>
+          <h3>Project-centric</h3>
+          <p>Best for documenting workflow context for one campaign, survey, or time-bounded initiative.</p>
         </article>
       </div>
-      <p class="note">Practical rule: preserve rich, open source files in <code>03_preservation</code>, publish lightweight delivery files in <code>04_access</code>.</p>
+      <p class="note">For complex machines, use both: project structure for workflow and object structure for durable identity.</p>
+    </section>
+
+    <section class="card area example-box">
+      <h2>2) Recommended structure: object with parts subfolder</h2>
+      <p>If the machine is the intellectual "thing" you care about long-term, keep it as a parent object with child parts.</p>
+      <pre class="codeblock"><code>Objects/
+  Mechanical/
+    WaterPump_001/
+      assembly/
+        WaterPump_001_master_assembly_v01.pres.obj
+        assembly_metadata.txt
+      parts/
+        WP001_P01_Impeller/
+        WP001_P02_Housing/
+        WP001_P03_Shaft/
+      documentation/
+        metadata.txt
+        paradata.txt
+        rights_and_access.txt
+</code></pre>
+      <h3>Each part uses the same internal structure</h3>
+      <pre class="codeblock"><code>WP001_P01_Impeller/
+  01_raw/
+  02_processing/
+  03_preservation/
+  04_access/
+  documentation/
+</code></pre>
+      <h3>Why this works</h3>
+      <ul>
+        <li>The machine is a parent object.</li>
+        <li>Parts are child objects.</li>
+        <li>Each part remains independently preservable.</li>
+        <li>The assembly model defines how parts fit together.</li>
+      </ul>
     </section>
 
     <section class="card area">
-      <h2>Versioning and linked files</h2>
+      <h2>3) Naming convention for parts</h2>
+      <p>Use a consistent part code:</p>
+      <pre class="codeblock"><code>WaterPump_001_P01_Impeller
+WaterPump_001_P02_Housing
+</code></pre>
+      <p>Pattern: <code>[ParentID]_P[##]_[PartName]</code></p>
       <ul>
-        <li>Keep source files unchanged after capture or ingest.</li>
-        <li>Save milestone versions during processing rather than overwriting.</li>
-        <li>Store linked files (geometry, materials, textures, print profiles) in the same package folder.</li>
-        <li>Open outputs on another machine to validate that links still work.</li>
+        <li>If order matters physically, use sequential numbering.</li>
+        <li>If order does not matter, use functional labels.</li>
       </ul>
+    </section>
+
+    <section class="card area example-box">
+      <h2>4) What if you do not know the name?</h2>
+      <p>Never invent a false authoritative name. Use a placeholder you can defend.</p>
+      <h3>Option A - Descriptive placeholder</h3>
+      <pre class="codeblock"><code>InsectSpecimen_045_unknown_wing_fragment
+Machine_002_unknown_component_A
+</code></pre>
+      <h3>Option B - Functional description</h3>
+      <pre class="codeblock"><code>Machine_002_rotating_disc_component
+Artifact_014_small_curved_metal_piece
+</code></pre>
+      <h3>Option C - Controlled placeholder</h3>
+      <pre class="codeblock"><code>UnknownObject_001
+Unidentified_Component_003
+</code></pre>
+      <p>Then document uncertainty in metadata:</p>
+      <pre class="codeblock"><code>identified_as: unknown
+suspected_function: ventilation coupling
+confidence_level: low
+identified_by: J. Orange
+date_identified: 2026-02-20
+</code></pre>
+      <p class="note"><strong>Key rule:</strong> file names describe what you know. Metadata describes uncertainty.</p>
+    </section>
+
+    <section class="card area example-box">
+      <h2>5) Representing how parts fit together (critical)</h2>
+      <p>File structure alone is not enough. You need structural hierarchy, assembly metadata, and relationship documentation.</p>
+      <h3>A. Assembly folder in parent object</h3>
+      <pre class="codeblock"><code>assembly/
+  WaterPump_001_master_assembly_v01.pres.obj
+  assembly_relationships.json
+</code></pre>
+      <h3>B. Relationship metadata (recommended)</h3>
+      <pre class="codeblock"><code>{
+  "parent_object": "WaterPump_001",
+  "parts": [
+    {
+      "id": "WP001_P01_Impeller",
+      "connects_to": "WP001_P03_Shaft",
+      "connection_type": "rotational_fit",
+      "alignment_reference": "central_axis"
+    },
+    {
+      "id": "WP001_P02_Housing",
+      "contains": "WP001_P01_Impeller",
+      "connection_type": "enclosure"
+    }
+  ]
+}
+</code></pre>
+      <h3>C. Cross-reference inside each part metadata</h3>
+      <pre class="codeblock"><code>parent_object: WaterPump_001
+part_number: P01
+assembly_position: internal rotating component
+fits_with: WP001_P03_Shaft
+</code></pre>
+      <p class="note">This creates bidirectional traceability between parent assembly records and child part records.</p>
+    </section>
+
+    <section class="card area">
+      <h2>6) When to use project vs object structure</h2>
+      <p>If the machine is scanned within a larger survey, keep both contexts:</p>
+      <pre class="codeblock"><code>Projects/
+  FactorySurvey_2026/
+    Machine_12_WaterPump/
+
+Objects/
+  Mechanical/
+    WaterPump_001/
+</code></pre>
+      <ul>
+        <li><strong>Projects</strong> document workflow context and campaign activity.</li>
+        <li><strong>Objects</strong> document long-term intellectual identity.</li>
+      </ul>
+      <p class="note">Do not collapse these into one folder tree. That usually breaks long-term usability.</p>
+    </section>
+
+    <section class="card area">
+      <h2>7) Clean rules summary</h2>
+      <ol class="steps">
+        <li>Every physical thing gets one object folder.</li>
+        <li>Every removable or distinct component gets a child object folder.</li>
+        <li>Assemblies define relationships, not filenames.</li>
+        <li>Unknown components use placeholders plus documented uncertainty.</li>
+        <li>Projects record workflow; objects record long-term identity.</li>
+      </ol>
     </section>
 
     <section class="card template-kit">
-      <h2>Optional terminal templates</h2>
-      <p>These can be pasted into PowerShell to create folder scaffolding quickly.</p>
+      <h2>Copy-ready templates for multi-part machines</h2>
+      <p>Use these commands to scaffold parent object, part folders, and relationship files quickly.</p>
 
-      <h3>Repo-level directory template</h3>
+      <h3>Create parent object with part folders</h3>
       <div class="template-actions">
-        <button class="btn secondary" type="button" data-copy-target="files-repo-template">Copy repo-level command</button>
+        <button class="btn secondary" type="button" data-copy-target="files-machine-template">Copy machine structure command</button>
       </div>
-      <pre class="codeblock"><code id="files-repo-template">$repo = ".\3D_Repository"
-New-Item -ItemType Directory -Path $repo,(Join-Path $repo "Projects"),(Join-Path $repo "Objects"),(Join-Path $repo "Metadata"),(Join-Path $repo "Documentation"),(Join-Path $repo "Preservation_Logs") -Force | Out-Null
-New-Item -ItemType File -Path (Join-Path $repo "Metadata\master_inventory.csv") -Force | Out-Null
-New-Item -ItemType File -Path (Join-Path $repo "Metadata\project_registry.json") -Force | Out-Null
+      <pre class="codeblock"><code id="files-machine-template">$base = ".\3D_Repository\Objects\Mechanical\WaterPump_001"
+New-Item -ItemType Directory -Path @(
+  $base,
+  (Join-Path $base "assembly"),
+  (Join-Path $base "parts\WP001_P01_Impeller"),
+  (Join-Path $base "parts\WP001_P02_Housing"),
+  (Join-Path $base "parts\WP001_P03_Shaft"),
+  (Join-Path $base "documentation")
+) -Force | Out-Null
+
+New-Item -ItemType File -Path @(
+  (Join-Path $base "assembly\assembly_relationships.json"),
+  (Join-Path $base "documentation\metadata.txt"),
+  (Join-Path $base "documentation\paradata.txt"),
+  (Join-Path $base "documentation\rights_and_access.txt")
+) -Force | Out-Null
 </code></pre>
 
-      <h3>Project-level directory template</h3>
+      <h3>Create standard internal folders for one part</h3>
       <div class="template-actions">
-        <button class="btn secondary" type="button" data-copy-target="files-project-template">Copy project-level command</button>
+        <button class="btn secondary" type="button" data-copy-target="files-part-template">Copy part structure command</button>
       </div>
-      <pre class="codeblock"><code id="files-project-template">$project = ".\3D_Repository\Projects\ProjectName_ObjectID"
-New-Item -ItemType Directory -Path $project,(Join-Path $project "01_raw_scans"),(Join-Path $project "02_processing"),(Join-Path $project "03_preservation"),(Join-Path $project "04_access"),(Join-Path $project "documentation"),(Join-Path $project "print") -Force | Out-Null
-New-Item -ItemType File -Path (Join-Path $project "documentation\metadata.txt"),(Join-Path $project "documentation\paradata.txt"),(Join-Path $project "documentation\rights_and_access.txt"),(Join-Path $project "print\printer_notes.txt") -Force | Out-Null
+      <pre class="codeblock"><code id="files-part-template">$part = ".\3D_Repository\Objects\Mechanical\WaterPump_001\parts\WP001_P01_Impeller"
+New-Item -ItemType Directory -Path @(
+  (Join-Path $part "01_raw"),
+  (Join-Path $part "02_processing"),
+  (Join-Path $part "03_preservation"),
+  (Join-Path $part "04_access"),
+  (Join-Path $part "documentation")
+) -Force | Out-Null
+
+@"
+parent_object: WaterPump_001
+part_number: P01
+assembly_position:
+fits_with:
+identified_as:
+suspected_function:
+confidence_level:
+identified_by:
+date_identified:
+"@ | Set-Content (Join-Path $part "documentation\metadata.txt")
 </code></pre>
     </section>
   </main>
