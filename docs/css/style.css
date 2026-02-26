@@ -227,6 +227,40 @@ footer a {
 
 .area h2 { margin-top: 0; }
 
+.format-table-wrap {
+  overflow-x: auto;
+  margin: 8px 0 14px;
+}
+
+.format-table {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255,255,255,.02);
+}
+
+.format-table th,
+.format-table td {
+  border: 1px solid var(--border);
+  padding: 9px 10px;
+  vertical-align: top;
+  text-align: left;
+}
+
+.format-table thead th {
+  background: rgba(255,255,255,.08);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.format-table tbody th {
+  white-space: nowrap;
+  font-size: 14px;
+}
+
 .supporting {
   opacity: .94;
   border-style: dashed;

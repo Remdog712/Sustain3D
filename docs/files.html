@@ -30,7 +30,7 @@
       <ol class="steps">
         <li>Basic naming conventions.</li>
         <li>Characteristics of sustainable 3D file types.</li>
-        <li>Common mesh and point-cloud formats.</li>
+        <li>Common mesh, point-cloud, and 3D printing formats.</li>
         <li>How preservation, access, and print file roles differ.</li>
         <li>What to do when you do not know the name yet.</li>
         <li>How to choose the structural model.</li>
@@ -74,20 +74,132 @@ WaterPump_001_web_20260224_v01_access.glb
       <p>No single format covers every need. Use different formats for mesh fidelity, point-cloud preservation, access delivery, and print production.</p>
 
       <h3>Mesh formats</h3>
-      <ul>
-        <li><strong>OBJ (+MTL):</strong> widely supported and human-readable for geometry; texture/material sidecar files must stay linked.</li>
-        <li><strong>PLY:</strong> strong for geometry plus per-vertex attributes; limited scene/material standardization.</li>
-        <li><strong>STL:</strong> triangle geometry only; useful for fabrication, but weak as a sole preservation format.</li>
-        <li><strong>USD:</strong> powerful for complex scene pipelines and versioned assets; higher implementation complexity.</li>
-        <li><strong>glTF/GLB:</strong> optimized for fast runtime delivery and web viewing, not archival master retention.</li>
-      </ul>
+      <div class="format-table-wrap">
+        <table class="format-table">
+          <thead>
+            <tr>
+              <th scope="col">Format</th>
+              <th scope="col">Preservation pros</th>
+              <th scope="col">Preservation cons</th>
+              <th scope="col">Web/access pros</th>
+              <th scope="col">Web/access cons</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">OBJ (+MTL)</th>
+              <td>Open, documented, and broadly readable.</td>
+              <td>Materials/textures are sidecars and can be separated.</td>
+              <td>Easy to convert to GLB for viewers.</td>
+              <td>Not efficient to deliver directly in-browser.</td>
+            </tr>
+            <tr>
+              <th scope="row">PLY</th>
+              <td>Good geometry plus per-vertex color/attributes.</td>
+              <td>Limited material/scene semantics across tools.</td>
+              <td>Useful for research viewers after conversion.</td>
+              <td>Not a common direct web runtime format.</td>
+            </tr>
+            <tr>
+              <th scope="row">USD</th>
+              <td>Strong scene structure, composition, and variant support.</td>
+              <td>More complex pipeline and governance requirements.</td>
+              <td>Works well in advanced 3D ecosystems.</td>
+              <td>Inconsistent browser-native support compared to GLB.</td>
+            </tr>
+            <tr>
+              <th scope="row">glTF/GLB</th>
+              <td>Single-file GLB can simplify packaging for derivatives.</td>
+              <td>Typically optimized/compressed for delivery rather than full-fidelity masters.</td>
+              <td>Fast, lightweight, and widely supported in web viewers.</td>
+              <td>May drop high-detail data needed for long-term authority.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3>Point cloud formats</h3>
-      <ul>
-        <li><strong>E57:</strong> open format suited for LiDAR/laser-scan preservation with structured scan metadata.</li>
-        <li><strong>XYZ:</strong> simple coordinate exchange, but minimal embedded context and metadata.</li>
-        <li><strong>HDF5:</strong> scalable container for very large research datasets, with higher technical complexity.</li>
-      </ul>
+      <div class="format-table-wrap">
+        <table class="format-table">
+          <thead>
+            <tr>
+              <th scope="col">Format</th>
+              <th scope="col">Preservation pros</th>
+              <th scope="col">Preservation cons</th>
+              <th scope="col">Web/access pros</th>
+              <th scope="col">Web/access cons</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">E57</th>
+              <td>Open and suited for LiDAR/scan retention with scan metadata.</td>
+              <td>Harder for non-specialist teams to inspect manually.</td>
+              <td>Reliable source for creating web-ready derivatives.</td>
+              <td>Rarely served directly in browser viewers.</td>
+            </tr>
+            <tr>
+              <th scope="row">XYZ</th>
+              <td>Simple, transparent coordinate export.</td>
+              <td>Minimal metadata/context unless documented separately.</td>
+              <td>Easy import path to processing tools.</td>
+              <td>Large plain-text files are heavy for web delivery.</td>
+            </tr>
+            <tr>
+              <th scope="row">LAS/LAZ</th>
+              <td>Standardized point-cloud schema with optional compression (LAZ).</td>
+              <td>Field consistency can vary by producer workflow.</td>
+              <td>Common input for tiled/streamed point-cloud services.</td>
+              <td>Often requires preprocessing before public viewing.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>3D printing formats</h3>
+      <div class="format-table-wrap">
+        <table class="format-table">
+          <thead>
+            <tr>
+              <th scope="col">Format</th>
+              <th scope="col">Preservation pros</th>
+              <th scope="col">Preservation cons</th>
+              <th scope="col">Web/access pros</th>
+              <th scope="col">Web/access cons</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">STL</th>
+              <td>Very widely supported for fabrication workflows.</td>
+              <td>Geometry only (no color, units, materials, or provenance).</td>
+              <td>Easy to preview after conversion in many tools.</td>
+              <td>Weak direct web accessibility and no rich context.</td>
+            </tr>
+            <tr>
+              <th scope="row">3MF</th>
+              <td>Package can include units, materials, and print settings.</td>
+              <td>Preservation quality depends on slicer/vendor feature compatibility.</td>
+              <td>Better contextual print data than STL.</td>
+              <td>Not a standard browser delivery format.</td>
+            </tr>
+            <tr>
+              <th scope="row">AMF</th>
+              <td>Designed to represent richer print semantics than STL.</td>
+              <td>Lower real-world adoption and tool support.</td>
+              <td>Can preserve more manufacturing context when supported.</td>
+              <td>Limited interoperability for public access workflows.</td>
+            </tr>
+            <tr>
+              <th scope="row">G-code</th>
+              <td>Captures machine-ready print instructions for specific jobs.</td>
+              <td>Device/profile dependent and not a reusable master geometry format.</td>
+              <td>Useful for documenting print execution.</td>
+              <td>Not suitable as a general public 3D access format.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section class="card area">
