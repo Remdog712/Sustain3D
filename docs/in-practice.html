@@ -12,9 +12,113 @@
   <div id="site-header"></div>
 
   <main class="wrap">
+    <section class="card start-here">
+      <div class="next">
+        <span class="chip">You are on: In Practice</span>
+        <a class="chip chip-link" href="./workflow.html">Back to: Workflow</a>
+      </div>
+    </section>
+
     <section class="card goal-banner">
-      <h2>In Practice</h2>
-      <p>Under construction.</p>
+      <h2>In Practice: TREC Cooper Hawk Case Study</h2>
+      <p>This page documents how the Sustain 3D workflow was applied in practice for the Tom Ridge Environmental Center (TREC) Cooper Hawk specimen.</p>
+    </section>
+
+    <section class="card area">
+      <h2>1) Project context</h2>
+      <ul>
+        <li><strong>Project:</strong> TREC Specimen Scans (<code>TREC_SpecimenScans_2026</code>)</li>
+        <li><strong>Case focus:</strong> Cooper Hawk specimen (<code>TREC_0001_CooperHawk</code>)</li>
+        <li><strong>Capture hardware:</strong> Artec Space Spider</li>
+        <li><strong>Processing software:</strong> Artec Studio 17 Professional, then Blender for access optimization</li>
+        <li><strong>Naming basis:</strong> VAR Lab naming pattern <code>TREC_XXXX_&lt;SpecimenName&gt;</code></li>
+      </ul>
+    </section>
+
+    <section class="card area">
+      <h2>2) How the workflow was handled</h2>
+      <ol class="steps">
+        <li>TREC provided the specimen model for scanning.</li>
+        <li>Raw scans and exported high-resolution OBJ were created from Artec Space Spider capture.</li>
+        <li>Raw and preservation packages were retained, and a smaller web-access model was derived.</li>
+        <li>Blender working files were kept in project processing folders.</li>
+        <li>Access GLB was published to Sketchfab.</li>
+        <li>Preservation master package and metadata were copied into repository preservation storage for long-term retention.</li>
+      </ol>
+    </section>
+
+    <section class="card area example-box">
+      <h2>3) Project workspace vs preservation storage</h2>
+      <p><strong>Working project folders (temporary processing space):</strong></p>
+      <pre class="codeblock"><code>Projects/TREC_SpecimenScans_2026/TREC_0001_CooperHawk/
+  01_raw_scans/TREC_0001_CooperHawk__v01_raw/
+  02_processing/TREC_0001_CooperHawk__v01_Blender/
+  03_preservation/TREC_0001_CooperHawk_v01_pres/
+  04_access/TREC_0001_CooperHawk_v01_access.glb
+  documentation/TREC_0001_CooperHawk_Metadata.txt
+</code></pre>
+      <p><strong>Repository preservation folder (long-term retention):</strong></p>
+      <pre class="codeblock"><code>Preservation/TREC_SpecimenScans_2026/TREC_0001_CooperHawk/
+  TREC_0001_CooperHawk__v01_raw/
+  TREC_0001_CooperHawk_v01_pres/
+  TREC_0001_CooperHawk_Metadata.txt
+</code></pre>
+      <p class="note">This handoff keeps working directories lean while preserving the full archival package in dedicated preservation storage.</p>
+    </section>
+
+    <section class="card area example-box">
+      <h2>4) Metadata used for this object</h2>
+      <pre class="codeblock"><code>object_id: TREC_0001
+title: Coopers Hawk Specimen
+creator: Remington Orange (VAR Lab)
+date_created: 2026-03-02
+physical_object: TREC avian specimen (owned by Tom Ridge Environmental Center; accession pending)
+capture_method: Structured Light (Artec Space Spider)
+scale_units: millimeters (mm)
+preservation_master: TREC_0001_CooperHawk_v01_pres.obj
+access_files: TREC_0001_CooperHawk_v01_access.glb
+rights: Digital scan copyright 2026 VAR Lab; physical specimen property of Tom Ridge Environmental Center (TREC)
+access_level: internal
+doi: none
+paradata: Multi-pass structured light scan; aligned in Artec Studio 17; minor hole filling only; no reconstruction; geometry reflects captured specimen condition.
+</code></pre>
+    </section>
+
+    <section class="card area">
+      <h2>5) Access copy publication</h2>
+      <div class="sketchfab-embed-wrapper">
+        <iframe
+          title="Cooper Hawk Scan"
+          frameborder="0"
+          allowfullscreen
+          mozallowfullscreen="true"
+          webkitallowfullscreen="true"
+          allow="autoplay; fullscreen; xr-spatial-tracking"
+          xr-spatial-tracking
+          execution-while-out-of-viewport
+          execution-while-not-rendered
+          web-share
+          width="100%"
+          height="480"
+          src="https://sketchfab.com/models/b39e4afc76a443c0992a06d6d111a4fe/embed">
+        </iframe>
+        <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+          <a href="https://sketchfab.com/3d-models/cooper-hawk-scan-b39e4afc76a443c0992a06d6d111a4fe?utm_medium=embed&utm_campaign=share-popup&utm_content=b39e4afc76a443c0992a06d6d111a4fe" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Cooper Hawk Scan</a>
+          by
+          <a href="https://sketchfab.com/varlab?utm_medium=embed&utm_campaign=share-popup&utm_content=b39e4afc76a443c0992a06d6d111a4fe" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">VAR Lab</a>
+          on
+          <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=b39e4afc76a443c0992a06d6d111a4fe" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="card area">
+      <h2>6) Preservation and storage status</h2>
+      <ul>
+        <li>Preservation package prepared for Zenodo DOI workflow.</li>
+        <li>Current storage strategy: Google Drive (remote access), local storage, and separate deep local storage.</li>
+        <li>Project-level policy and publication tracking maintained in <code>Metadata/project_registry.json</code>.</li>
+      </ul>
     </section>
   </main>
 

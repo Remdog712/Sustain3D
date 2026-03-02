@@ -21,110 +21,56 @@
 
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
-      <p>Create a short policy document that defines access, rights, reuse conditions, sensitivity considerations, and review responsibilities before publication.</p>
+      <p>Use written standards and policy baselines so naming, access, rights, and publication decisions stay consistent from capture through preservation and release.</p>
     </section>
 
     <section class="card area">
-      <h2>1) Core policy decisions</h2>
+      <h2>1) Workflow standards document (author then follow)</h2>
       <ul>
-        <li><strong>Access level:</strong> public, internal, or restricted.</li>
-        <li><strong>Rights statement:</strong> legal status and ownership condition for the model package.</li>
-        <li><strong>Reuse terms:</strong> what users may and may not do.</li>
-        <li><strong>Sensitivity notes:</strong> any community, ethical, or institutional constraints.</li>
+        <li><strong>File:</strong> <code>Documentation/workflow_standards.txt</code></li>
+        <li><strong>Version:</strong> set by your team (for example <code>1.0</code>)</li>
+        <li><strong>Date:</strong> use your current publication date for the standard.</li>
+        <li><strong>Owner:</strong> person, team, or organization responsible for maintenance.</li>
+        <li>This document should be written by the organization or project lead, then used as the mandatory workflow rule set for all objects in the project.</li>
       </ul>
     </section>
 
-    <section class="card template-kit">
-      <h2>2) Policy template document (blank)</h2>
-      <p>Copy this template directly into a project policy file and fill each field.</p>
-      <div class="template-actions">
-        <button class="btn secondary" type="button" data-copy-target="policy-doc-template">Copy policy template text</button>
-      </div>
-      <pre class="codeblock"><code id="policy-doc-template">POLICY DOCUMENT - 3D PROJECT
-
-PROJECT_ID:
-OBJECT_ID:
-PROJECT_TITLE:
-DATE:
-REVIEWER:
-
-1) ACCESS LEVEL
-public | internal | restricted
-Reason:
-
-2) RIGHTS STATUS
-copyrighted | public domain | unknown
-Rights statement or URI:
-License (if used):
-
-3) REUSE CONDITIONS
-Allowed uses:
-Restricted uses:
-Required attribution:
-
-4) CARE AND SENSITIVITY NOTES
-Community authority notes:
-Cultural restrictions:
-Handling guidance:
-
-5) PUBLICATION RECORD
-DOI status: planned | reserved | published
-DOI value:
-Landing page URL:
-
-6) REVIEW CYCLE
-Next review date:
-Owner:
-</code></pre>
+    <section class="card area">
+      <h2>2) Rules enforced by workflow_standards.txt</h2>
+      <ul>
+        <li><strong>Character rules:</strong> use only A-Z, a-z, 0-9, underscore; no spaces, hyphens, or special characters.</li>
+        <li><strong>Object naming:</strong> <code>&lt;Collection&gt;_&lt;4digitID&gt;_&lt;ShortLabel&gt;</code> with permanent zero-padded ID.</li>
+        <li><strong>Workspace policy:</strong> Projects folder is temporary processing space; Objects/Preservation is long-term storage.</li>
+        <li><strong>Preservation masters:</strong> <code>&lt;ObjectID&gt;_&lt;asset&gt;_v##_pres.&lt;ext&gt;</code>; never overwrite old versions.</li>
+        <li><strong>Access derivatives:</strong> optimized files with separate naming and no replacement of preservation masters.</li>
+        <li><strong>Print derivatives:</strong> manifold repair allowed, but document edits in paradata.</li>
+        <li><strong>Do not:</strong> use ambiguous filenames (for example <code>final.obj</code>) or rename objects after DOI assignment.</li>
+      </ul>
     </section>
 
     <section class="card area example-box">
-      <h2>3) Example filled policy template</h2>
-      <pre class="codeblock"><code>POLICY DOCUMENT - 3D PROJECT
-
-PROJECT_ID: FactorySurvey_2026
-OBJECT_ID: WaterPump_001
-PROJECT_TITLE: Water Pump Assembly Digitization
-DATE: 2026-02-20
-REVIEWER: Digital Preservation Lead
-
-1) ACCESS LEVEL
-internal
-Reason: model includes internal geometry not yet approved for public release.
-
-2) RIGHTS STATUS
-copyrighted
-Rights statement or URI: Copyright 2026 Example Institution
-License (if used): Internal educational use only
-
-3) REUSE CONDITIONS
-Allowed uses: classroom instruction, internal research, preservation validation
-Restricted uses: redistribution, commercial printing, derivative publication
-Required attribution: "Example Institution, Sustain 3D Program"
-
-4) CARE AND SENSITIVITY NOTES
-Community authority notes: none recorded for this object
-Cultural restrictions: none recorded
-Handling guidance: do not publish cross-section files until curator approval
-
-5) PUBLICATION RECORD
-DOI status: planned
-DOI value:
-Landing page URL:
-
-6) REVIEW CYCLE
-Next review date: 2026-08-20
-Owner: Repository Manager
+      <h2>3) Generic policy values recorded in project_registry.json</h2>
+      <pre class="codeblock"><code>"policy": {
+  "access_level": "",
+  "rights": "",
+  "license": "",
+  "attribution": ""
+},
+"publication": {
+  "doi_status": "none",
+  "doi_value": null,
+  "landing_page": null
+}
 </code></pre>
     </section>
 
     <section class="card area">
       <h2>4) Final review checks before release</h2>
       <ol class="steps">
-        <li>Confirm policy values match metadata fields for access level and rights statement.</li>
-        <li>Confirm restricted files are not mixed into public access folders.</li>
-        <li>Confirm DOI status and publication landing page fields are current.</li>
-        <li>Set and document the next policy review date.</li>
+        <li>Confirm object filenames and folder names match <code>Documentation/workflow_standards.txt</code>.</li>
+        <li>Confirm preservation packages are in repository preservation storage and not only in project working folders.</li>
+        <li>Confirm policy values in <code>project_registry.json</code> match object metadata rights and access fields.</li>
+        <li>Confirm DOI status and publication landing page fields are current before public release.</li>
       </ol>
     </section>
   </main>

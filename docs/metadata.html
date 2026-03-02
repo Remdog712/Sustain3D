@@ -21,105 +21,93 @@
 
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
-      <p>Capture enough descriptive and process context to support interpretation, reuse, and stewardship by documenting identifiers, workflow decisions, rights, storage location, and publication status.</p>
+      <p>Capture enough descriptive and process context to support interpretation, reuse, and stewardship by maintaining both object-level metadata and project-level registry metadata throughout the workflow.</p>
     </section>
 
     <section class="card area">
-      <h2>1) How metadata is edited during workflow</h2>
+      <h2>1) Metadata workflow and handoff</h2>
       <ul>
-        <li>At setup: object ID, project title, rights baseline, and access level.</li>
-        <li>After capture: devices, settings, operator, and source files.</li>
-        <li>During processing: software versions, major edits, and preservation master path.</li>
-        <li>After derivatives: access formats, print files (if present), and publication notes.</li>
-        <li>During storage/publication: storage location and DOI status/value.</li>
+        <li>At setup: create project record in <code>Metadata/project_registry.json</code> and define <code>workflow_doc</code> and <code>policy_doc</code>.</li>
+        <li>After capture: record object details in object metadata text file in project <code>documentation/</code>.</li>
+        <li>During processing: update paradata notes and preservation/access file names as they are finalized.</li>
+        <li>After handoff: copy raw package, preservation package, and metadata into repository <code>Preservation/&lt;project&gt;/&lt;object&gt;/</code>.</li>
+        <li>During publication: update DOI status/value and policy values in <code>project_registry.json</code>.</li>
       </ul>
     </section>
 
     <section class="card area">
-      <h2>2) Minimum metadata fields</h2>
+      <h2>2) Object metadata fields (required)</h2>
       <pre class="codeblock"><code>object_id
 title
-creator_or_operator
+creator
 date_created
-physical_object_or_site
+physical_object
 capture_method
-device_list
-software_versions
-units_and_scale
-source_files
+scale_units
 preservation_master
-access_derivatives
-print_derivatives
+access_files
 rights
 access_level
-storage_location
-doi_status
-doi_value
-paradata_summary
+doi
+paradata
 </code></pre>
     </section>
 
     <section class="card area example-box">
-      <h2>3) Completed metadata example (fake)</h2>
-      <pre class="codeblock"><code>OBJECT_ID: PAOAN_001
-TITLE: Ceramic Vessel 12 Scan
-CREATOR_OR_OPERATOR: J. Rivera
-DATE_CREATED: 2026-02-19
-PHYSICAL_OBJECT_OR_SITE: Vessel 12, South Study Collection
-CAPTURE_METHOD: photogrammetry
-DEVICE_LIST: Sony A7R IV, 85mm lens
-SOFTWARE_VERSIONS: Metashape 2.1.3; Blender 4.2
-UNITS_AND_SCALE: millimeters, scale bar used
-SOURCE_FILES: 164 TIFF images in 01_raw_scans
-PRESERVATION_MASTER: 03_preservation/PAOAN_mesh_20260220_v03_pres.obj
-ACCESS_DERIVATIVES: 04_access/PAOAN_web_20260221_v01_access.glb
-PRINT_DERIVATIVES: print/PAOAN_printprep_20260222_v02_prn.3mf
-RIGHTS: institution copyright
-ACCESS_LEVEL: internal
-STORAGE_LOCATION: primary preservation storage + replicated preservation copy
-DOI_STATUS: planned
-DOI_VALUE:
-PARADATA_SUMMARY: removed turntable, filled two minor holes, reduced texture from 8k to 4k for access copy
+      <h2>3) Project registry explained + empty template</h2>
+      <p><code>project_registry.json</code> is the project-level control file. It tracks project identity, ownership, workflow and policy references, and publication status across all objects in a project.</p>
+      <ul>
+        <li><strong><code>registry_version</code>:</strong> schema/version label for your local registry format.</li>
+        <li><strong><code>updated</code>:</strong> last date the registry was edited.</li>
+        <li><strong><code>projects[]</code>:</strong> one entry per project.</li>
+        <li><strong><code>policy</code>:</strong> access, rights, license, and attribution baseline for the project.</li>
+        <li><strong><code>publication</code>:</strong> DOI state and publication links.</li>
+      </ul>
+      <pre class="codeblock"><code>{
+  "registry_version": "1.0",
+  "updated": "",
+  "projects": [
+    {
+      "project_id": "",
+      "title": "",
+      "owner": "",
+      "date_start": "",
+      "date_end": null,
+      "workflow_doc": "Documentation/workflow_standards.txt",
+      "policy_doc": "",
+      "policy": {
+        "access_level": "",
+        "rights": "",
+        "license": "",
+        "attribution": ""
+      },
+      "publication": {
+        "doi_status": "none",
+        "doi_value": null,
+        "landing_page": null
+      },
+      "notes": ""
+    }
+  ]
+}
 </code></pre>
     </section>
 
-    <section class="card template-kit">
-      <h2>4) Working templates with starter content</h2>
-      <p>These commands create files and write starter text so templates are not blank.</p>
-
-      <h3>Create project metadata and paradata templates</h3>
-      <div class="template-actions">
-        <button class="btn secondary" type="button" data-copy-target="metadata-template-command">Copy metadata command</button>
-      </div>
-      <pre class="codeblock"><code id="metadata-template-command">@"
-OBJECT_ID:
-TITLE:
-CREATOR_OR_OPERATOR:
-DATE_CREATED:
-PHYSICAL_OBJECT_OR_SITE:
-CAPTURE_METHOD:
-DEVICE_LIST:
-SOFTWARE_VERSIONS:
-UNITS_AND_SCALE:
-SOURCE_FILES:
-PRESERVATION_MASTER:
-ACCESS_DERIVATIVES:
-PRINT_DERIVATIVES:
-RIGHTS:
-ACCESS_LEVEL:
-STORAGE_LOCATION:
-DOI_STATUS: planned
-DOI_VALUE:
-PARADATA_SUMMARY:
-"@ | Set-Content ".\metadata.txt"
-
-@"
-PROCESS_STEP:
-TOOL_AND_VERSION:
-CHANGE_MADE:
-WHY_IT_WAS_DONE:
-DATE:
-"@ | Set-Content ".\paradata.txt"
+    <section class="card area example-box">
+      <h2>4) Empty object metadata template</h2>
+      <pre class="codeblock"><code>object_id:
+title:
+creator:
+date_created:
+physical_object:
+capture_method:
+scale_units:
+preservation_master:
+access_files:
+rights:
+access_level:
+doi:
+paradata:
 </code></pre>
     </section>
   </main>

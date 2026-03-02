@@ -21,7 +21,7 @@
 
     <section class="card flow-banner goal-banner">
       <h2>Goal</h2>
-      <p>Use this page as a single runbook that introduces the PIP phases, provides a project checklist, and gives practical Good/Better/Best targets for each phase from setup to long-term maintenance.</p>
+      <p>Use this page as a single runbook that introduces the PIP phases, provides a project checklist, and shows how working directories hand off finalized files into a dedicated Preservation folder to reduce project-folder bloat.</p>
     </section>
 
     <section class="card area">
@@ -55,7 +55,6 @@
         <ul class="task-list">
           <li><label><input type="checkbox" /> Raw files are copied into project storage.</label></li>
           <li><label><input type="checkbox" /> Capture details and device settings are recorded.</label></li>
-          <li><label><input type="checkbox" /> Source file list is added to metadata.</label></li>
         </ul>
       </div>
 
@@ -72,7 +71,8 @@
         <h3>After processing and ongoing</h3>
         <ul class="task-list">
           <li><label><input type="checkbox" /> Access copies are generated in a separate folder.</label></li>
-          <li><label><input type="checkbox" /> Storage location for working, master, and access files is recorded.</label></li>
+          <li><label><input type="checkbox" /> Raw package, preservation master, and metadata are copied into the repository Preservation folder.</label></li>
+          <li><label><input type="checkbox" /> Working project folders keep only active processing files.</label></li>
           <li><label><input type="checkbox" /> DOI status is set to planned, reserved, or published.</label></li>
         </ul>
       </div>
@@ -80,17 +80,18 @@
 
     <section class="card area pip-0" id="pip-0">
       <h2>PIP 0 - Repository setup and before scanning</h2>
-      <p class="note"><strong>Goal:</strong> establish structure, naming, rights, and metadata expectations before capture.</p>
+      <p class="note"><strong>Goal:</strong> establish structure, naming, workflow standards, rights, and metadata expectations before capture.</p>
       <ol class="steps">
         <li>Create repository and project folder structure.</li>
         <li>Assign project ID and naming pattern.</li>
+        <li>Write or adopt <code>Documentation/workflow_standards.txt</code> and apply it.</li>
         <li>Set rights and access level baseline.</li>
-        <li>Define required metadata and paradata fields.</li>
+        <li>Define required metadata and registry fields.</li>
       </ol>
       <div class="tier">
         <div class="tier-col"><h4>Good</h4><ul><li>Folders and IDs exist.</li><li>Basic rights note exists.</li></ul></div>
-        <div class="tier-col"><h4>Better</h4><ul><li>Metadata template is prefilled.</li><li>FAIR and CARE notes are included.</li></ul></div>
-        <div class="tier-col"><h4>Best</h4><ul><li>Team workflow standard is documented.</li><li>DOI plan is defined early.</li></ul></div>
+        <div class="tier-col"><h4>Better</h4><ul><li>Workflow standard file is documented.</li><li>Project registry record is created.</li></ul></div>
+        <div class="tier-col"><h4>Best</h4><ul><li>Naming/version rules are enforced consistently.</li><li>DOI plan is defined early.</li></ul></div>
       </div>
       <div class="outcome"><strong>After this PIP you will have:</strong> a ready repository, a project ID, and clear governance before scan day.</div>
     </section>
@@ -101,11 +102,11 @@
       <ol class="steps">
         <li>Copy raw captures into <code>01_raw_scans/</code>.</li>
         <li>Record device, settings, operator, and date.</li>
-        <li>Update metadata with source file references.</li>
+        <li>Keep source data unchanged and track file location in documentation.</li>
       </ol>
       <div class="tier">
         <div class="tier-col"><h4>Good</h4><ul><li>Raw files copied the same day.</li><li>Short capture note written.</li></ul></div>
-        <div class="tier-col"><h4>Better</h4><ul><li>Capture context is complete.</li><li>Source list is reviewed.</li></ul></div>
+        <div class="tier-col"><h4>Better</h4><ul><li>Capture context is complete.</li><li>Raw folder follows naming standard.</li></ul></div>
         <div class="tier-col"><h4>Best</h4><ul><li>Second person confirms completeness.</li><li>Capture protocol deviations are logged.</li></ul></div>
       </div>
       <div class="outcome"><strong>After this PIP you will have:</strong> preserved raw data with enough context to trust and reuse it.</div>
@@ -115,9 +116,9 @@
       <h2>PIP 2 - Processing and preservation master</h2>
       <p class="note"><strong>Goal:</strong> create and document a stable preservation master.</p>
       <ol class="steps">
-        <li>Save key processing milestones.</li>
-        <li>Document major modeling and texturing decisions.</li>
-        <li>Export a high-quality preservation master.</li>
+        <li>Process scans in <code>02_processing/</code> and save major milestones.</li>
+        <li>Export high-fidelity preservation master files in <code>03_preservation/</code>.</li>
+        <li>Write object metadata and paradata notes for key decisions.</li>
       </ol>
       <div class="tier">
         <div class="tier-col"><h4>Good</h4><ul><li>Final master export is saved.</li><li>Basic processing notes exist.</li></ul></div>
@@ -128,27 +129,27 @@
     </section>
 
     <section class="card area pip-3" id="pip-3">
-      <h2>PIP 3 - Access copies</h2>
-      <p class="note"><strong>Goal:</strong> produce delivery copies without changing preservation masters.</p>
+      <h2>PIP 3 - Access derivatives and preservation handoff</h2>
+      <p class="note"><strong>Goal:</strong> produce delivery copies and move final packages into repository preservation storage.</p>
       <ol class="steps">
-        <li>Create access derivatives for web, teaching, or outreach.</li>
-        <li>Store derivatives in a separate access folder.</li>
-        <li>Link derivatives to the same object ID and metadata record.</li>
+        <li>Create access derivatives in <code>04_access/</code> for web, teaching, or outreach.</li>
+        <li>Copy raw package, preservation package, and metadata file into <code>Preservation/&lt;project&gt;/&lt;object&gt;/</code>.</li>
+        <li>Keep only active working files in project processing folders.</li>
       </ol>
       <div class="tier">
         <div class="tier-col"><h4>Good</h4><ul><li>At least one access copy exists.</li><li>It is separated from the master.</li></ul></div>
-        <div class="tier-col"><h4>Better</h4><ul><li>Multiple access targets are generated.</li><li>Metadata links each derivative.</li></ul></div>
-        <div class="tier-col"><h4>Best</h4><ul><li>Access performance is tested.</li><li>Public description and credit text are complete.</li></ul></div>
+        <div class="tier-col"><h4>Better</h4><ul><li>Preservation folder handoff is complete.</li><li>Metadata links each derivative.</li></ul></div>
+        <div class="tier-col"><h4>Best</h4><ul><li>Access performance is tested.</li><li>Working directories are kept lean after handoff.</li></ul></div>
       </div>
-      <div class="outcome"><strong>After this PIP you will have:</strong> usable public-facing outputs that do not risk your master files.</div>
+      <div class="outcome"><strong>After this PIP you will have:</strong> usable public-facing outputs plus a clean preservation copy separated from active project folders.</div>
     </section>
 
     <section class="card area pip-4" id="pip-4">
       <h2>PIP 4 - Storage, policy checks, and maintenance</h2>
-      <p class="note"><strong>Goal:</strong> place files in reliable storage tiers, validate governance, and maintain publication records.</p>
+      <p class="note"><strong>Goal:</strong> place preservation packages in reliable storage tiers, validate governance, and maintain publication records.</p>
       <ol class="steps">
-        <li>Apply the three-copy model to preservation master files.</li>
-        <li>Record storage locations for working, master, and access files.</li>
+        <li>Apply the three-copy model to the repository Preservation folder package.</li>
+        <li>Update project registry metadata with policy and publication status.</li>
         <li>Set DOI status and confirm access/policy language before release.</li>
       </ol>
       <div class="tier">
@@ -157,101 +158,6 @@
         <div class="tier-col"><h4>Best</h4><ul><li>Storage and DOI records are reviewed regularly.</li><li>Access links and metadata stay synchronized.</li></ul></div>
       </div>
       <div class="outcome"><strong>After this PIP you will have:</strong> distributed storage for preservation masters and a clear DOI publication path.</div>
-    </section>
-
-    <section class="card template-kit">
-      <h2>Copy template: full setup from start to end</h2>
-      <p>Run this in PowerShell. It creates repository folders, one project folder, and starter template files with content.</p>
-      <div class="template-actions">
-        <button class="btn secondary" type="button" data-copy-target="workflow-full-template">Copy full setup command</button>
-      </div>
-      <pre class="codeblock"><code id="workflow-full-template">$repo = ".\3D_Repository"
-$project = Join-Path $repo "Projects\ProjectName_ObjectID"
-$docs = Join-Path $project "documentation"
-
-New-Item -ItemType Directory -Path $repo,$project -Force | Out-Null
-New-Item -ItemType Directory -Path @(
-  (Join-Path $repo "Projects"),
-  (Join-Path $repo "Objects"),
-  (Join-Path $repo "Metadata"),
-  (Join-Path $repo "Documentation"),
-  (Join-Path $repo "Preservation_Logs"),
-  (Join-Path $project "01_raw_scans"),
-  (Join-Path $project "02_processing"),
-  (Join-Path $project "03_preservation"),
-  (Join-Path $project "04_access"),
-  (Join-Path $project "print"),
-  $docs
-) -Force | Out-Null
-
-@"
-OBJECT_ID: ProjectName_ObjectID
-TITLE:
-CREATOR_OR_OPERATOR:
-DATE_CREATED:
-PHYSICAL_OBJECT_OR_SITE:
-CAPTURE_METHOD:
-DEVICE_LIST:
-SOFTWARE_VERSIONS:
-UNITS_AND_SCALE:
-SOURCE_FILES:
-PRESERVATION_MASTER:
-ACCESS_DERIVATIVES:
-PRINT_DERIVATIVES:
-RIGHTS:
-ACCESS_LEVEL:
-STORAGE_LOCATION:
-DOI_STATUS: planned
-DOI_VALUE:
-PARADATA_SUMMARY:
-"@ | Set-Content (Join-Path $docs "metadata.txt")
-
-@"
-PROCESS_STEP:
-TOOL_AND_VERSION:
-CHANGE_MADE:
-WHY_IT_WAS_DONE:
-DATE:
-"@ | Set-Content (Join-Path $docs "paradata.txt")
-
-@"
-POLICY DOCUMENT - 3D PROJECT
-
-PROJECT_ID:
-OBJECT_ID: ProjectName_ObjectID
-PROJECT_TITLE:
-DATE:
-REVIEWER:
-
-1) ACCESS LEVEL
-public | internal | restricted
-Reason:
-
-2) RIGHTS STATUS
-copyrighted | public domain | unknown
-Rights statement or URI:
-License (if used):
-
-3) REUSE CONDITIONS
-Allowed uses:
-Restricted uses:
-Required attribution:
-
-4) CARE AND SENSITIVITY NOTES
-Community authority notes:
-Cultural restrictions:
-Handling guidance:
-
-5) PUBLICATION RECORD
-DOI status: planned | reserved | published
-DOI value:
-Landing page URL:
-
-6) REVIEW CYCLE
-Next review date:
-Owner:
-"@ | Set-Content (Join-Path $docs "rights_and_access.txt")
-</code></pre>
     </section>
   </main>
 
