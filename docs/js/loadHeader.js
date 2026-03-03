@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {
+﻿document.addEventListener("DOMContentLoaded", async () => {
   const headerMount = document.getElementById("site-header");
   const footerMount = document.getElementById("site-footer");
 
@@ -71,9 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       { label: "Zenodo", url: "https://zenodo.org/" }
     ],
     "page-practice": [
-      { label: "Sketchfab - Lake Erie Lighthouse Example", url: "https://sketchfab.com/3d-models/lake-erie-lighthouse-a61c0c8c840d4fe4be794b275c1a4f9d" },
-      { label: "Artec 3D - Ogham Stone Digitization Case", url: "https://www.artec3d.com/cases/digitizing-irelands-ogham-inscribed-stones" },
-      { label: "Penn State Honors Library Submission", url: "https://honors.libraries.psu.edu/files/final_submissions/10035" }
+      { label: "TREC - Tom Ridge Environmental Center", url: "https://skehttps://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/presque-isle-state-park/trectchfab.com/3d-models/lake-erie-lighthouse-a61c0c8c840d4fe4be794b275c1a4f9d" }
     ]
   };
 
